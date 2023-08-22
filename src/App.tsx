@@ -38,9 +38,11 @@ export const App = (props: AppProps) => {
       </Routes>
       <ProductCard 
         imgSrc={linen}
-        imgAlt=""
+        imgAlt="linen"
         title="Постельное белье Forest Sky (3 предмета)"
         cost={2000}
+        oldCost={1500}
+        iconNew={true}
       />
     </BrowserRouter>
   );
