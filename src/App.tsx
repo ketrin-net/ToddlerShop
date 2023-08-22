@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { BtnIntoBscket } from './components/Buttons/Buttons';
+import { ProductCard } from './components/ProductCard/ProductCard';
+import linen from './components/ProductCard/assets/linen.png';
 
 export interface AppProps {}
 
@@ -35,7 +36,12 @@ export const App = (props: AppProps) => {
         <Route path="wholesalers" element={<div>WholesalersPage</div>} />
         <Route path="*" element={<div>NotFoundPage</div>} />
       </Routes>
-      <BtnIntoBscket />
+      <ProductCard 
+        imgSrc={linen}
+        imgAlt=""
+        title="Постельное белье Forest Sky (3 предмета)"
+        cost={2000}
+      />
     </BrowserRouter>
   );
 };

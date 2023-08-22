@@ -8,4 +8,8 @@
         background-color: $color-blue;
         width: 146px;
     }
+
+    &.into-basket:hover {
+        opacity: 0.9;
+    }
 }

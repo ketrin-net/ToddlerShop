@@ -7,7 +7,6 @@ export const BtnIntoBscket = () => {
             <div className='btn into-basket'>
                 <button>В корзину</button>
             </div>
-            <a href="">Купить в один клик</a>
         </>
     );
 };
