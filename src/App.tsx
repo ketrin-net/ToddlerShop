@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Buttons } from './components/Buttons/Buttons';
+import { BtnIntoBscket } from './components/Buttons/Buttons';
 
 export interface AppProps {}
 
@@ -35,7 +35,7 @@ export const App = (props: AppProps) => {
         <Route path="wholesalers" element={<div>WholesalersPage</div>} />
         <Route path="*" element={<div>NotFoundPage</div>} />
       </Routes>
-      <Buttons />
+      <BtnIntoBscket />
     </BrowserRouter>
   );
 };

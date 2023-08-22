@@ -1,0 +1,30 @@
+@import './variables';
+
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: $color-blue;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    color: white;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

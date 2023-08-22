@@ -2,8 +2,10 @@
 
 .btn {
     border-radius: 12px;
+    padding: 13px 24px;
 
     &.into-basket {
-
+        background-color: $color-blue;
+        width: 146px;
     }
 }
