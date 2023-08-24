@@ -7,9 +7,18 @@
     &.into-basket {
         background-color: $color-blue;
         width: 146px;
+        text-align: center;
     }
 
     &.into-basket:hover {
         opacity: 0.9;
+    }
+}
+
+@media (max-width: 850px) {
+    .btn {
+        &.into-basket {
+            width: 154px;
+        }
     }
 }

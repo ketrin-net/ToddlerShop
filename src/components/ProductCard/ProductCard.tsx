@@ -24,8 +24,10 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
             <img src={imgSrc} alt={imgAlt} className="poster" />
             <p className="title">{title}</p>
             <div className="prise">
-                <span>{cost}</span>
-                <img src={moneyIcon} alt="moneyIcon"/>
+                <div className="basic-price">
+                    <span>{cost}</span>
+                    <img src={moneyIcon} alt="moneyIcon"/>
+                </div>
                 {oldCost && 
                     <div className="old-price">
                     <span>{oldCost}</span>
@@ -34,7 +36,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
                 }
             </div>
             <BtnIntoBscket  />
-            <Link to="/orders" className='buyClick'>Купить в один клик</Link>
+            <Link to="/orders" className='buyClick'>Купить в <br className="mobile-only"/> один клик</Link>
         </div>
     );
 };
