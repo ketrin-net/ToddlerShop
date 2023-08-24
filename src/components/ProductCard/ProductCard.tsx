@@ -4,7 +4,6 @@ import { BtnIntoBscket } from '../Buttons/Buttons';
 import { Link } from 'react-router-dom';
 import moneyIcon from './assets/moneyIcon.svg';
 import moneyIconGray from './assets/moneyIconGray.svg';
-import vectorOldPrice from './assets/vectorOldPrice.svg';
 import SwitchHeart from '../SwitchHeart';
 
 
@@ -25,8 +24,10 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
             <img src={imgSrc} alt={imgAlt} className="poster" />
             <p className="title">{title}</p>
             <div className="prise">
-                <span>{cost}</span>
-                <img src={moneyIcon} alt="moneyIcon"/>
+                <div className="basic-price">
+                    <span>{cost}</span>
+                    <img src={moneyIcon} alt="moneyIcon"/>
+                </div>
                 {oldCost && 
                     <div className="old-price">
                     <span>{oldCost}</span>
@@ -35,7 +36,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
                 }
             </div>
             <BtnIntoBscket  />
-            <Link to="/orders" className='buyClick'>Купить в один клик</Link>
+            <Link to="/orders" className='buyClick'>Купить в <br className="mobile-only"/> один клик</Link>
         </div>
     );
 };

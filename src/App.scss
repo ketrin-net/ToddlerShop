@@ -30,3 +30,15 @@ button {
     font-weight: 500;
     line-height: normal;
 }
+
+@media (min-width: 851px) {
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+@media (max-width: 850px) {
+    .desktop-only {
+        display: none !important;
+    }
+}
