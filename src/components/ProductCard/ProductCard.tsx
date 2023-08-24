@@ -4,10 +4,11 @@ import { BtnIntoBscket } from '../Buttons/Buttons';
 import { Link } from 'react-router-dom';
 import moneyIcon from './assets/moneyIcon.svg';
 import moneyIconGray from './assets/moneyIconGray.svg';
+import vectorOldPrice from './assets/vectorOldPrice.svg';
 import SwitchHeart from '../SwitchHeart';
 
 
-export interface ProductCardProps {
+interface ProductCardProps {
     imgSrc: string;
     imgAlt: string;
     title: string;

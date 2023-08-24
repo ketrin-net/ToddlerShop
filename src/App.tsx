@@ -1,16 +1,10 @@
 import React from 'react';
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ProductCard, ProductCardProps } from './components/ProductCard/ProductCard';
+import { ProductCard } from './components/ProductCard/ProductCard';
 import linen from './components/ProductCard/assets/linen.png';
-import { SwiperProduct } from './components/SwiperProduct/SwiperProduct';
 
 export interface AppProps {}
-
-const productCard: ProductCardProps[] = [
-  { imgSrc: './components/ProductCard/assets/linen.png', imgAlt: "linen", title: "Постельное белье Forest Sky (3 предмета)", cost: 2000 },
-  { imgSrc: 'image2.jpg', imgAlt: 'Image 2', title: 'Product 2', cost: 20 },
-];
 
 export const App = (props: AppProps) => {
   return (
@@ -42,9 +36,6 @@ export const App = (props: AppProps) => {
         <Route path="wholesalers" element={<div>WholesalersPage</div>} />
         <Route path="*" element={<div>NotFoundPage</div>} />
       </Routes>
-
-      <SwiperProduct {...productCard} />
-
       <ProductCard 
         imgSrc={linen}
         imgAlt="linen"
