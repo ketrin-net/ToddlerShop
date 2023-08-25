@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductCard.scss';
-import { BtnIntoBscket } from '../Buttons/Buttons';
+import { BtnBlue } from '../Buttons/Buttons';
 import { Link } from 'react-router-dom';
 import moneyIcon from './assets/moneyIcon.svg';
 import moneyIconGray from './assets/moneyIconGray.svg';
@@ -35,7 +35,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
                     </div>
                 }
             </div>
-            <BtnIntoBscket  />
+            <BtnBlue textBtn='В корзину' />
             <Link to="/orders" className='buyClick'>Купить в <br className="mobile-only"/> один клик</Link>
         </div>
     );

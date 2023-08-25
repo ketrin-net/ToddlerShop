@@ -1,0 +1,14 @@
+@import '../../../../variables';
+
+.title-homepage {
+    background-color: rgb(236, 199, 193, 0.16);
+    width: 100%;
+    overflow: hidden;
+
+    .section {
+        padding-top: 114px;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 1;
+    }
+}

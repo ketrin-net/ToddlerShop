@@ -3,16 +3,14 @@
 .btn {
     border-radius: 12px;
     padding: 13px 24px;
+    background-color: $color-blue;
+    width: auto;
+    text-align: center;
+    color: white;
+}
 
-    &.into-basket {
-        background-color: $color-blue;
-        width: 146px;
-        text-align: center;
-    }
-
-    &.into-basket:hover {
-        opacity: 0.9;
-    }
+.btn:hover {
+    opacity: 0.9;
 }
 
 @media (max-width: 850px) {

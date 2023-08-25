@@ -1,12 +1,14 @@
 import React from 'react';
 import './Buttons.scss';
 
-export const BtnIntoBscket = () => {
+interface BtnIntoBscketProps {
+    textBtn: string;
+}
+
+export const BtnBlue = (props: BtnIntoBscketProps) => {
     return (
         <>
-            <div className='btn into-basket'>
-                <button>В корзину</button>
-            </div>
+            <button className='btn'><span>{props.textBtn}</span></button>
         </>
     );
 };

@@ -1,16 +1,21 @@
 import React from 'react';
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ProductCard } from './components/ProductCard/ProductCard';
+import { ProductCard, ProductCardProps } from './components/ProductCard/ProductCard';
 import linen from './components/ProductCard/assets/linen.png';
+import { HomePage } from './pages/HomePage/HomePage';
+import { Сarousel } from './components/Сarousel/Сarousel';
+import { productCards } from './mokBase';
+
 
 export interface AppProps {}
+
 
 export const App = (props: AppProps) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div>HomePage</div>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="bucket" element={<div>BucketPAge</div>} />
         <Route path="checkout" element={<div>CheckoutPage</div>} />
         <Route path="payment" element={<div>PaymentPage</div>} />
@@ -36,6 +41,7 @@ export const App = (props: AppProps) => {
         <Route path="wholesalers" element={<div>WholesalersPage</div>} />
         <Route path="*" element={<div>NotFoundPage</div>} />
       </Routes>
+
       <ProductCard 
         imgSrc={linen}
         imgAlt="linen"
@@ -44,6 +50,14 @@ export const App = (props: AppProps) => {
         oldCost={1500}
         iconNew={true}
       />
+
+      <Сarousel>
+        {productCards.map((item, i) => (
+          <ProductCard imgSrc={item.imgSrc} imgAlt={item.imgAlt} title={item.title} cost={item.cost} oldCost={item.oldCost} iconNew={item.iconNew} />
+        ))}
+      </Сarousel>
+
+
     </BrowserRouter>
   );
 };
