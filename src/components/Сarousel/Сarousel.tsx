@@ -2,7 +2,6 @@ import React, { ReactNode, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-
 import './Сarousel.scss';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
