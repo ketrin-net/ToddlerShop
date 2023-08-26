@@ -1,14 +1,16 @@
 import './HomePage.scss';
-import { NewProducts } from './components/NewProducts/NewProducts';
+import { ProductsCarousel } from './components/ProductsCarousel/ProductsCarousel';
 import { Title } from './components/Title/Title';
-
+import { newProducts, popularProducts, saleProducts } from '../../mokBase';
 import React from 'react';
 
 export const HomePage = () => {
   return (
     <div className="main-homepage">
       <Title />
-      <NewProducts />
+      <ProductsCarousel title="Новинки" products={newProducts} slidesCount={4} />
+      <ProductsCarousel title="Выгодное предложение" products={saleProducts} slidesCount={4} />
+      <ProductsCarousel title="Популярные товары" products={popularProducts} slidesCount={4} />
     </div>
   );
 };
