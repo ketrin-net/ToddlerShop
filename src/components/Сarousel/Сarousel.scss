@@ -1,1 +1,11 @@
 @import '../../variables';
+
+.swiper {
+    .swiper-nav-btns{
+        display: flex;
+        flex-direction: row;
+        gap: 48px;
+        justify-content: center;
+        margin-top: 40px;    
+    }
+}

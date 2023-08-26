@@ -1,15 +1,8 @@
-import React from 'react';
 import './App.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ProductCard, ProductCardProps } from './components/ProductCard/ProductCard';
-import linen from './components/ProductCard/assets/linen.png';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage/HomePage';
-import { Сarousel } from './components/Сarousel/Сarousel';
-import { productCards } from './mokBase';
-
-
+import React from 'react';
 export interface AppProps {}
-
 
 export const App = (props: AppProps) => {
   return (
@@ -41,23 +34,6 @@ export const App = (props: AppProps) => {
         <Route path="wholesalers" element={<div>WholesalersPage</div>} />
         <Route path="*" element={<div>NotFoundPage</div>} />
       </Routes>
-
-      <ProductCard 
-        imgSrc={linen}
-        imgAlt="linen"
-        title="Постельное белье Forest Sky (3 предмета)"
-        cost={2000}
-        oldCost={1500}
-        iconNew={true}
-      />
-
-      <Сarousel>
-        {productCards.map((item, i) => (
-          <ProductCard imgSrc={item.imgSrc} imgAlt={item.imgAlt} title={item.title} cost={item.cost} oldCost={item.oldCost} iconNew={item.iconNew} />
-        ))}
-      </Сarousel>
-
-
     </BrowserRouter>
   );
 };

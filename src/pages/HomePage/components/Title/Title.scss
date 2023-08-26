@@ -6,9 +6,64 @@
     overflow: hidden;
 
     .section {
-        padding-top: 114px;
+        position: relative;
+        padding: 114px 785px 148px 20px;
         display: flex;
         flex-direction: column;
-        flex-shrink: 1;
+    }
+
+    .poster {
+        position: absolute;
+        top: 0px;
+        right: -84px;
+    }
+
+    p {
+        margin-top: 32px;
+        font-size: 24px;
+        line-height: normal;
+    }
+
+    .btn {
+        margin-top: 48px;
+        width: 139px;
+    }
+
+    .ellipse {
+        position: absolute;
+
+        &.small {
+            width: 24px;
+            height: 24px;
+
+            &.one {
+                top: 187px;
+                left: 727px;
+            }
+
+            &.two {
+                bottom: 21px;
+                right: 569px;
+            }
+
+            &.three {
+                top: 54px;
+                left: 890px;
+            }
+        }
+
+        &.average {
+            width: 48px;
+            height: 48px;
+            top: 42px;
+            left: 502px;
+        }
+
+        &.large {
+            width: 72px;
+            height: 72px;
+            bottom: 101px;
+            left: 586px;
+        }
     }
 }
