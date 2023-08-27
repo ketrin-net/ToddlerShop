@@ -37,7 +37,7 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
 
   const handleOnSubCategoryClick = (id: number) => () => {
     const activeCategory = categories.find((item) => item.isActive);
-    const path = Path.SubCategoryPage.replace(':categoryId', activeCategory!.id.toString()).replace(':sub-categoryId', id.toString());
+    const path = Path.SubCategoryPage.replace(':categoryId', activeCategory!.id.toString()).replace(':subCategoryId', id.toString());
     closeModal();
     navigate(path);
   };
