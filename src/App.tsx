@@ -1,6 +1,7 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage/HomePage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React from 'react';
 export interface AppProps {}
 
@@ -32,7 +33,7 @@ export const App = (props: AppProps) => {
         </Route>
         <Route path="delivery" element={<div>DeliveryPage</div>} />
         <Route path="wholesalers" element={<div>WholesalersPage</div>} />
-        <Route path="*" element={<div>NotFoundPage</div>} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
