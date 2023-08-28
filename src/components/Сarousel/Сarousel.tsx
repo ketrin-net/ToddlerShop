@@ -31,8 +31,8 @@ const SwiperNavButtons = () => {
 export const Сarousel = ({ children, slidesCount }: СarouselProps) => {
   return (
     <Swiper slidesPerView={slidesCount} spaceBetween={24} modules={[Navigation]} className="mySwiper">
-      {React.Children.map(children, (item, index) => (
-        <SwiperSlide key={index}>{item}</SwiperSlide>
+      {React.Children.map(children, (item) => (
+        <SwiperSlide>{item}</SwiperSlide>
       ))}
       <SwiperNavButtons />
     </Swiper>

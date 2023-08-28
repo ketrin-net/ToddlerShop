@@ -22,7 +22,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
       {iconNew && <div className="icon-new">NEW</div>}
       <img src={imgSrc} alt={imgAlt} className="poster" />
       <p className="title">{title}</p>
-      <div className="prise">
+			<div className="price">
         <div className="basic-price">
           <span>{cost}</span>
           <img src={moneyIcon} alt="moneyIcon" />
