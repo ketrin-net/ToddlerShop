@@ -11,7 +11,7 @@ interface ProductsCarouselProps {
 
 export const ProductsCarousel = (props: ProductsCarouselProps) => {
   return (
-    <div className="products-carousel ">
+    <div className="products-carousel">
       <div className="section">
         <h2>{props.title}</h2>
         <Сarousel slidesCount={props.slidesCount}>

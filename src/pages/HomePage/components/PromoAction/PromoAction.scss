@@ -1,0 +1,21 @@
+@import '../../../../variables';
+
+.promo-action-homepage {
+    position: relative;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
+
+    .section {
+        position: relative;
+        padding: 161px 649px 87px 0px;
+    }
+
+    h1 {
+        margin-bottom: 48px;
+    }
+
+    .poster {
+        position: absolute;
+        bottom: -1px;
+        right: 156px;
+    }
+}
