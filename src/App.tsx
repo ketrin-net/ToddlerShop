@@ -1,8 +1,8 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HeaderSelector } from './components/HeaderSelector/HeaderSelector';
-import { Path } from './enums';
 import { HomePage } from './pages/HomePage/HomePage';
+import { Path } from './enums';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React from 'react';
 
@@ -14,7 +14,7 @@ export const App = (props: AppProps) => {
       <BrowserRouter>
         <HeaderSelector />
         <Routes>
-          <Route path={Path.HomePage} element={<div>HomePage</div>} />
+          <Route path={Path.HomePage} element={<HomePage />} />
           <Route path={Path.BucketPAge} element={<div>BucketPAge</div>} />
           <Route path={Path.CheckoutPage} element={<div>CheckoutPage</div>} />
           <Route path={Path.PaymentPage} element={<div>PaymentPage</div>} />
@@ -43,7 +43,7 @@ export const App = (props: AppProps) => {
           <Route path={Path.WholesalersPage} element={<div>WholesalersPage</div>} />
           <Route path={Path.AboutUsPage} element={<div>AboutUsPage</div>} />
           <Route path={Path.ReturnGoodsPage} element={<div>ReturnGoodsPage</div>} />
-          <Route path={Path.NotFoundPage} element={<div>NotFoundPage</div>} />
+          <Route path={Path.NotFoundPage} element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>
