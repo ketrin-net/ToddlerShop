@@ -1,0 +1,56 @@
+@import '../../variables';
+
+.not-found-description {
+    margin: auto;
+    margin-top: 135px;
+    max-width: 624px;
+    text-align: center;
+
+    a {
+        color: white;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 16px;
+    }
+
+    .eror-cod {
+        font-family: Balsamiq Sans;
+        font-size: 300px;
+        font-weight: 700;
+        line-height: 88px;
+
+        margin-bottom: 64px;
+    }
+
+    p {
+        font-size: 24px;
+        line-height: 34px;
+        margin-bottom: 40px;
+    }
+
+    .btn {
+        width: 238px;
+    }
+}
+
+@media (max-width: 850px) {
+    .not-found-description {
+        margin: 0px 16px;
+        margin-top: 135px;
+
+        .eror-cod {
+            font-size: 150px;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+}

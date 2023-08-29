@@ -1,0 +1,74 @@
+@import './variables';
+
+body {
+    margin: auto;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: Montserrat;
+    color: $color-sea;
+}
+
+a {
+    text-decoration: none;
+    color: $color-blue;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btn {
+    border-radius: 12px;
+    padding: 13px 24px;
+    width: auto;
+    color: white;
+    
+    &.blue {
+        background-color: $color-blue;
+    }
+
+    &.sea {
+        background-color: $color-sea;
+    }
+}
+
+span {
+    &.title {
+        font-family: Balsamiq Sans;
+        font-size: 80px;
+        font-weight: 400;
+        line-height: 88px;
+    }
+}
+
+p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+@media (min-width: 851px) {
+}
+
+@media (max-width: 850px) {
+
+    span {
+        &.title {
+            font-size: 30px;
+            line-height: 38px;
+        }
+    }
+}

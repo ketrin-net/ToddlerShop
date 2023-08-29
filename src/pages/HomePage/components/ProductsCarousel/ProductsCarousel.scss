@@ -1,0 +1,16 @@
+@import '../../../../variables';
+
+.products-carousel {
+    text-align: center;
+
+    span.title {
+        display: inline-block;
+        margin-bottom: 64px;
+    }
+}
+
+@media (max-width: 850px) {
+    span.title {
+        margin-bottom: 32px;
+    }
+}

@@ -2,6 +2,8 @@ import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HeaderSelector } from './components/HeaderSelector/HeaderSelector';
 import { Path } from './enums';
+import { HomePage } from './pages/HomePage/HomePage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React from 'react';
 
 export interface AppProps {}

@@ -1,0 +1,70 @@
+@import '../../../../variables';
+
+.promo-action-homepage {
+    position: relative;
+
+    .back-color {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: 520px;
+        box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
+    }
+
+    .section {
+        position: relative;
+        padding: 161px 649px 87px 0px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    span {
+        margin-bottom: 48px;
+        font-family: Balsamiq Sans;
+        font-size: 80px;
+        font-weight: 400;
+        line-height: 88px;
+    }
+
+    .poster {
+        position: absolute;
+        bottom: -1px;
+        left: 702px;
+    }
+
+    a {
+        color: white;
+        width: 231px;
+    }
+}
+
+@media (max-width: 850px) {
+    .promo-action-homepage {
+        box-shadow: none;
+
+        .section {
+            padding: 0px;
+        }
+
+        span {
+            margin-bottom: 315px;
+            line-height: 34px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        a {
+            width: 100%;
+        }
+
+        .back-color {
+            bottom: 72px;
+            height: 226px;
+        }
+
+        .poster {
+            bottom: 72px;
+            left: 0px;
+        }
+    }
+}

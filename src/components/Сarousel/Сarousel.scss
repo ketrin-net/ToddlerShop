@@ -1,0 +1,24 @@
+@import '../../variables';
+
+.swiper {
+    .swiper-nav-btns{
+        display: flex;
+        flex-direction: row;
+        gap: 48px;
+        justify-content: center;
+        margin-top: 40px;    
+    }
+}
+
+@media (max-width: 850px) {
+    .swiper {
+        .swiper-nav-btns {
+            gap: 24px;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}
