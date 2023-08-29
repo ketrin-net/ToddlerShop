@@ -2,7 +2,7 @@ import './HomePage.scss';
 import { ProductsCarousel } from './components/ProductsCarousel/ProductsCarousel';
 import { PromoAction } from './components/PromoAction/PromoAction';
 import { Title } from './components/Title/Title';
-import { newProducts, popularProducts, saleProducts } from '../../mokBase';
+import { newProducts, popularProducts, saleProducts } from '../../Models/models';
 import React from 'react';
 
 export const HomePage = () => {

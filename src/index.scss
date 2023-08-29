@@ -30,44 +30,44 @@ button {
     font-weight: 500;
 }
 
+.btn {
+    border-radius: 12px;
+    padding: 13px 24px;
+    width: auto;
+    
+    &.blue {
+        background-color: $color-blue;
+    }
+
+    &.sea {
+        background-color: $color-sea;
+    }
+}
+
+span {
+    &.title {
+        font-family: Balsamiq Sans;
+        font-size: 80px;
+        font-weight: 400;
+        line-height: 88px;
+    }
+}
+
 p {
     font-size: 18px;
     font-weight: 500;
     line-height: 28px;
 }
 
-h1 {
-    font-family: Balsamiq Sans;
-    font-size: 80px;
-    font-weight: 400;
-    line-height: 88px;
-}
-
-h2 {
-    font-family: Balsamiq Sans;
-    font-size: 80px;
-    font-weight: 400;
-    line-height: 88px;
-}
-
 @media (min-width: 851px) {
-    .mobile-only {
-        display: none !important;
-    }
 }
 
 @media (max-width: 850px) {
-    .desktop-only {
-        display: none !important;
-    }
 
-    h1{
-        font-size: 30px;
-        line-height: 38px;
-    }
-
-    h2 {
-        font-size: 30px;
-        line-height: 34px;
+    span {
+        &.title {
+            font-size: 30px;
+            line-height: 38px;
+        }
     }
 }

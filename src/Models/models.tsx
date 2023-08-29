@@ -1,7 +1,15 @@
-import { ProductCardProps } from './components/ProductCard/ProductCard';
 import React from 'react';
 
-export const newProducts: ProductCardProps[] = [
+interface Product {
+  imgSrc: string;
+  imgAlt: string;
+  title: string;
+  cost: number;
+  oldCost?: number;
+  iconNew?: boolean;
+}
+
+export const newProducts: Product[] = [
   {
     imgSrc: `./components/ProductCard/assets/cot.png`,
     imgAlt: 'cot',
@@ -60,7 +68,7 @@ export const newProducts: ProductCardProps[] = [
   },
 ];
 
-export const saleProducts: ProductCardProps[] = [
+export const saleProducts: Product[] = [
   {
     imgSrc: `./components/ProductCard/assets/cot.png`,
     imgAlt: 'cot',
@@ -119,7 +127,7 @@ export const saleProducts: ProductCardProps[] = [
   },
 ];
 
-export const popularProducts: ProductCardProps[] = [
+export const popularProducts: Product[] = [
   {
     imgSrc: `./components/ProductCard/assets/cot.png`,
     imgAlt: 'cot',

@@ -1,5 +1,5 @@
 import './NotFoundPage.scss';
-import { BtnBlueWithLink } from '../../components/Buttons/Buttons';
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const NotFoundPage = () => {
@@ -8,7 +8,9 @@ const NotFoundPage = () => {
       <span className="eror-cod">404</span>
       <h1>Страница не найдена</h1>
       <p>Мы не можем найти страницу, которую вы ищете. Она может быть еще не зарегестрирована или её не существует</p>
-      <BtnBlueWithLink textBtn="На главную" url="/" />
+      <Link to="/" className="btn blue">
+        На главную
+      </Link>
     </div>
   );
 };

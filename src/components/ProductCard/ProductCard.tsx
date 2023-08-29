@@ -1,5 +1,4 @@
 import './ProductCard.scss';
-import { BtnBlue } from '../Buttons/Buttons';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import SwitchHeart from '../SwitchHeart';
@@ -22,7 +21,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
       {iconNew && <div className="icon-new">NEW</div>}
       <img src={imgSrc} alt={imgAlt} className="poster" />
       <p className="title">{title}</p>
-			<div className="price">
+      <div className="price">
         <div className="basic-price">
           <span>{cost}</span>
           <img src={moneyIcon} alt="moneyIcon" />
@@ -34,7 +33,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
           </div>
         )}
       </div>
-      <BtnBlue textBtn="В корзину" />
+      <button className="btn blue">В корзину</button>
       <Link to="/orders" className="buyClick">
         Купить в <br className="mobile-only" /> один клик
       </Link>

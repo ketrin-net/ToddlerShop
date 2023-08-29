@@ -2,7 +2,6 @@
 
 .title-homepage {
     background-color: rgb(236, 199, 193, 0.16);
-    width: 100%;
     overflow: hidden;
 
     .section {
@@ -25,23 +24,24 @@
         font-weight: 400;
     }
 
-    .btn {
+    a {
+        color: white;
         margin-top: 48px;
         width: 139px;
     }
 }
 
 @media (max-width: 850px) {
-
     .title-homepage {
+        text-align: center;
         
         .section {
             position: relative;
             padding: 24px 24px 428px 24px;
         }
 
-        h1,p {
-            text-align: center;
+        span.title {
+            margin-bottom: 0px;
         }
 
         p {
@@ -55,7 +55,7 @@
             right: 0px;
         }
 
-        .btn {
+        a {
             margin-top: 24px;
             width: 100%;
         }

@@ -13,7 +13,7 @@ export const ProductsCarousel = (props: ProductsCarouselProps) => {
   return (
     <div className="products-carousel">
       <div className="section">
-        <h2>{props.title}</h2>
+        <span className="title">{props.title}</span>
         <Сarousel slidesCount={props.slidesCount}>
           {props.products.map((item, i) => (
             <ProductCard

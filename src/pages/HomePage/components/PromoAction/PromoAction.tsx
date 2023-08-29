@@ -1,27 +1,23 @@
 import './PromoAction.scss';
-import { BtnBlue } from '../../../../components/Buttons/Buttons';
+import { Link } from 'react-router-dom';
 import PromoActionChild from './assets/PromoActionChild.png';
 import PromoActionChildMobile from './assets/PromoActionChildMobile.png';
 import React from 'react';
 
 export const PromoAction = () => {
   return (
-    <>
-      <div className="promo-action-homepage desktop-only">
-        <img src={PromoActionChild} alt="PromoActionChild" className="poster desktop-only" />
-        <div className="section">
-          <h1>Все детские костюмы с акцией 10%</h1>
-          <BtnBlue textBtn="Смотреть костюмы" />
-        </div>
-      </div>
-      <div className="promo-action-homepage mobile-only">
-        <div className="back-color"></div>
+    <div className="promo-action-homepage">
+      <div className="back-color"></div>
+      <picture>
+        <source srcSet={PromoActionChild} media="(min-width: 851px)" />
         <img src={PromoActionChildMobile} alt="PromoActionChild" className="poster mobile-only" />
-        <div className="section">
-          <h1>Все детские костюмы с акцией 10%</h1>
-          <BtnBlue textBtn="Смотреть костюмы" />
-        </div>
+      </picture>
+      <div className="section">
+        <span>Все детские костюмы с акцией 10%</span>
+        <Link to="/" className="btn blue">
+          Смотреть костюмы
+        </Link>
       </div>
-    </>
+    </div>
   );
 };

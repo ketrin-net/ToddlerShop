@@ -13,6 +13,8 @@ interface СarouselProps {
   children?: ReactNode | ReactNode[];
 }
 
+const spaceBetweenCard = 24;
+
 const SwiperNavButtons = () => {
   const swiper = useSwiper();
 
@@ -30,7 +32,7 @@ const SwiperNavButtons = () => {
 
 export const Сarousel = ({ children, slidesCount }: СarouselProps) => {
   return (
-    <Swiper slidesPerView={slidesCount} spaceBetween={24} modules={[Navigation]} className="mySwiper">
+    <Swiper slidesPerView={slidesCount} spaceBetween={spaceBetweenCard} modules={[Navigation]} className="mySwiper">
       {React.Children.map(children, (item) => (
         <SwiperSlide>{item}</SwiperSlide>
       ))}

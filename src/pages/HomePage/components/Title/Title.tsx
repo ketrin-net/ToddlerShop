@@ -1,5 +1,5 @@
 import './Title.scss';
-import { BtnBlue } from '../../../../components/Buttons/Buttons';
+import { Link } from 'react-router-dom';
 import PhotoTitleHomepage from './assets/PhotoTitleHomepage.png';
 import PhotoTitleHomepageMobile from './assets/PhotoTitleHomepageMobile.png';
 import React from 'react';
@@ -8,16 +8,20 @@ export const Title = () => {
   return (
     <div className="title-homepage">
       <div className="section">
-        <h1>
+        <span className="title">
           Все самое <br className="mobile-only" /> необходимое для вашего ребенка
-        </h1>
+        </span>
         <p>
           Посмотрите нашу новую подборку <br /> для ухода за вашим ребенком
         </p>
-        <BtnBlue textBtn="Смотреть" />
-        <img src={PhotoTitleHomepage} alt="ellipse" className="poster desktop-only" />
+        <Link to="/" className="btn blue">
+          Смотреть
+        </Link>
+        <picture>
+          <source srcSet={PhotoTitleHomepage} media="(min-width: 851px)" />
+          <img src={PhotoTitleHomepageMobile} alt="PhotoMother" className="poster mobile-only" />
+        </picture>
       </div>
-      <img src={PhotoTitleHomepageMobile} alt="ellipse" className="poster mobile-only" />
     </div>
   );
 };

@@ -3,15 +3,14 @@
 .products-carousel {
     text-align: center;
 
-    h2 {
+    span.title {
+        display: inline-block;
         margin-bottom: 64px;
     }
 }
 
 @media (max-width: 850px) {
-    .products-carousel {
-        h2 {
-            margin-bottom: 32px;
-        }
+    span.title {
+        margin-bottom: 32px;
     }
 }
