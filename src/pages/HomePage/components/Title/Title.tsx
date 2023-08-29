@@ -19,7 +19,7 @@ export const Title = () => {
         </Link>
         <picture>
           <source srcSet={PhotoTitleHomepage} media="(min-width: 851px)" />
-          <img src={PhotoTitleHomepageMobile} alt="PhotoMother" className="poster mobile-only" />
+          <img src={PhotoTitleHomepageMobile} alt="PhotoMother" className="poster" />
         </picture>
       </div>
     </div>

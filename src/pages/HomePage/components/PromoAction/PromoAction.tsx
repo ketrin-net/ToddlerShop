@@ -10,7 +10,7 @@ export const PromoAction = () => {
       <div className="back-color"></div>
       <picture>
         <source srcSet={PromoActionChild} media="(min-width: 851px)" />
-        <img src={PromoActionChildMobile} alt="PromoActionChild" className="poster mobile-only" />
+        <img src={PromoActionChildMobile} alt="PromoActionChild" className="poster" />
       </picture>
       <div className="section">
         <span>Все детские костюмы с акцией 10%</span>
