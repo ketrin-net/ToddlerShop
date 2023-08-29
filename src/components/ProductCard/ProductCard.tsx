@@ -35,7 +35,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
       </div>
       <button className="btn blue">В корзину</button>
       <Link to="/orders" className="buyClick">
-        Купить в <br className="mobile-only" /> один клик
+        Купить в <br /> один клик
       </Link>
     </div>
   );
