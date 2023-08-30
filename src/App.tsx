@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HeaderSelector } from './components/HeaderSelector/HeaderSelector';
 import { HomePage } from './pages/HomePage/HomePage';
 import { Path } from './enums';
+import ModalProductAddition from './components/ModalProductAddition/ModalProductAddition';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React from 'react';
 
@@ -12,7 +13,7 @@ export const App = (props: AppProps) => {
   return (
     <>
       <BrowserRouter>
-        <HeaderSelector />
+        {/* <HeaderSelector /> */}
         <Routes>
           <Route path={Path.HomePage} element={<HomePage />} />
           <Route path={Path.BucketPAge} element={<div>BucketPAge</div>} />

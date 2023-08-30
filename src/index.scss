@@ -43,6 +43,16 @@ button {
     &.sea {
         background-color: $color-sea;
     }
+
+    &.white {
+        color: $color-sea;
+        background-color: white;
+        border: 1px solid $color-sea;
+    }
+
+    &.white:hover {
+        background-color: rgba(68, 107, 128, 0.16);
+    }
 }
 
 span {

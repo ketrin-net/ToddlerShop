@@ -1,8 +1,9 @@
 import './ProductCard.scss';
+import { BasicPriceProduct } from '../BasicPriceProduct/BasicPriceProduct';
 import { Link } from 'react-router-dom';
+import ButtonsAddProductToCard from '../Buttons/ButtonsAddProductToCard/ButtonsAddProductToCard';
 import React from 'react';
 import SwitchHeart from '../SwitchHeart';
-import moneyIcon from './assets/moneyIcon.svg';
 import moneyIconGray from './assets/moneyIconGray.svg';
 
 export interface ProductCardProps {
@@ -22,10 +23,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
       <img src={imgSrc} alt={imgAlt} className="poster" />
       <p className="title">{title}</p>
       <div className="price">
-        <div className="basic-price">
-          <span>{cost}</span>
-          <img src={moneyIcon} alt="moneyIcon" />
-        </div>
+        <BasicPriceProduct cost={cost} />
         {oldCost && (
           <div className="old-price">
             <span>{oldCost}</span>
@@ -33,7 +31,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
           </div>
         )}
       </div>
-      <button className="btn blue">В корзину</button>
+      <ButtonsAddProductToCard />
       <Link to="/orders" className="buy-click">
         Купить в <br /> один клик
       </Link>

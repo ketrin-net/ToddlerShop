@@ -1,0 +1,13 @@
+@import '../../variables';
+
+.basic-price-product {
+    font-size: 24px;
+    font-weight: 600;
+
+    display: flex;
+    gap: 8px;
+
+    span {
+        color: $color-blue;
+    }
+}
