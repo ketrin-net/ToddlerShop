@@ -11,6 +11,8 @@ interface ModalProductAdditionProps {
 }
 
 const ModalProductAddition = ({ closeModal }: ModalProductAdditionProps) => {
+  setTimeout(() => closeModal(false), 3000);
+
   return (
     <div className="modal-product-add">
       <span className="header">Товар добавлен в корзину</span>

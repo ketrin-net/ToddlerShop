@@ -1,8 +1,8 @@
 @import '../../variables';
 
 .modal-product-add {
-    z-index: 100;
     position: fixed;
+    z-index: 100;
     bottom: 80px;
     right: 100px;
     padding: 32px 40px;
@@ -16,6 +16,7 @@
     grid-template-rows: 22px auto auto;
     gap: 24px;
     align-items: center;
+    animation: show-loader 1s forwards;
 
     .header {
         grid-column: span 2;
@@ -31,6 +32,7 @@
     }
     
     .description {
+        text-align: start;
         font-size: 16px;
         font-weight: 400;
         line-height: 22px;
@@ -38,10 +40,26 @@
     }
 
     .btn {
+        margin-top: 0px;
         grid-column: span 3;
     }
 
     .icon-close{
         justify-self: end;
+    }
+}
+
+@keyframes show-loader {
+    0% {
+        opacity: 0;
+        transform: translateX(1000px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }
