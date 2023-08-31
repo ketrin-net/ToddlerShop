@@ -1,3 +1,4 @@
+import { CSSTransition } from 'react-transition-group';
 import ModalProductAddition from '../../ModalProductAddition/ModalProductAddition';
 import React, { useState } from 'react';
 
@@ -14,7 +15,10 @@ const ButtonsAddProductToCard = () => {
       >
         В корзину
       </button>
-      {openModal && <ModalProductAddition closeModal={setOpenModal} />}
+
+      <CSSTransition in={openModal} timeout={2000} classNames="modal-product-add" unmountOnExit onExited={() => setOpenModal(false)} >
+        <ModalProductAddition closeModal={setOpenModal} />
+      </CSSTransition>
     </>
   );
 };

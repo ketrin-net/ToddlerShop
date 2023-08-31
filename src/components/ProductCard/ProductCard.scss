@@ -2,6 +2,7 @@
 
 .product-card {
     position: relative;
+    margin: auto;
     width: 346px;
     min-height: 510px;
     border-radius: 12px;
@@ -101,7 +102,7 @@
         }
 
         .heart-switch {
-            right: 0px;
+            right: 5px;
             top: 0px;
         }
 
@@ -131,7 +132,7 @@
             margin-top: 25px;
         }
 
-        .buyClick {
+        .buy-click {
             margin-top: 12px;
         }
     }

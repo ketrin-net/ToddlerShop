@@ -1,6 +1,7 @@
 import './ProductCard.scss';
 import { BasicPriceProduct } from '../BasicPriceProduct/BasicPriceProduct';
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import ButtonsAddProductToCard from '../Buttons/ButtonsAddProductToCard/ButtonsAddProductToCard';
 import React from 'react';
 import SwitchHeart from '../SwitchHeart';
@@ -16,6 +17,8 @@ export interface ProductCardProps {
 }
 
 export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: ProductCardProps) => {
+  const matchesMobile = useMediaQuery('(min-width: 1025px)');
+
   return (
     <div className="product-card">
       <SwitchHeart />
@@ -33,7 +36,7 @@ export const ProductCard = ({ imgSrc, imgAlt, title, cost, oldCost, iconNew }: P
       </div>
       <ButtonsAddProductToCard />
       <Link to="/orders" className="buy-click">
-        Купить в <br /> один клик
+        Купить в {matchesMobile ? '' : <br />} один клик
       </Link>
     </div>
   );
