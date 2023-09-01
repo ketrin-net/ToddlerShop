@@ -3,6 +3,7 @@ import { Product } from '../../models/product';
 import { ProductsCarousel } from './components/ProductsCarousel/ProductsCarousel';
 import { PromoAction } from './components/PromoAction/PromoAction';
 import { Title } from './components/Title/Title';
+import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import React from 'react';
 
 export const newProducts: Product[] = [
@@ -175,13 +176,19 @@ export const popularProducts: Product[] = [
 ];
 
 export const HomePage = () => {
+  const matches = useMediaQuery('(min-width: 1441px)');
+  const matchesMobile = useMediaQuery('(min-width: 1025px)');
+
+  let slidesCount = matches ? 4 : matchesMobile ? 3 : 2;
+  let spaceBetweenCards = matches ? 24 : matchesMobile ? 24 : 5;
+
   return (
     <div className="main-homepage">
       <Title />
-      <ProductsCarousel title="Новинки" products={newProducts} slidesCount={4} />
+      <ProductsCarousel title="Новинки" products={newProducts} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
       <PromoAction />
-      <ProductsCarousel title="Выгодное предложение" products={saleProducts} slidesCount={4} />
-      <ProductsCarousel title="Популярные товары" products={popularProducts} slidesCount={4} />
+      <ProductsCarousel title="Выгодное предложение" products={saleProducts} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
+      <ProductsCarousel title="Популярные товары" products={popularProducts} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
     </div>
   );
 };

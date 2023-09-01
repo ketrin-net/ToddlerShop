@@ -10,6 +10,11 @@
     }
 }
 
+.swiper-slider {
+    display: flex;
+    justify-content: center;
+}
+
 @media (max-width: 850px) {
     .swiper {
         .swiper-nav-btns {

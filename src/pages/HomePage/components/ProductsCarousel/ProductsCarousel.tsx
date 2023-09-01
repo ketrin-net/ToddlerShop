@@ -7,6 +7,7 @@ interface ProductsCarouselProps {
   title: string;
   products: ProductCardProps[];
   slidesCount: number;
+  spaceBetweenCards: number;
 }
 
 export const ProductsCarousel = (props: ProductsCarouselProps) => {
@@ -14,7 +15,7 @@ export const ProductsCarousel = (props: ProductsCarouselProps) => {
     <div className="products-carousel">
       <div className="section">
         <span className="title">{props.title}</span>
-        <Сarousel slidesCount={props.slidesCount}>
+        <Сarousel slidesCount={props.slidesCount} spaceBetweenCard={props.spaceBetweenCards}>
           {props.products.map((item, i) => (
             <ProductCard
               imgSrc={item.imgSrc}
