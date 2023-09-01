@@ -1,6 +1,6 @@
 import './ProductsCarousel.scss';
-import { ProductCard, ProductCardProps } from '../../../../components/ProductCard/ProductCard';
-import { Сarousel } from '../../../../components/Сarousel/Сarousel';
+import { ProductCard, ProductCardProps } from '../ProductCard/ProductCard';
+import { Сarousel } from '../Сarousel/Сarousel';
 import React from 'react';
 
 interface ProductsCarouselProps {

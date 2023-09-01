@@ -1,6 +1,6 @@
 import './HomePage.scss';
 import { Product } from '../../models/product';
-import { ProductsCarousel } from './components/ProductsCarousel/ProductsCarousel';
+import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
 import { PromoAction } from './components/PromoAction/PromoAction';
 import { Title } from './components/Title/Title';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
