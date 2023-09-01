@@ -56,11 +56,13 @@
 }
 
 .modal-product-add-exit {
+    pointer-events: all;
 }
 
 .modal-product-add-exit-active {
     animation: show-loader 1s reverse;
 }
+
 
 @keyframes show-loader {
     0% {
