@@ -21,6 +21,12 @@ const StyledButton = styled.button`
   cursor: pointer;
   margin-left: 151px;
   white-space: nowrap;
+
+  @media (max-width: 480px) {
+    margin-left: 0;
+    margin-bottom: 24px;
+    gap: 8px;
+  }
 `;
 
 const StyledIcon = styled.span`
@@ -32,4 +38,8 @@ const StyledButtonText = styled.div`
   font-family: ${AppFont.Montserrat};
   font-size: 18px;
   font-weight: 400;
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
