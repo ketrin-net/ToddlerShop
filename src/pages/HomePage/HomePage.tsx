@@ -1,4 +1,5 @@
 import './HomePage.scss';
+import { Footer } from '../../components/Footer/Footer';
 import { Product } from '../../models/product';
 import { ProductsCarousel } from './components/ProductsCarousel/ProductsCarousel';
 import { PromoAction } from './components/PromoAction/PromoAction';
@@ -182,6 +183,7 @@ export const HomePage = () => {
       <PromoAction />
       <ProductsCarousel title="Выгодное предложение" products={saleProducts} slidesCount={4} />
       <ProductsCarousel title="Популярные товары" products={popularProducts} slidesCount={4} />
+      <Footer />
     </div>
   );
 };
