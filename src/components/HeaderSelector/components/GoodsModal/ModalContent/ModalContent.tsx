@@ -1,6 +1,8 @@
 import { AppColor, AppFont, Path } from '../../../../../enums';
+import { CloseModalButton } from '../../MobileHeader/components/MobileModal/CloseModalButton/CloseModalButton';
 import { mockedCategories } from './ModalContentMockData';
 import { styled } from 'styled-components';
+import { useMediaQuery } from '../../../../../customHooks/useMediaQuery';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
@@ -26,13 +28,15 @@ interface ModalContentProps {
 
 export const ModalContent = ({ closeModal }: ModalContentProps) => {
   const [categories, setCategories] = useState<Category[]>(mockedCategories);
+  const matches = useMediaQuery('(max-width: 480px)');
 
   const navigate = useNavigate();
 
   const handleOnMouseEnter = (id: number) => () => {
-    const newCategoriesState = categories.map((item) => (item.id === id ? { ...item, isActive: true } : { ...item, isActive: false }));
-
-    setCategories(newCategoriesState);
+    if (!matches) {
+      const newCategoriesState = categories.map((item) => (item.id === id ? { ...item, isActive: true } : { ...item, isActive: false }));
+      setCategories(newCategoriesState);
+    }
   };
 
   const handleOnSubCategoryClick = (id: number) => () => {
@@ -50,22 +54,25 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
 
   return (
     <ModalContentWrapper>
+      {matches && <CloseModalButton closeModal={closeModal} color={AppColor.White} />}
       <StyledCategories>
         {categories.map((c) => (
-          <StyledCategory key={c.id} $isActive={c.isActive} onMouseEnter={handleOnMouseEnter(c.id)} onClick={handleOnCategoryClick(c.id)}>
+          <StyledCategory key={c.id} $isActive={c.isActive && !matches} onMouseEnter={handleOnMouseEnter(c.id)} onClick={handleOnCategoryClick(c.id)}>
             {c.name}
           </StyledCategory>
         ))}
       </StyledCategories>
-      <StyledSubCategories>
-        {categories
-          .find((c) => c.isActive)
-          ?.subCategories.map((p) => (
-            <StyledButton onClick={handleOnSubCategoryClick(p.id)} key={p.id}>
-              {p.name}
-            </StyledButton>
-          ))}
-      </StyledSubCategories>
+      {!matches && (
+        <StyledSubCategories>
+          {categories
+            .find((c) => c.isActive)
+            ?.subCategories.map((p) => (
+              <StyledButton onClick={handleOnSubCategoryClick(p.id)} key={p.id}>
+                {p.name}
+              </StyledButton>
+            ))}
+        </StyledSubCategories>
+      )}
     </ModalContentWrapper>
   );
 };
@@ -73,6 +80,13 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
 const ModalContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    height: 100vh;
+    background-color: ${AppColor.Sea};
+    padding-top: 120px;
+  }
 `;
 
 const StyledCategories = styled.div`
@@ -80,6 +94,11 @@ const StyledCategories = styled.div`
   flex-direction: column;
   padding: 32px 0 200px 331px;
   background: ${AppColor.Sea};
+
+  @media (max-width: 480px) {
+    padding: 0 0 0 62px;
+    gap: 32px;
+  }
 `;
 
 const StyledSubCategories = styled.div`
@@ -107,6 +126,12 @@ const StyledCategory = styled.button<StyledCategoryProps>`
   border-radius: 12px 0px 0px 12px;
   cursor: pointer;
   ${(props) => props.$isActive && 'background-color: ' + AppColor.White + ';'}
+
+  @media (max-width: 480px) {
+    text-align: start;
+    min-width: 0;
+    padding: 0;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -117,4 +142,8 @@ const StyledButton = styled.button`
   color: ${AppColor.Sea};
   font-family: ${AppFont.Montserrat};
   font-size: 18px;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;

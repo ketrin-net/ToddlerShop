@@ -12,7 +12,7 @@ Modal.setAppElement('#root');
 
 export const GoodsModal = ({ isOpen, onRequestClose }: MenuModalProps) => {
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose} overlayClassName="modal-overlay" className="modal">
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose} overlayClassName="modal-overlay" className="modal" closeTimeoutMS={700}>
       <ModalContent closeModal={onRequestClose} />
     </Modal>
   );

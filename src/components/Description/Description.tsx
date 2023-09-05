@@ -21,8 +21,12 @@ const StyledDescription = styled.div`
   letter-spacing: 0.32px;
   white-space: nowrap;
 
-  @media (max-width: 420px) {
+  @media (max-width: 480px) {
     font-size: 12px;
     line-height: 14px;
+
+    .nav-modal-content & {
+      display: none;
+    }
   }
 `;
