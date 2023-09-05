@@ -1,9 +1,9 @@
 import { AppColor, AppFont } from '../../../../enums';
+import { CustomSelect } from '../../../CustomSelect/CustomSelect';
 import { StylesConfig } from 'react-select/dist/declarations/src/styles';
 import { styled } from 'styled-components';
 import { useMediaQuery } from '../../../../customHooks/useMediaQuery';
 import React, { useState } from 'react';
-import Select, { MultiValue, SingleValue } from 'react-select';
 
 interface CityOption {
   value: string;
@@ -17,13 +17,8 @@ const cities: CityOption[] = [
 ];
 
 export const CitySelector: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedCity, setSelectedCity] = useState<CityOption | null>({ value: 'moscow', label: 'Москва' });
+  const [selectedCity, setSelectedCity] = useState<CityOption>({ value: 'moscow', label: 'Москва' });
   const matches = useMediaQuery('(max-width: 480px)');
-
-  function isCityOption(object: MultiValue<CityOption> | SingleValue<CityOption>): object is CityOption {
-    return object !== null && 'value' in object && 'label' in object;
-  }
 
   const customStyles: StylesConfig<CityOption> = {
     control: (provided) => ({
@@ -68,20 +63,11 @@ export const CitySelector: React.FC = () => {
     }),
   };
 
-  const handleOnChange = (option: MultiValue<CityOption> | SingleValue<CityOption>) => {
-    if (isCityOption(option)) {
-      setSelectedCity(option);
-      setIsOpen(!isOpen);
-    }
-  };
-
   return (
     <CitySelectorWrapper>
       <StyledIcon className="material-symbols-outlined">location_on</StyledIcon>
       <StyledText>Город:</StyledText>
-      <div className="city-selector">
-        <Select options={cities} value={selectedCity} onChange={(option) => handleOnChange(option)} isSearchable={true} styles={customStyles} />
-      </div>
+      <CustomSelect options={cities} value={selectedCity} onChange={setSelectedCity} isSearchable={true} styles={customStyles} />
     </CitySelectorWrapper>
   );
 };
