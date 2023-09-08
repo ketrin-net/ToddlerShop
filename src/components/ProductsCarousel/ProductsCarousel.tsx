@@ -25,6 +25,8 @@ export const ProductsCarousel = (props: ProductsCarouselProps) => {
               cost={item.cost}
               oldCost={item.oldCost}
               iconNew={item.iconNew}
+              id={item.id}
+              inStock={item.inStock}
             />
           ))}
         </Сarousel>

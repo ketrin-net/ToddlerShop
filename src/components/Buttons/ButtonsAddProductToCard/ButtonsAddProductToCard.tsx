@@ -1,24 +1,23 @@
-import { CSSTransition } from 'react-transition-group';
+import { Product } from '../../../models/product';
+import { addProductInBucket } from '../../../store/reducers/bucketSlice';
+import { useDispatch } from 'react-redux';
 import ModalProductAddition from '../../ModalProductAddition/ModalProductAddition';
 import React, { useState } from 'react';
 
-const ButtonsAddProductToCard = () => {
+interface ButtonsAddProductToCardProps {
+  item: Product;
+}
+
+const ButtonsAddProductToCard = (props: ButtonsAddProductToCardProps) => {
+  const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
-      <button
-        className="btn blue"
-        onClick={() => {
-          setOpenModal(true);
-        }}
-      >
+      <button className="btn blue" onClick={() => dispatch(addProductInBucket(props.item))}>
         В корзину
       </button>
-
-      <CSSTransition in={openModal} timeout={2000} classNames="modal-product-add" unmountOnExit onExited={() => setOpenModal(false)}>
-        <ModalProductAddition closeModal={setOpenModal} />
-      </CSSTransition>
+      {openModal && <ModalProductAddition closeModal={setOpenModal} />}
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 
 export interface Product {
+  id: number;
   imgSrc: string;
   imgAlt: string;
   title: string;
@@ -8,13 +9,4 @@ export interface Product {
   oldCost?: number;
   iconNew?: boolean;
   inStock: boolean;
-}
-
-export interface ProductsInOrder {
-  imgSrc: string;
-  imgAlt: string;
-  title: string;
-  cost: number;
-  inStock: boolean;
-  amount: number;
 }

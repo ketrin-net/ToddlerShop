@@ -1,11 +1,10 @@
+import { bucketReducer } from './reducers/bucketSlice';
 import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({
   reducer: {
-    posts: postsReducer,
-    comments: commentsReducer,
-    users: usersReducer
-  }
+    bucket: bucketReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
