@@ -1,11 +1,12 @@
 import './ProductsCarousel.scss';
-import { ProductCard, ProductCardProps } from '../ProductCard/ProductCard';
+import { Product } from '../../models/product';
+import { ProductCard } from '../ProductCard/ProductCard';
 import { Сarousel } from '../Сarousel/Сarousel';
 import React from 'react';
 
 interface ProductsCarouselProps {
   title: string;
-  products: ProductCardProps[];
+  products: Product[];
   slidesCount: number;
   spaceBetweenCards: number;
 }

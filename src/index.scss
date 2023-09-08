@@ -70,6 +70,19 @@ p {
     line-height: 28px;
 }
 
+input {
+    border: 1px solid rgb(68, 107, 128, 0.4);
+    border-radius: 12px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 400;
+    outline: none;
+}
+
+input::placeholder {
+    opacity: 0.64;
+}
+
 @media (min-width: 851px) {
 }
 

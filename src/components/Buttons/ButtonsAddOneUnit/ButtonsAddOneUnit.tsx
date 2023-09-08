@@ -10,7 +10,7 @@ const ButtonsAddOneUnit = () => {
     <div className="btns-add-delete-unit">
       <button
         onClick={() => {
-          if (value > 0) {
+          if (value > 1) {
             valueChange(value - 1);
           }
         }}

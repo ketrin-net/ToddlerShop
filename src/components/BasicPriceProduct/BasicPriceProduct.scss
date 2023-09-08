@@ -3,11 +3,18 @@
 .basic-price-product {
     font-size: 24px;
     font-weight: 600;
-
+    width: 102px;
+    height: 32px;
     display: flex;
+    align-items: center;
     gap: 8px;
 
     span {
         color: $color-blue;
+    }
+
+    img {
+        width: 11px;
+        height: 17px;
     }
 }

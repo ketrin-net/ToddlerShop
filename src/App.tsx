@@ -13,7 +13,7 @@ export const App = (props: AppProps) => {
   return (
     <>
       <BrowserRouter>
-        {/* <HeaderSelector /> */}
+        <HeaderSelector />
         <Routes>
           <Route path={Path.HomePage} element={<HomePage />} />
           <Route path={Path.BucketPage} element={<BucketPage />} />
