@@ -3,16 +3,22 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HeaderSelector } from './components/HeaderSelector/HeaderSelector';
 import { HomePage } from './pages/HomePage/HomePage';
 import { Path } from './enums';
+import { modalOpenOrNot } from './store/reducers/modalAdditionSlice';
+import { useSelector } from 'react-redux';
 import BucketPage from './pages/BucketPage/BucketPage';
+import ModalProductAddition from './components/ModalProductAddition/ModalProductAddition';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React from 'react';
 
 export interface AppProps {}
 
 export const App = (props: AppProps) => {
+  const modalOpen = useSelector(modalOpenOrNot);
+
   return (
     <>
       <BrowserRouter>
+        {modalOpen.isOpen && <ModalProductAddition id={modalOpen.idProduct} />}
         <HeaderSelector />
         <Routes>
           <Route path={Path.HomePage} element={<HomePage />} />

@@ -1,14 +1,16 @@
 import './CardProductInOrderBucket.scss';
 import { BasicPriceProduct } from '../../../../components/BasicPriceProduct/BasicPriceProduct';
 import { Product } from '../../../../models/product';
+import { deleteProductInBucket } from '../../../../store/reducers/bucketSlice';
+import { useDispatch } from 'react-redux';
 import ButtonsAddOneUnit from '../../../../components/Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
 import React, { useState } from 'react';
 import SwitchHeart from '../../../../components/SwitchHeart';
 import iconTrash from '../../assets/iconTrash.svg';
 import iconX from '../../assets/iconX.svg';
 
-
 const CardProductInOrderBucket = (item: Product) => {
+  const dispatch = useDispatch();
   const [deleteProduct, productValueChange] = useState(true);
 
   return (
@@ -26,14 +28,14 @@ const CardProductInOrderBucket = (item: Product) => {
           </div>
           <div className="interaction-panel">
             <SwitchHeart />
-            <button onClick={() => productValueChange(false)}>
+            <button onClick={() => dispatch(deleteProductInBucket({ id: item.id }))}>
               <img src={iconTrash} alt="iconTrash" />
             </button>
           </div>
         </div>
       ) : (
         <div className="card-product-in-order delete">
-            <p> Вы удалили {item.title}</p>
+          <p> Вы удалили {item.title}</p>
           <button className="cancel" onClick={() => productValueChange(true)}>
             Отменить
           </button>

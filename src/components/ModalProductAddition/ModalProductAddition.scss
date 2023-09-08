@@ -16,6 +16,7 @@
     grid-template-rows: 22px auto auto;
     gap: 24px;
     align-items: center;
+    animation: show-loader 1.5s ease-in;
 
     .header {
         grid-column: span 2;
@@ -46,21 +47,6 @@
     .icon-close{
         justify-self: end;
     }
-}
-
-.modal-product-add-enter {
-    animation: show-loader 1s forwards;
-}
-
-.modal-product-add-enter-active {
-}
-
-.modal-product-add-exit {
-    pointer-events: all;
-}
-
-.modal-product-add-exit-active {
-    animation: show-loader 1s reverse;
 }
 
 

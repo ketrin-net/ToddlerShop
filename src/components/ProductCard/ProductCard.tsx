@@ -31,7 +31,7 @@ export const ProductCard = (item: Product) => {
           </div>
         )}
       </div>
-      {almostInBucket === false ? <ButtonsAddProductToCard item={item} /> : <ButtonsAddOneUnit id={item.id} />}
+      {almostInBucket === false ? <ButtonsAddProductToCard product={item} /> : <ButtonsAddOneUnit id={item.id} />}
       <Link to="/orders" className="buy-click">
         Купить в {matchesMobile ? '' : <br />} один клик
       </Link>

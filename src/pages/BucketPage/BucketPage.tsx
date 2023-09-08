@@ -82,7 +82,7 @@ const BucketPage = () => {
     <div className="main-backetpage">
       <div className="header">В корзине {productsCountInBucket} товара</div>
       <TableProductsInBucket />
-      <TotalAmountPrice costProducts={[5, 10]} />
+      <TotalAmountPrice />
       <ProductsCarousel title="С этим покупают" products={popularProducts} slidesCount={3} spaceBetweenCards={0} />
     </div>
   );

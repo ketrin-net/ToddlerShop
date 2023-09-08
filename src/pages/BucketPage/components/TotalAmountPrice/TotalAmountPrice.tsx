@@ -1,14 +1,13 @@
 import './TotalAmountPrice.scss';
 import { Link } from 'react-router-dom';
+import { selectCountProductsInBucket, totalCostProductsInBucket } from '../../../../store/reducers/bucketSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import moneyIcon from '../../assets/moneyIconGray.svg';
 
-interface TotalAmountPriceProps {
-  costProducts: number[];
-}
-
-const TotalAmountPrice = (props: TotalAmountPriceProps) => {
-  let sumCost = props.costProducts.reduce((acc, number) => acc + number);
+const TotalAmountPrice = () => {
+  const totalCost = useSelector(totalCostProductsInBucket);
+  const productsCountInBucket = useSelector(selectCountProductsInBucket);
 
   return (
     <div id="total-amount-price">
@@ -17,9 +16,9 @@ const TotalAmountPrice = (props: TotalAmountPriceProps) => {
         <button className="btn blue">Применить</button>
       </div>
       <div className="sum-cost">
-        <span>Количество ({props.costProducts.length})</span>
+        <span>Количество ({productsCountInBucket})</span>
         <span>
-          {sumCost} <img src={moneyIcon} alt="moneyIcon" />
+          {totalCost} <img src={moneyIcon} alt="moneyIcon" />
         </span>
       </div>
       <div className="sum-cost sale">
@@ -31,7 +30,7 @@ const TotalAmountPrice = (props: TotalAmountPriceProps) => {
       <div className="sum-cost total">
         <span>Итого</span>
         <span className="sum">
-          {sumCost} <img src={moneyIcon} alt="moneyIcon" />
+          {totalCost} <img src={moneyIcon} alt="moneyIcon" />
         </span>
       </div>
       <Link to="/orders" className="btn blue">

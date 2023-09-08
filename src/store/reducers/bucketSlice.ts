@@ -28,7 +28,7 @@ export const bucketSlice = createSlice({
       const item = state.products.get(action.payload.id);
 
       if (item !== undefined) {
-        item.count = action.payload.addOrDelete ? item.count + 1 : item.count + 1;
+        item.count = action.payload.addOrDelete ? item.count + 1 : item.count > 0 ? item.count - 1 : item.count;
       }
     },
     deleteProductInBucket: (state, action: PayloadAction<{ id: number }>) => {
@@ -51,6 +51,16 @@ export const selectCountProductsInBucket = (state: RootState): number => {
   return allCount;
 };
 
-export const findeProsuctInBucket = (state: RootState, id: number) => {};
+export const totalCostProductsInBucket = (state: RootState): number => {
+  let allCost: number = 0;
+
+  state.bucket.products.forEach((item) => {
+    allCost += item.count * item.cost;
+  });
+
+  return allCost;
+};
+
+// export const getProsuctInBucketById = (state: RootState, id: number) => state.bucket.products.get(id);
 
 export const bucketReducer = bucketSlice.reducer;

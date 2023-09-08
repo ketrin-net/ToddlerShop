@@ -8,6 +8,7 @@ import plus from './assets/plus.svg';
 const ButtonsAddOneUnit = ({ id }: { id: number }) => {
   const dispatch = useDispatch();
   const allProductsInBucket = useSelector(selectProductsInBucket);
+
   return (
     <div className="btns-add-delete-unit">
       <button onClick={() => dispatch(changeCountProduct({ id: id, addOrDelete: false }))}>
