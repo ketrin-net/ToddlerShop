@@ -13,9 +13,10 @@ export const Logo = () => {
 const StyledWrapper = styled.div`
   min-height: 80px;
   min-width: 80px;
-  shrink: 1;
 
-  @media (max-width: 420px) {
+  @media (max-width: 480px) {
+    height: 40px;
+    width: 40px;
     min-height: 40px;
     min-width: 40px;
   }
