@@ -51,4 +51,6 @@ export const selectCountProductsInBucket = (state: RootState): number => {
   return allCount;
 };
 
+export const findeProsuctInBucket = (state: RootState, id: number) => {};
+
 export const bucketReducer = bucketSlice.reducer;

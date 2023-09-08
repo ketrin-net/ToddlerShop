@@ -2,7 +2,10 @@ import './ProductCard.scss';
 import { BasicPriceProduct } from '../BasicPriceProduct/BasicPriceProduct';
 import { Link } from 'react-router-dom';
 import { Product } from '../../models/product';
+import { selectProductsInBucket } from '../../store/reducers/bucketSlice';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
+import { useSelector } from 'react-redux';
+import ButtonsAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
 import ButtonsAddProductToCard from '../Buttons/ButtonsAddProductToCard/ButtonsAddProductToCard';
 import React from 'react';
 import SwitchHeart from '../SwitchHeart';
@@ -10,6 +13,8 @@ import moneyIconGray from './assets/moneyIconGray.svg';
 
 export const ProductCard = (item: Product) => {
   const matchesMobile = useMediaQuery('(min-width: 1025px)');
+  const allProductsInBucket = useSelector(selectProductsInBucket);
+  const almostInBucket = allProductsInBucket.has(item.id);
 
   return (
     <div className="product-card">
@@ -26,7 +31,7 @@ export const ProductCard = (item: Product) => {
           </div>
         )}
       </div>
-      <ButtonsAddProductToCard item={item} />
+      {almostInBucket === false ? <ButtonsAddProductToCard item={item} /> : <ButtonsAddOneUnit id={item.id} />}
       <Link to="/orders" className="buy-click">
         Купить в {matchesMobile ? '' : <br />} один клик
       </Link>

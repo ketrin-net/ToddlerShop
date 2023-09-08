@@ -24,7 +24,7 @@ const ModalProductAddition = ({ closeModal }: ModalProductAdditionProps) => {
         <p className="description">Коляска CYBEX PRIAM LUX JEREMY SCOTT SPECIAL EDITION 2 В 1 на раме TREKKING</p>
         <BasicPriceProduct cost={152000} />
       </div>
-      <ButtonsAddOneUnit />
+      <ButtonsAddOneUnit id={7} />
       <Link to="/" className="btn white">
         Перейти в корзину
       </Link>
