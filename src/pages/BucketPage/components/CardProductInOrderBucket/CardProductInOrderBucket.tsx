@@ -11,11 +11,11 @@ import iconX from '../../assets/iconX.svg';
 
 const CardProductInOrderBucket = (item: Product) => {
   const dispatch = useDispatch();
-  const [deleteProduct, productValueChange] = useState(true);
+  const [deleteProduct, setValue] = useState(true);
 
   return (
     <>
-      {deleteProduct && { productValueChange } ? (
+      {deleteProduct && { setValue } ? (
         <div className="card-product-in-order">
           <img src={item.imgSrc} alt={item.imgAlt} className="poster" />
           <div className="info">
@@ -36,7 +36,7 @@ const CardProductInOrderBucket = (item: Product) => {
       ) : (
         <div className="card-product-in-order delete">
           <p> Вы удалили {item.title}</p>
-          <button className="cancel" onClick={() => productValueChange(true)}>
+          <button className="cancel" onClick={() => setValue(true)}>
             Отменить
           </button>
           <button>

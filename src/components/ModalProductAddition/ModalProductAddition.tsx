@@ -14,25 +14,27 @@ const ModalProductAddition = ({ id }: { id: number }) => {
   const currentProduct = useSelector(selectProductsInBucket).get(id);
   setTimeout(() => dispatch(closeModal()), 5000);
 
-  if (currentProduct !== undefined) {
-    return (
-      <div className="modal-product-add">
-        <span className="header">Товар добавлен в корзину</span>
-        <button className="icon-close" onClick={() => dispatch(closeModal())}>
-          <img src={iconClose} alt="iconClose" />
-        </button>
-        <img src={currentProduct?.imgSrc} alt={currentProduct?.imgAlt} className="poster" />
-        <div>
-          <p className="description">{currentProduct?.title}</p>
-          <BasicPriceProduct cost={currentProduct.cost} />
+  return (
+    <>
+      {currentProduct && (
+        <div className="modal-product-add">
+          <span className="header">Товар добавлен в корзину</span>
+          <button className="icon-close" onClick={() => dispatch(closeModal())}>
+            <img src={iconClose} alt="iconClose" />
+          </button>
+          <img src={currentProduct?.imgSrc} alt={currentProduct?.imgAlt} className="poster" />
+          <div>
+            <p className="description">{currentProduct?.title}</p>
+            <BasicPriceProduct cost={currentProduct.cost} />
+          </div>
+          <ButtonsAddOneUnit id={currentProduct.id} />
+          <Link to="/bucket" className="btn white">
+            Перейти в корзину
+          </Link>
         </div>
-        <ButtonsAddOneUnit id={currentProduct.id} />
-        <Link to="/bucket" className="btn white">
-          Перейти в корзину
-        </Link>
-      </div>
-    );
-  }
+      )}
+    </>
+  );
 };
 
 export default ModalProductAddition;

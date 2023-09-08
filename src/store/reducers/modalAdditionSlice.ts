@@ -27,5 +27,5 @@ export const modalAdditionSlice = createSlice({
 });
 
 export const { openModal, closeModal } = modalAdditionSlice.actions;
-export const isModalOpen = (state: RootState) => state.ModalAddition;
+export const modalInfo = (state: RootState) => state.ModalAddition;
 export const modalAdditionReducer = modalAdditionSlice.reducer;

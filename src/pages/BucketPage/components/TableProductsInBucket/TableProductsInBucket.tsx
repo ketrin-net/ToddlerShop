@@ -9,8 +9,16 @@ const TableProductsInBucket = () => {
 
   return (
     <div className="products-in-bucket">
-      {Array.from(allProductsInBucket.values()).map((item) => (
-        <CardProductInOrderBucket imgSrc={item.imgSrc} imgAlt={item.imgAlt} title={item.title} cost={item.cost} inStock={item.inStock} id={item.id} />
+      {Array.from(allProductsInBucket.values()).map((item, key) => (
+        <CardProductInOrderBucket
+          imgSrc={item.imgSrc}
+          imgAlt={item.imgAlt}
+          title={item.title}
+          cost={item.cost}
+          inStock={item.inStock}
+          id={item.id}
+          key={`card-item-${item.id}`}
+        />
       ))}
     </div>
   );
