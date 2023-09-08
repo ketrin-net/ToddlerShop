@@ -15,7 +15,7 @@ export const products: Product[] = [
     imgSrc: `./components/ProductCard/assets/linen.png`,
     imgAlt: 'linen',
     title: 'Постельное белье Forest Sky (3 предмета)',
-    cost: 2000,
+    cost: 4000,
     inStock: true,
   },
   {
