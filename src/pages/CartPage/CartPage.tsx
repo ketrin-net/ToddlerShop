@@ -1,11 +1,10 @@
-import './BucketPage.scss';
+import './CartPage.scss';
 import { Product } from '../../models/product';
+import { ProductInCart, selectCountProductsInCart } from '../../store/reducers/cartSlice';
 import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
-import { selectCountProductsInBucket } from '../../store/reducers/bucketSlice';
 import { useSelector } from 'react-redux';
-import CardProductInOrderBucket from './components/CardProductInOrderBucket/CardProductInOrderBucket';
-import React, { useState } from 'react';
-import TableProductsInBucket from './components/TableProductsInBucket/TableProductsInBucket';
+import React, { useEffect, useState } from 'react';
+import TableProductsInCart from './components/TableProductsInCart/TableProductsInCart';
 import TotalAmountPrice from './components/TotalAmountPrice/TotalAmountPrice';
 
 export const popularProducts: Product[] = [
@@ -75,17 +74,24 @@ export const popularProducts: Product[] = [
   },
 ];
 
-const BucketPage = () => {
-  const productsCountInBucket = useSelector(selectCountProductsInBucket);
+const CartPage = () => {
+  useEffect(() => {
+    const products: ProductInCart[] = JSON.parse(localStorage.getItem('products') as string);
+    const updatedProducts = products.filter((i) => !i.isDeleted);
+
+    localStorage.setItem('products', JSON.stringify(updatedProducts));
+  }, []);
+
+  const productsCountInCart = useSelector(selectCountProductsInCart);
 
   return (
     <div className="main-backetpage">
-      <div className="header">В корзине {productsCountInBucket} товара</div>
-      <TableProductsInBucket />
+      <div className="header">В корзине {productsCountInCart} товара</div>
+      <TableProductsInCart />
       <TotalAmountPrice />
       <ProductsCarousel title="С этим покупают" products={popularProducts} slidesCount={3} spaceBetweenCards={0} />
     </div>
   );
 };
 
-export default BucketPage;
+export default CartPage;

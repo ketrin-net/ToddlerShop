@@ -4,7 +4,7 @@ import { Product } from '../../models/product';
 import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
 import { PromoAction } from './components/PromoAction/PromoAction';
 import { Title } from './components/Title/Title';
-import { selectCountProductsInBucket } from '../../store/reducers/bucketSlice';
+import { selectCountProductsInCart } from '../../store/reducers/cartSlice';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';
 import React from 'react';
@@ -73,7 +73,7 @@ export const products: Product[] = [
 ];
 
 export const HomePage = () => {
-  const productsCountInBucket = useSelector(selectCountProductsInBucket);
+  const productsCountInCart = useSelector(selectCountProductsInCart);
 
   const matches = useMediaQuery('(min-width: 1441px)');
   const matchesMobile = useMediaQuery('(min-width: 1025px)');
@@ -83,7 +83,7 @@ export const HomePage = () => {
 
   return (
     <div className="main-homepage">
-      <Link to="/bucket"> В корзине = {productsCountInBucket}</Link>
+      <Link to="/Cart"> В корзине = {productsCountInCart}</Link>
       <Title />
       <ProductsCarousel title="Новинки" products={products} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
       <PromoAction />

@@ -2,19 +2,19 @@ import './ProductCard.scss';
 import { BasicPriceProduct } from '../BasicPriceProduct/BasicPriceProduct';
 import { Link } from 'react-router-dom';
 import { Product } from '../../models/product';
-import { selectProductsInBucket } from '../../store/reducers/bucketSlice';
+import { selectProductsInCart } from '../../store/reducers/cartSlice';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';
-import ButtonsAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
-import ButtonsAddProductToCard from '../Buttons/ButtonsAddProductToCard/ButtonsAddProductToCard';
+import ButtonAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
+import ButtonAddProductToCart from '../Buttons/ButtonsAddProductToCard/ButtonsAddProductToCard';
 import React from 'react';
 import SwitchHeart from '../SwitchHeart';
 import moneyIconGray from './assets/moneyIconGray.svg';
 
 export const ProductCard = (prod: Product) => {
   const matchesMobile = useMediaQuery('(min-width: 1025px)');
-  const allProductsInBucket = useSelector(selectProductsInBucket);
-  const almostInBucket = allProductsInBucket.find((item) => item.id === prod.id);
+  const allProductsInCart = useSelector(selectProductsInCart);
+  const almostInCart = allProductsInCart.find((item) => item.id === prod.id);
 
   return (
     <div className="product-card">
@@ -31,7 +31,7 @@ export const ProductCard = (prod: Product) => {
           </div>
         )}
       </div>
-      {almostInBucket === undefined ? <ButtonsAddProductToCard product={prod} /> : <ButtonsAddOneUnit id={prod.id} />}
+      {!almostInCart ? <ButtonAddProductToCart product={prod} /> : <ButtonAddOneUnit id={prod.id} />}
       <Link to="/orders" className="buy-click">
         Купить в {matchesMobile ? '' : <br />} один клик
       </Link>

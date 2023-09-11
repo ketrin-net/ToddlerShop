@@ -3,15 +3,15 @@ import { BasicPriceProduct } from '../BasicPriceProduct/BasicPriceProduct';
 import { Link } from 'react-router-dom';
 import { Product } from '../../models/product';
 import { closeModal } from '../../store/reducers/modalAdditionSlice';
-import { selectProductsInBucket } from '../../store/reducers/bucketSlice';
+import { selectProductsInCart } from '../../store/reducers/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import ButtonsAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
+import ButtonAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
 import React from 'react';
 import iconClose from './assets/iconX.svg';
 
-const ModalProductAddition = ({ id }: { id: number }) => {
+const ModalAddProduct = ({ id }: { id: number }) => {
   const dispatch = useDispatch();
-  const currentProduct = useSelector(selectProductsInBucket).find((item) => item.id === id);
+  const currentProduct = useSelector(selectProductsInCart).find((item) => item.id === id);
   setTimeout(() => dispatch(closeModal()), 5000);
 
   return (
@@ -27,8 +27,8 @@ const ModalProductAddition = ({ id }: { id: number }) => {
             <p className="description">{currentProduct?.title}</p>
             <BasicPriceProduct cost={currentProduct.cost} />
           </div>
-          <ButtonsAddOneUnit id={currentProduct.id} />
-          <Link to="/bucket" className="btn white">
+          <ButtonAddOneUnit id={currentProduct.id} />
+          <Link to="/Cart" className="btn white">
             Перейти в корзину
           </Link>
         </div>
@@ -37,4 +37,4 @@ const ModalProductAddition = ({ id }: { id: number }) => {
   );
 };
 
-export default ModalProductAddition;
+export default ModalAddProduct;

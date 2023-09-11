@@ -2,12 +2,12 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Product } from '../../models/product';
 import { RootState } from '../store';
 
-export interface ModalAddition {
+export interface ModalAdditionProductState {
   isOpen: boolean;
   idProduct: number;
 }
 
-const initialState: ModalAddition = {
+const initialState: ModalAdditionProductState = {
   isOpen: false,
   idProduct: 0,
 };

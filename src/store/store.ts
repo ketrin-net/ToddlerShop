@@ -1,10 +1,10 @@
-import { bucketReducer } from './reducers/bucketSlice';
+import { cartReducer } from './reducers/cartSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { modalAdditionReducer } from './reducers/modalAdditionSlice';
 
 export const store = configureStore({
   reducer: {
-    bucket: bucketReducer,
+    cart: cartReducer,
     ModalAddition: modalAdditionReducer,
   },
 });

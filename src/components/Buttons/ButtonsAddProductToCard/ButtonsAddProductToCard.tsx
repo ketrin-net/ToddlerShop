@@ -1,19 +1,18 @@
 import { Product } from '../../../models/product';
-import { addProductInBucket } from '../../../store/reducers/bucketSlice';
+import { addProductInCart } from '../../../store/reducers/cartSlice';
 import { openModal } from '../../../store/reducers/modalAdditionSlice';
 import { useDispatch } from 'react-redux';
-import ModalProductAddition from '../../ModalProductAddition/ModalProductAddition';
 import React from 'react';
 
-interface ButtonsAddProductToCardProps {
+interface ButtonAddProductToCartProps {
   product: Product;
 }
 
-const ButtonsAddProductToCard = (props: ButtonsAddProductToCardProps) => {
+const ButtonAddProductToCart = (props: ButtonAddProductToCartProps) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(openModal({ id: props.product.id }));
-    dispatch(addProductInBucket(props.product));
+    dispatch(addProductInCart(props.product));
   };
 
   return (
@@ -25,4 +24,4 @@ const ButtonsAddProductToCard = (props: ButtonsAddProductToCardProps) => {
   );
 };
 
-export default ButtonsAddProductToCard;
+export default ButtonAddProductToCart;

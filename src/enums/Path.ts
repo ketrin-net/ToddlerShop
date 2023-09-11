@@ -1,6 +1,6 @@
 export enum Path {
   HomePage = '/',
-  BucketPage = 'bucket',
+  CartPage = 'cart',
   CheckoutPage = 'checkout',
   PaymentPage = 'payment',
   RegistrationPage = 'registration',

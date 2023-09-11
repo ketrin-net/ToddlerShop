@@ -1,13 +1,13 @@
 import './TotalAmountPrice.scss';
 import { Link } from 'react-router-dom';
-import { selectCountProductsInBucket, totalCostProductsInBucket } from '../../../../store/reducers/bucketSlice';
+import { selectCountProductsInCart, totalCostProductsInCart } from '../../../../store/reducers/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import moneyIcon from '../../assets/moneyIconGray.svg';
 
 const TotalAmountPrice = () => {
-  const totalCost = useSelector(totalCostProductsInBucket);
-  const productsCountInBucket = useSelector(selectCountProductsInBucket);
+  const totalCost = useSelector(totalCostProductsInCart);
+  const productsCountInCart = useSelector(selectCountProductsInCart);
 
   return (
     <div id="total-amount-price">
@@ -16,7 +16,7 @@ const TotalAmountPrice = () => {
         <button className="btn blue">Применить</button>
       </div>
       <div className="sum-cost">
-        <span>Количество ({productsCountInBucket})</span>
+        <span>Количество ({productsCountInCart})</span>
         <span>
           {totalCost} <img src={moneyIcon} alt="moneyIcon" />
         </span>
