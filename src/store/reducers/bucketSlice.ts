@@ -5,12 +5,18 @@ import { enableMapSet } from 'immer';
 
 enableMapSet();
 
+const item = localStorage.getItem('products') !== null ? JSON.parse(localStorage.getItem('products') as string) : [];
+
+const setItemFunc = (item: Array<Product & { count: number }>) => {
+  localStorage.setItem('products', JSON.stringify(item));
+};
+
 export interface Bucket {
-  products: Map<number, Product & { count: number }>;
+  products: Array<Product & { count: number }>;
 }
 
 const initialState: Bucket = {
-  products: new Map<number, Product & { count: number }>([]),
+  products: item,
 };
 
 export const bucketSlice = createSlice({
@@ -18,21 +24,30 @@ export const bucketSlice = createSlice({
   initialState,
   reducers: {
     addProductInBucket: (state, action: PayloadAction<Product>) => {
-      const item = state.products.get(action.payload.id);
+      const prod = state.products.find((item) => item.id === action.payload.id);
 
-      if (item === undefined) {
-        state.products.set(action.payload.id, { ...action.payload, count: 1 });
+      if (prod === undefined) {
+        state.products.push({ ...action.payload, count: 1 });
       }
+
+      setItemFunc(state.products);
     },
     changeCountProduct: (state, action: PayloadAction<{ id: number; addOrDelete: boolean }>) => {
-      const item = state.products.get(action.payload.id);
+      const prod = state.products.find((item) => item.id === action.payload.id);
 
-      if (item !== undefined) {
-        item.count = action.payload.addOrDelete ? item.count + 1 : item.count > 0 ? item.count - 1 : item.count;
+      if (prod !== undefined) {
+        prod.count = action.payload.addOrDelete ? prod.count + 1 : prod.count > 1 ? prod.count - 1 : prod.count;
       }
+
+      setItemFunc(state.products);
     },
     deleteProductInBucket: (state, action: PayloadAction<{ id: number }>) => {
-      state.products.delete(action.payload.id);
+      let prod = state.products.find(item => item.id === action.payload.id);
+      const indexProd = state.products.findIndex(item => item === prod);
+
+      state.products.splice(indexProd, 1);
+
+      setItemFunc(state.products);
     },
   },
 });
@@ -60,7 +75,5 @@ export const totalCostProductsInBucket = (state: RootState): number => {
 
   return allCost;
 };
-
-// export const getProsuctInBucketById = (state: RootState, id: number) => state.bucket.products.get(id);
 
 export const bucketReducer = bucketSlice.reducer;

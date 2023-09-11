@@ -11,27 +11,27 @@ import React from 'react';
 import SwitchHeart from '../SwitchHeart';
 import moneyIconGray from './assets/moneyIconGray.svg';
 
-export const ProductCard = (item: Product) => {
+export const ProductCard = (prod: Product) => {
   const matchesMobile = useMediaQuery('(min-width: 1025px)');
   const allProductsInBucket = useSelector(selectProductsInBucket);
-  const almostInBucket = allProductsInBucket.has(item.id);
+  const almostInBucket = allProductsInBucket.find((item) => item.id === prod.id);
 
   return (
     <div className="product-card">
       <SwitchHeart />
-      {item.iconNew && <div className="icon-new">NEW</div>}
-      <img src={item.imgSrc} alt={item.imgAlt} className="poster" />
-      <p className="title">{item.title}</p>
+      {prod.iconNew && <div className="icon-new">NEW</div>}
+      <img src={prod.imgSrc} alt={prod.imgAlt} className="poster" />
+      <p className="title">{prod.title}</p>
       <div className="price">
-        <BasicPriceProduct cost={item.cost} />
-        {item.oldCost && (
+        <BasicPriceProduct cost={prod.cost} />
+        {prod.oldCost && (
           <div className="old-price">
-            <span>{item.oldCost}</span>
+            <span>{prod.oldCost}</span>
             <img src={moneyIconGray} alt="moneyIconGray" />
           </div>
         )}
       </div>
-      {almostInBucket === false ? <ButtonsAddProductToCard product={item} /> : <ButtonsAddOneUnit id={item.id} />}
+      {almostInBucket === undefined ? <ButtonsAddProductToCard product={prod} /> : <ButtonsAddOneUnit id={prod.id} />}
       <Link to="/orders" className="buy-click">
         Купить в {matchesMobile ? '' : <br />} один клик
       </Link>

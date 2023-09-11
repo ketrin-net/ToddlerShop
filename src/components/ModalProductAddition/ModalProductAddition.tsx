@@ -11,7 +11,7 @@ import iconClose from './assets/iconX.svg';
 
 const ModalProductAddition = ({ id }: { id: number }) => {
   const dispatch = useDispatch();
-  const currentProduct = useSelector(selectProductsInBucket).get(id);
+  const currentProduct = useSelector(selectProductsInBucket).find((item) => item.id === id);
   setTimeout(() => dispatch(closeModal()), 5000);
 
   return (

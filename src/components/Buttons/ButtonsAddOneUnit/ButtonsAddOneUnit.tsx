@@ -7,14 +7,14 @@ import plus from './assets/plus.svg';
 
 const ButtonsAddOneUnit = ({ id }: { id: number }) => {
   const dispatch = useDispatch();
-  const allProductsInBucket = useSelector(selectProductsInBucket);
+  const quantityProduc = useSelector(selectProductsInBucket).find((item) => item.id === id)?.count;
 
   return (
     <div className="btns-add-delete-unit">
       <button onClick={() => dispatch(changeCountProduct({ id: id, addOrDelete: false }))}>
         <img src={minus} alt="minus" />
       </button>
-      <div className="amount">{allProductsInBucket.get(id)?.count}</div>
+      <div className="amount">{quantityProduc}</div>
       <button onClick={() => dispatch(changeCountProduct({ id: id, addOrDelete: true }))}>
         <img src={plus} alt="plus" />
       </button>
