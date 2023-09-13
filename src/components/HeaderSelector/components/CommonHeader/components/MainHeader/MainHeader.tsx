@@ -1,6 +1,6 @@
 import { AppColor } from '../../../../../../enums';
-import { BucketButton } from '../../../BucketButton/BucketButton';
 import { CabinetButton } from '../../../CabinetButton/CabinetButton';
+import { CartButton } from '../../../BucketButton/BucketButton';
 import { GoodsCatalogMenu } from '../../../GoodsCatalogMenu/GoodsCatalogMenu';
 import { Logo } from '../../../../../Logo/Logo';
 import { SearchInput } from '../../../SearchInput/SearchInput';
@@ -25,7 +25,7 @@ export const MainHeader = ({ switchModal, modalIsOpen }: MainHeaderProps) => {
       <GoodsCatalogMenu switchModal={switchModal} modalIsOpen={modalIsOpen} />
       <SearchInput />
       <CabinetButton />
-      <BucketButton />
+      <CartButton />
     </StyledMainHeader>
   );
 };

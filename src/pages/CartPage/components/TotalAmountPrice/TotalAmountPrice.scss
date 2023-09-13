@@ -1,0 +1,72 @@
+@import '../../../../variables';
+
+#total-amount-price {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 346px;
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid  rgb(34, 53, 64, 0.16);
+
+  .promo-code {
+    width: 282px;
+    display: flex;
+    flex-direction: row;
+
+    input {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      width: 124px;
+      padding: 13px;
+    }
+
+    .btn {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+  }
+
+  .sum-cost {
+    padding: 24px 0px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(34, 53, 64, 0.16);
+
+    img {
+      width: 9px;
+      height: 13px;
+    }
+
+    &.sale {
+      padding-bottom: 0px;
+      border-bottom: none;
+    }
+
+    &.total {
+      padding-top: 0px;
+      margin-top: 16px;
+      border-bottom: none;
+
+      span {
+        font-size: 24px;
+      }
+
+      span.sum {
+        font-weight: 500;
+      }
+
+      img {
+        width: 11px;
+        height: 17px;
+      }
+    }
+  }
+
+  span {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+}

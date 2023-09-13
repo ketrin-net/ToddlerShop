@@ -1,0 +1,29 @@
+@import '../../../variables'; 
+
+.btns-add-delete-unit{
+    width: 136px;
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid $color-sea;
+    padding: 0px 19px;
+    display: flex;
+    justify-content: space-between;
+
+    .amount {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+    }
+
+    img{
+        width: 24px;
+        height: 24px;
+    }
+
+    button {
+        padding: 12px 0px;
+    }
+}

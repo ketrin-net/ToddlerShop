@@ -2,7 +2,7 @@ import { AppColor, AppFont } from '../../../../enums';
 import { styled } from 'styled-components';
 import React, { useState } from 'react';
 
-export const BucketButton = () => {
+export const CartButton = () => {
   const [cartQuantity, setCartQuantity] = useState(1);
 
   return (

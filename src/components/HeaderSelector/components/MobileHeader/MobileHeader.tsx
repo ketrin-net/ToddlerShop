@@ -1,5 +1,5 @@
 import { AppColor } from '../../../../enums';
-import { BucketButton } from '../BucketButton/BucketButton';
+import { CartButton } from '../BucketButton/BucketButton';
 import { Description } from '../../../Description/Description';
 import { Logo } from '../../../Logo/Logo';
 import { MobileModal } from './components/MobileModal/MobileModal';
@@ -38,7 +38,7 @@ export const MobileHeader = () => {
         </StyledButton>
         <Logo />
         <Description />
-        <BucketButton />
+        <CartButton />
       </StyledMainHeader>
       <SearchInput />
       <MobileModal isNavOpen={navModalIsOpen} onRequestClose={closeModal} isGoodsModalOpen={goodsModalIsOpen} openGoodsModal={openGoodsModal} />

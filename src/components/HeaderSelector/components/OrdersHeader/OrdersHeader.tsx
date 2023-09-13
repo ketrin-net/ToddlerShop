@@ -1,4 +1,3 @@
-import { BucketButton } from '../BucketButton/BucketButton';
 import { CabinetButton } from '../CabinetButton/CabinetButton';
 import { Description } from '../../../Description/Description';
 import { GoodsCatalogMenu } from '../GoodsCatalogMenu/GoodsCatalogMenu';

@@ -9,7 +9,7 @@ export const PromoAction = () => {
     <div className="promo-action-homepage">
       <div className="back-color"></div>
       <picture>
-        <source srcSet={PromoActionChild} media="(min-width: 851px)" />
+        <source srcSet={PromoActionChild} media="(min-width: 851px)" className="poster" />
         <img src={PromoActionChildMobile} alt="PromoActionChild" className="poster" />
       </picture>
       <div className="section">

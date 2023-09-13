@@ -2,11 +2,12 @@
 
 .product-card {
     position: relative;
+    margin: auto;
     width: 346px;
     min-height: 510px;
     border-radius: 12px;
     background: #FFF;
-    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.04);
     padding: 24px 56px;
     display: flex;
     flex-direction: column;
@@ -54,15 +55,6 @@
         gap: 8px;
         line-height: 32px;
 
-        .basic-price {
-            color: $color-blue;
-            font-size: 24px;
-            font-weight: 600;
-
-            display: flex;
-            gap: 8px;
-        }
-
         .old-price {
             position: relative;
             color: $color-sea;
@@ -91,8 +83,8 @@
         margin-top: 16px;
     }
 
-    .buy-click {
-        opacity: 0.8;
+    .btns-add-delete-unit {
+        margin-top: 24px;
     }
 }
 
@@ -110,7 +102,7 @@
         }
 
         .heart-switch {
-            right: 0px;
+            right: 5px;
             top: 0px;
         }
 
@@ -140,7 +132,11 @@
             margin-top: 25px;
         }
 
-        .buyClick {
+        .buy-click {
+            margin-top: 12px;
+        }
+
+        .btns-add-delete-unit {
             margin-top: 12px;
         }
     }

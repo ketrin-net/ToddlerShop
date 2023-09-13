@@ -40,8 +40,22 @@ button {
         background-color: $color-blue;
     }
 
+    &.blue:hover {
+        background-color: rgb(127, 201, 240, 0.9);
+    }
+
     &.sea {
         background-color: $color-sea;
+    }
+
+    &.white {
+        color: $color-sea;
+        background-color: white;
+        border: 1px solid $color-sea;
+    }
+
+    &.white:hover {
+        background-color: rgba(68, 107, 128, 0.16);
     }
 }
 
@@ -58,6 +72,19 @@ p {
     font-size: 18px;
     font-weight: 500;
     line-height: 28px;
+}
+
+input {
+    border: 1px solid rgb(68, 107, 128, 0.4);
+    border-radius: 12px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 400;
+    outline: none;
+}
+
+input::placeholder {
+    opacity: 0.64;
 }
 
 @media (min-width: 851px) {

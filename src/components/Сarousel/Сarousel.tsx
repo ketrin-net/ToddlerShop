@@ -10,10 +10,9 @@ import 'swiper/scss/navigation';
 
 interface СarouselProps {
   slidesCount: number;
+  spaceBetweenCard: number;
   children?: ReactNode | ReactNode[];
 }
-
-const spaceBetweenCard = 24;
 
 const SwiperNavButtons = () => {
   const swiper = useSwiper();
@@ -30,7 +29,7 @@ const SwiperNavButtons = () => {
   );
 };
 
-export const Сarousel = ({ children, slidesCount }: СarouselProps) => {
+export const Сarousel = ({ children, slidesCount, spaceBetweenCard }: СarouselProps) => {
   return (
     <Swiper slidesPerView={slidesCount} spaceBetween={spaceBetweenCard} modules={[Navigation]} className="mySwiper">
       {React.Children.map(children, (item, index) => (
