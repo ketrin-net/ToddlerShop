@@ -12,10 +12,12 @@ const saveAllProductsInStorage = (item: ProductInCart[]) => {
 
 export interface CartState {
   products: ProductInCart[];
+  isAppInitialized: boolean;
 }
 
 const initialState: CartState = {
   products: itemInStorage,
+  isAppInitialized: true,
 };
 
 export const cartSlice = createSlice({
@@ -24,9 +26,12 @@ export const cartSlice = createSlice({
   reducers: {
     addProductInCart: (state, action: PayloadAction<Product>) => {
       const prod = state.products.find((item) => item.id === action.payload.id);
-      state.products.push({ ...action.payload, count: 1, isDeleted: false });
 
-      saveAllProductsInStorage(state.products);
+      if (!prod) {
+        state.products.push({ ...action.payload, count: 1, isDeleted: false });
+
+        saveAllProductsInStorage(state.products);
+      }
     },
     changeCountProductInCart: (state, action: PayloadAction<{ id: number; addOrDelete: boolean }>) => {
       const prod = state.products.find((item) => item.id === action.payload.id);
@@ -42,6 +47,8 @@ export const cartSlice = createSlice({
 
       if (prod) {
         prod.isDeleted = true;
+        state.isAppInitialized = false;
+
         saveAllProductsInStorage(state.products);
       }
     },
@@ -50,20 +57,32 @@ export const cartSlice = createSlice({
 
       if (prod) {
         prod.isDeleted = false;
+        state.isAppInitialized = true;
+
         saveAllProductsInStorage(state.products);
       }
     },
     deleteProductInCart: (state, action: PayloadAction<{ id: number }>) => {
       state.products = state.products.filter((item) => item.id !== action.payload.id);
+      state.isAppInitialized = false;
+
+      saveAllProductsInStorage(state.products);
+    },
+    initApp: (state) => {
+      state.products = state.products.filter((item) => item.isDeleted === false);
+      state.isAppInitialized = true;
 
       saveAllProductsInStorage(state.products);
     },
   },
 });
 
-export const { addProductInCart, changeCountProductInCart, hiddenProductInCart, deleteProductInCart, cancelDeleteProductInCart } = cartSlice.actions;
+export const { addProductInCart, changeCountProductInCart, hiddenProductInCart, deleteProductInCart, cancelDeleteProductInCart, initApp } =
+  cartSlice.actions;
 
 export const selectProductsInCart = (state: RootState) => state.cart.products;
+
+export const checkAppInitialized = (state: RootState) => state.cart.isAppInitialized;
 
 export const selectCountProductsInCart = (state: RootState): number => {
   return state.cart.products

@@ -75,13 +75,6 @@ export const popularProducts: Product[] = [
 ];
 
 const CartPage = () => {
-  useEffect(() => {
-    const products: ProductInCart[] = JSON.parse(localStorage.getItem('products') as string);
-    const updatedProducts = products.filter((i) => !i.isDeleted);
-
-    localStorage.setItem('products', JSON.stringify(updatedProducts));
-  }, []);
-
   const productsCountInCart = useSelector(selectCountProductsInCart);
 
   return (
