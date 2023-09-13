@@ -69,7 +69,7 @@ export const cartSlice = createSlice({
       saveAllProductsInStorage(state.products);
     },
     initApp: (state) => {
-      state.products = state.products.filter((item) => item.isDeleted === false);
+      state.products = state.products.filter((item) => !item.isDeleted);
       state.isAppInitialized = true;
 
       saveAllProductsInStorage(state.products);
