@@ -1,4 +1,4 @@
-import './CardProductInOrderCart.scss';
+import './CardProductInOrder.scss';
 import { BasicPriceProduct } from '../../../../components/BasicPriceProduct/BasicPriceProduct';
 import { ProductInCart, cancelDeleteProductInCart, deleteProductInCart, hiddenProductInCart } from '../../../../store/reducers/cartSlice';
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,6 @@ interface OrderProductCardProps {
 
 const OrderProductCard = (props: OrderProductCardProps) => {
   const dispatch = useDispatch();
-  const [isDeleted, setIsDeleted] = useState(true);
 
   return (
     <>
