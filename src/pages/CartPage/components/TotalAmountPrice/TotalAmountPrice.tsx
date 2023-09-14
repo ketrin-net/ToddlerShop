@@ -33,7 +33,7 @@ const TotalAmountPrice = () => {
           {totalCost} <img src={moneyIcon} alt="moneyIcon" />
         </span>
       </div>
-      <Link to="/orders" className="btn blue">
+      <Link to="/checkout" className="btn blue go-order">
         Перейти к оформлению
       </Link>
     </div>

@@ -57,11 +57,23 @@ button {
     &.white:hover {
         background-color: rgba(68, 107, 128, 0.16);
     }
+
+    &.white-delivery {
+        color: $color-sea;
+        background-color: white;
+        border: 1px solid rgb(34, 53, 64, 0.16);
+    }
+
+    &.white-delivery-active {
+        color: $color-sea;
+        background-color: white;
+        border: 1px solid $color-blue;
+    }
 }
 
 span {
     &.title {
-        font-family: Balsamiq Sans;
+        font-family: $text-title;
         font-size: 80px;
         font-weight: 400;
         line-height: 88px;
@@ -75,6 +87,8 @@ p {
 }
 
 input {
+    padding: 18px 24px;
+    height: 64px;
     border: 1px solid rgb(68, 107, 128, 0.4);
     border-radius: 12px;
     background-color: white;
@@ -87,10 +101,69 @@ input::placeholder {
     opacity: 0.64;
 }
 
-@media (min-width: 851px) {
+.form_radio {
+    position: relative;
+    margin-top: 24px;
+
+    input[type=radio] {
+        display: none;
+    }
+
+    label {
+        height: 40px;
+        display: inline-block;
+        cursor: pointer;
+        padding-left: 50px;
+        padding-top: 7px;
+        line-height: 18px;
+        user-select: none;
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    label:before {
+        content: "";
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        background: url(./assets/radioBtn.svg) 0 0 no-repeat;
+    }
+
+    input[type=radio]:checked+label:before {
+        background: url(./assets/radioBtnClick.svg) 0 0 no-repeat;
+    }
+}
+
+textarea {
+    padding: 18px 24px;
+    width: 100%;
+    min-height: 96px;
+    resize: none;
+    border: 1px solid rgb(68, 107, 128, 0.4);
+    border-radius: 12px;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+textarea::placeholder {
+    font-size: 18px;
+    line-height: 28px;
+    opacity: 0.64;
+}
+
+@media (max-width: 1439px){
+    .main {
+        margin: 0px 50px;
+    }
 }
 
 @media (max-width: 850px) {
+    .main {
+        margin: 21px 16px;
+    }
 
     span {
         &.title {

@@ -1,6 +1,6 @@
 import { selectProductsInCart } from '../../../../store/reducers/cartSlice';
 import { useSelector } from 'react-redux';
-import OrderProductCard from '../CardProductInOrderCart/CardProductInOrder';
+import OrderProductCard from '../CardProductInOrder/CardProductInOrder';
 import React, { useState } from 'react';
 
 const TableProductsInCart = () => {

@@ -1,0 +1,66 @@
+@import '../../variables';
+
+
+.main-checkoutpage{
+  margin: 32px auto;
+  max-width: 1456px;
+  display: flex;
+
+  .header {
+    font-family: $text-title;
+    font-size: 48px;
+    line-height: 58px;
+    margin-bottom: 16px;
+  }
+
+  .checkout-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+
+    .title-input {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+    }
+
+    input {
+      &.btn {
+        border: none;
+      }
+    }
+
+    .in-city {
+      margin-top: 32px;
+      width: 469px;
+    }
+
+    .checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+
+      .in-comment {
+        margin-top: 32px;
+      }
+    }
+  }
+
+  #total-amount-price {
+    margin-top: 138px;
+
+    .btn.go-order {
+      display: none;
+    }
+  }
+
+  .choose-delivery-type {
+    display: flex;
+    justify-content: space-between;
+
+    .btn.white-delivery{
+      padding: 0px;
+    }
+  }
+}

@@ -1,12 +1,13 @@
 import './App.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HeaderSelector } from './components/HeaderSelector/HeaderSelector';
 import { HomePage } from './pages/HomePage/HomePage';
 import { Path } from './enums';
-import { checkAppInitialized, initApp } from './store/reducers/cartSlice';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { cleanCart } from './store/reducers/cartSlice';
 import { modalInfo } from './store/reducers/modalAdditionSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CartPage from './pages/CartPage/CartPage';
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 import ModalAddProduct from './components/ModalProductAddition/ModalProductAddition';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect } from 'react';
@@ -16,23 +17,21 @@ export interface AppProps {}
 export const App = (props: AppProps) => {
   const dispatch = useDispatch();
   const modalOpen = useSelector(modalInfo);
-  const checkProducts = useSelector(checkAppInitialized);
+  const location = useLocation().pathname;
 
   useEffect(() => {
-    if (checkProducts) {
-      dispatch(initApp());
-    }
-  }, [dispatch, checkProducts]);
+    dispatch(cleanCart());
+  }, [dispatch, location]);
 
   return (
     <>
-      <BrowserRouter>
-        {modalOpen.isOpen && <ModalAddProduct id={modalOpen.idProduct} />}
-        <HeaderSelector />
+      {modalOpen.isOpen && <ModalAddProduct id={modalOpen.idProduct} />}
+      <HeaderSelector />
+      <div className="main">
         <Routes>
           <Route path={Path.HomePage} element={<HomePage />} />
           <Route path={Path.CartPage} element={<CartPage />} />
-          <Route path={Path.CheckoutPage} element={<div>CheckoutPage</div>} />
+          <Route path={Path.CheckoutPage} element={<CheckoutPage />} />
           <Route path={Path.PaymentPage} element={<div>PaymentPage</div>} />
           <Route path={Path.RegistrationPage} element={<div>RegistrationPage</div>} />
           <Route path={Path.RestorePasswordPAge} element={<div>RestorePasswordPAge</div>} />
@@ -61,7 +60,7 @@ export const App = (props: AppProps) => {
           <Route path={Path.ReturnGoodsPage} element={<div>ReturnGoodsPage</div>} />
           <Route path={Path.NotFoundPage} element={<NotFoundPage />} />
         </Routes>
-      </BrowserRouter>
+      </div>
     </>
   );
 };

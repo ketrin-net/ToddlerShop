@@ -10,7 +10,6 @@ import React from 'react';
 
 export const HeaderSelector = () => {
   const matches = useMediaQuery('(max-width: 480px)');
-  const location = useLocation();
 
   return (
     <>

@@ -1,0 +1,40 @@
+
+.order-composition {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 39px;
+  }
+
+  .product-info {
+    display: flex;
+    gap: 24px;
+
+    img {
+      width: 99px;
+      height: 114px;
+    }
+
+    .product-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      gap: 16px;
+
+      .count {
+        font-size: 18px;
+        font-weight: 400;
+        color: rgb(68, 107, 128, 0.64);
+      }
+
+      .product-title {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+  }
+}

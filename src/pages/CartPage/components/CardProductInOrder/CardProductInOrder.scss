@@ -1,0 +1,146 @@
+@import '../../../../variables';
+
+.card-product-in-order {
+    width: 1041px;
+    display: flex;
+    padding: 24px 0px;
+    border-bottom: 1px solid rgb(34, 53, 64, 0.16);
+
+    .info {
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 346px 1fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+
+        .in-stock {
+            grid-area: span 3;
+            align-self: end;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 28px;
+
+            &.true {
+                color: $color-blue;
+            }
+
+            &.false {
+                color: $color-sea;
+            }
+        }
+
+        .btns-add-delete-unit{
+            margin-left: 111px;
+        }
+        
+        .basic-price-product {
+            margin-left: 48px;
+            margin-top: 8px;
+        }
+    }
+    
+    .poster {
+        margin-right: 24px;
+        width: 99px;
+        height: 114px;
+        flex-shrink: 0;
+    }
+
+    .title{ 
+        font-weight: 400;
+    }
+
+    .interaction-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    &.delete {
+        height: 104px;
+        display: flex;
+        align-items: flex-start;
+
+        p {
+            font-weight: 400;
+            flex-grow: 1;
+        }
+
+        .cancel {
+            margin-right: 64px;
+            color: $color-blue;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .card-product-in-order {
+        width: 332px;
+        padding: 22px 0px;
+
+        .info {
+            display: flex;
+            flex-direction: column;
+
+            .in-stock {
+                align-self: flex-start;
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .btns-add-delete-unit {
+                margin-left: 0px;
+                order: 2;
+            }
+
+            .basic-price-product {
+                order: -1;
+                margin: 0px 0px 5px 0px;
+                justify-content: flex-start;
+            }
+        }
+
+        .poster {
+            margin-top: 31px;
+            margin-right: 29px;
+            width: 94px;
+            height: 107px;
+            flex-shrink: 0;
+        }
+
+        .title {
+            font-size: 14px;
+            line-height: 22px;
+            margin-bottom: 5px;
+        }
+
+        .interaction-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        &.delete {
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+
+            p {
+                font-size: 14px;
+                line-height: 22px;
+            }
+
+            .cancel {
+                font-size: 14px;
+                margin-top: 21px;
+                margin-right: 0px;
+            }
+
+            .icon-x {
+                align-self: flex-end;
+            }
+        }
+    }
+
+}

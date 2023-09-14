@@ -41,7 +41,7 @@ const OrderProductCard = (props: OrderProductCardProps) => {
           <button className="cancel" onClick={() => dispatch(cancelDeleteProductInCart({ id: props.product.id }))}>
             Отменить
           </button>
-          <button onClick={() => dispatch(deleteProductInCart({ id: props.product.id }))}>
+          <button className="icon-x" onClick={() => dispatch(deleteProductInCart({ id: props.product.id }))}>
             <img src={iconX} alt="iconX" />
           </button>
         </div>
