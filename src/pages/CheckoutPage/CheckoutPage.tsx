@@ -1,5 +1,6 @@
 import './CheckoutPage.scss';
 import { CheckoutForm } from './components/interfaces/CheckoutForm';
+import { EnumTypeDelivery } from './components/enum/EnumTypeDelivery';
 import { RegisterOptions, SubmitHandler, UseFormRegisterReturn, useForm } from 'react-hook-form';
 import BtnDeliveryType from './components/BtnDeliveryType/BtnDeliveryType';
 import DeliveryForm from './components/DeliveryForm/DeliveryForm';
@@ -9,13 +10,13 @@ import TotalAmountPrice from '../CartPage/components/TotalAmountPrice/TotalAmoun
 
 const CheckoutPage = () => {
   const { register, handleSubmit, setValue } = useForm<CheckoutForm>();
-  const [typeDelivery, setTypeDelivery] = useState('transportCompany');
+  const [typeDelivery, setTypeDelivery] = useState(EnumTypeDelivery.transportCompany);
 
   const submit: SubmitHandler<CheckoutForm> = (forma) => {
     console.log(forma);
   };
 
-  const setMethodReceiving = (value: string) => {
+  const setMethodReceiving = (value: EnumTypeDelivery) => {
     setTypeDelivery(value);
     setValue('methodReceiving', value);
   };
@@ -30,26 +31,24 @@ const CheckoutPage = () => {
             Город получателя <br /> <input placeholder="Населенный пункт" type="text" {...register('city')} className="in-city" />
           </label>
           <div className="choose-delivery-type">
-            <button type="button" onClick={() => setMethodReceiving('transportCompany')} className="btn white-delivery">
+            <button
+              type="button"
+              onClick={() => setMethodReceiving(EnumTypeDelivery.transportCompany)}
+              className={typeDelivery !== EnumTypeDelivery.transportCompany ? 'btn white-delivery' : 'btn white-delivery-active'}
+            >
               <BtnDeliveryType title={'Транспортной компанией'} description={'СДЕК, Деловые линии'} costDelivery={'Цена зависит от выбора ТК'} />
             </button>
             <button
               type="button"
-              onClick={() => {
-                setTypeDelivery('postOffice');
-                setValue('methodReceiving', 'postOffice');
-              }}
-              className="btn white-delivery"
+              onClick={() => setMethodReceiving(EnumTypeDelivery.postOffice)}
+              className={typeDelivery !== EnumTypeDelivery.postOffice ? 'btn white-delivery' : 'btn white-delivery-active'}
             >
               <BtnDeliveryType title={'Почтой'} description={'В ближайшее отделение почти России'} costDelivery={'Бесплатно'} />
             </button>
             <button
               type="button"
-              onClick={() => {
-                setTypeDelivery('pickup');
-                setValue('methodReceiving', 'pickup');
-              }}
-              className="btn white-delivery"
+              onClick={() => setMethodReceiving(EnumTypeDelivery.pickup)}
+              className={typeDelivery !== EnumTypeDelivery.pickup ? 'btn white-delivery' : 'btn white-delivery-active'}
             >
               <BtnDeliveryType title={'Самовывоз'} description={'В пункте выдачи'} costDelivery={'Бесплатно'} />
             </button>

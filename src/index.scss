@@ -62,12 +62,10 @@ button {
         color: $color-sea;
         background-color: white;
         border: 1px solid rgb(34, 53, 64, 0.16);
-    }
 
-    &.white-delivery-active {
-        color: $color-sea;
-        background-color: white;
-        border: 1px solid $color-blue;
+        &-active{
+            border: 1px solid $color-blue;
+        }
     }
 }
 

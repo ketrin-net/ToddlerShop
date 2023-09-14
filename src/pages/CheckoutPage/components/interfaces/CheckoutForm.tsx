@@ -1,8 +1,9 @@
+import { EnumTypeDelivery } from '../enum/EnumTypeDelivery';
 import React from 'react';
 
 export interface CheckoutForm {
   city: string;
-  methodReceiving: string;
+  methodReceiving: EnumTypeDelivery;
   transportCompany?: string;
   name: string;
   email?: string;
@@ -13,4 +14,4 @@ export interface CheckoutForm {
   methodPayment: string;
   comment?: string;
   approvalMailing: boolean;
-};
+}

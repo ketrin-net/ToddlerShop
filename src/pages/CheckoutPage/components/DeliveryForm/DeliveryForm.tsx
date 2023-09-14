@@ -1,17 +1,18 @@
 import './DeliveryForm.scss';
 import { CheckoutForm } from '../interfaces/CheckoutForm';
+import { EnumTypeDelivery } from '../enum/EnumTypeDelivery';
 import { UseFormRegister, useForm } from 'react-hook-form';
 import React from 'react';
 
 interface DeliveryFormProps {
-  typeDelivery: string;
+  typeDelivery: EnumTypeDelivery;
   register: UseFormRegister<CheckoutForm>;
 }
 
 const DeliveryForm = (props: DeliveryFormProps) => {
-  const delivPostOffice = props.typeDelivery === 'postOffice';
-  const delivTransportCompany = props.typeDelivery === 'transportCompany';
-  const delivPickup = props.typeDelivery === 'pickup';
+  const delivTransportCompany = props.typeDelivery === EnumTypeDelivery.transportCompany;
+  const delivPostOffice = props.typeDelivery === EnumTypeDelivery.postOffice;
+  const delivPickup = props.typeDelivery === EnumTypeDelivery.pickup;
 
   const register = props.register;
 
@@ -28,7 +29,7 @@ const DeliveryForm = (props: DeliveryFormProps) => {
         {delivPostOffice && <input type="text" placeholder="Дом* " {...register('house')} className="in-house" />}
         {delivPostOffice && <input type="text" placeholder="Квартира*" {...register('apartment')} className="in-apart" />}
         <input type="text" placeholder="Фамилия и имя по паспорту*" {...register('name')} className="in-name" />
-        <input type="text" placeholder="Электронная почта" {...register('email')} className="in-email" />
+        <input type="text" placeholder="Электронная почта*" {...register('email')} className="in-email" />
         <input type="text" placeholder="Телефон*" {...register('phone')} className="in-phone" />
       </div>
       <div>
