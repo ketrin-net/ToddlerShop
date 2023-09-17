@@ -4,7 +4,7 @@ import { ProductInCart, cancelDeleteProductInCart, deleteProductInCart, hiddenPr
 import { useDispatch } from 'react-redux';
 import ButtonAddOneUnit from '../../../../components/Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
 import React, { useState } from 'react';
-import SwitchHeart from '../../../../components/SwitchHeart';
+import SwitchHeart from '../../../../components/SwitchHeart/SwitchHeart';
 import iconTrash from '../../assets/iconTrash.svg';
 import iconX from '../../assets/iconX.svg';
 

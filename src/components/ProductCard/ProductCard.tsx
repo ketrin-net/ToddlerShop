@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import ButtonAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
 import ButtonAddProductToCart from '../Buttons/ButtonsAddProductToCard/ButtonsAddProductToCard';
 import React from 'react';
-import SwitchHeart from '../SwitchHeart';
+import SwitchHeart from '../SwitchHeart/SwitchHeart';
 import moneyIconGray from './assets/moneyIconGray.svg';
 
 export const ProductCard = (prod: Product) => {

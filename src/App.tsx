@@ -7,8 +7,8 @@ import { cleanCart } from './store/reducers/cartSlice';
 import { modalInfo } from './store/reducers/modalAdditionSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CartPage from './pages/CartPage/CartPage';
-import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 import ModalAddProduct from './components/ModalProductAddition/ModalProductAddition';
+import NewOrderPage from './pages/NewOrderPage/NewOrderPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect } from 'react';
 
@@ -23,6 +23,16 @@ export const App = (props: AppProps) => {
     dispatch(cleanCart());
   }, [dispatch, location]);
 
+  useEffect(() => {
+    const setZoom = () => {
+      if (window.matchMedia('(min-width: 780px) and (max-width: 1919px)').matches) {
+        (document.body.style as any).zoom = '80%';
+      }
+    };
+    setZoom();
+    window.addEventListener('resize', setZoom);
+  }, []);
+
   return (
     <>
       {modalOpen.isOpen && <ModalAddProduct id={modalOpen.idProduct} />}
@@ -31,7 +41,7 @@ export const App = (props: AppProps) => {
         <Routes>
           <Route path={Path.HomePage} element={<HomePage />} />
           <Route path={Path.CartPage} element={<CartPage />} />
-          <Route path={Path.CheckoutPage} element={<CheckoutPage />} />
+          <Route path={Path.NewOrderPage} element={<NewOrderPage />} />
           <Route path={Path.PaymentPage} element={<div>PaymentPage</div>} />
           <Route path={Path.RegistrationPage} element={<div>RegistrationPage</div>} />
           <Route path={Path.RestorePasswordPAge} element={<div>RestorePasswordPAge</div>} />

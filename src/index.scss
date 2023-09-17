@@ -93,6 +93,13 @@ input {
     font-size: 18px;
     font-weight: 400;
     outline: none;
+
+    &.error {
+        border: 1px solid $color-error;
+    }
+    &.correct {
+        border: 1px solid $color-blue;
+    }
 }
 
 input::placeholder {
@@ -132,6 +139,11 @@ input::placeholder {
 
     input[type=radio]:checked+label:before {
         background: url(./assets/radioBtnClick.svg) 0 0 no-repeat;
+    }
+
+    input[type=radio]:disabled+label:before {
+        filter: grayscale(100%);
+        opacity: 0.32;
     }
 }
 
