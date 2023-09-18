@@ -6,6 +6,7 @@ import WhatsappLogo from './assets/bx_bxl-whatsapp.png';
 import FbLogo from './assets/fb.png';
 import InstaLogo from './assets/ant-design_instagram-outlined.png';
 import VkLogo from './assets/vk.png';
+import { Path } from '../../enums';
 
 export const Footer = () => {
   return (
@@ -20,29 +21,29 @@ export const Footer = () => {
           </div>
         </div>
         <div className="footer-links">
-          <Link to="/about" className="click">
+          <Link to={Path.AboutUsPage} className="click">
             О нас
           </Link>
-          <Link to="/promos" className="click">
+          <Link to={Path.PromosPage} className="click">
             Акции
           </Link>
-          <Link to="/blog" className="click">
+          <Link to={Path.BlogsPage} className="click">
             Блог
           </Link>
-          <Link to="/contacts" className="click">
+          <Link to={Path.ContactsPage} className="click">
             Контакты
           </Link>
         </div>
         <div className="footer-links2">
-          <Link to="/return-goods" className="click">
+          <Link to={Path.ReturnGoodsPage} className="click">
             Возврат и гарантия
           </Link>
-          <Link to="/return-goods" className="click">
+          <Link to={Path.PaymentPage} className="click">
             Оплата и доставка
           </Link>
         </div>
         <div className="footer-links3">
-          <Link to="/wholesalers" className="click">
+          <Link to={Path.WholesalersPage} className="click">
             {' '}
             Оптовым клиентам
           </Link>
