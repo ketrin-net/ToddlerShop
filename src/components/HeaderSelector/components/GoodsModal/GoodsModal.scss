@@ -1,21 +1,35 @@
 .modal {
-    position: relative;
-    top: 116px; /* Расположение модального окна под хедером */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    width: 100%; /* Ширина модального окна */
-    // padding: 20px;
-    border-radius: 5px;
-  }
-  
-  /* Стили для оверлея (затемнения фона) */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999; /* Позиционируем выше остальных элементов */
-  }
+  position: relative;
+  top: 116px; /* Расположение модального окна под хедером */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  width: 100%; /* Ширина модального окна */
+  // padding: 20px;
+  border-radius: 5px;
+}
+
+/* Стили для оверлея (затемнения фона) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* Позиционируем выше остальных элементов */
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 700ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  overflow: hidden;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}

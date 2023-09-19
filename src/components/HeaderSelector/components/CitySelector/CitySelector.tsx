@@ -1,8 +1,9 @@
 import { AppColor, AppFont } from '../../../../enums';
+import { CustomSelect } from '../../../CustomSelect/CustomSelect';
 import { StylesConfig } from 'react-select/dist/declarations/src/styles';
 import { styled } from 'styled-components';
+import { useMediaQuery } from '../../../../customHooks/useMediaQuery';
 import React, { useState } from 'react';
-import Select, { MultiValue, SingleValue } from 'react-select';
 
 interface CityOption {
   value: string;
@@ -15,68 +16,58 @@ const cities: CityOption[] = [
   { value: 'novosibirsk', label: 'Новосибирск' },
 ];
 
-function isCityOption(object: MultiValue<CityOption> | SingleValue<CityOption>): object is CityOption {
-  return object !== null && 'value' in object && 'label' in object;
-}
-
-const customStyles: StylesConfig<CityOption> = {
-  control: (provided) => ({
-    ...provided,
-    border: 'none',
-    boxShadow: 'none',
-    whiteSpace: 'nowrap',
-    padding: '0',
-    cursor: 'pointer',
-  }),
-  dropdownIndicator: (provided) => ({
-    ...provided,
-    display: 'none',
-  }),
-  indicatorSeparator: () => ({
-    display: 'none',
-  }),
-  menu: (provided) => ({
-    ...provided,
-    width: 'auto',
-    maxWidth: 'max-content',
-    right: '30px',
-  }),
-
-  singleValue: (provided) => ({
-    ...provided,
-    whiteSpace: 'nowrap',
-    color: AppColor.Blue,
-    fontFamily: AppFont.Montserrat,
-    fontSize: '18px',
-    fontWeight: 500,
-    width: 'auto',
-    maxWidth: 'max-content',
-    // width: 'auto',
-  }),
-  valueContainer: (provided) => ({
-    ...provided,
-    padding: '0',
-  }),
-};
-
 export const CitySelector: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedCity, setSelectedCity] = useState<CityOption | null>({ value: 'moscow', label: 'Москва' });
+  const [selectedCity, setSelectedCity] = useState<CityOption>({ value: 'moscow', label: 'Москва' });
+  const matches = useMediaQuery('(max-width: 480px)');
 
-  const handleOnChange = (option: MultiValue<CityOption> | SingleValue<CityOption>) => {
-    if (isCityOption(option)) {
-      setSelectedCity(option);
-      setIsOpen(!isOpen);
-    }
+  const customStyles: StylesConfig<CityOption> = {
+    control: (provided) => ({
+      ...provided,
+      border: 'none',
+      boxShadow: 'none',
+      whiteSpace: 'nowrap',
+      padding: '0',
+      cursor: 'pointer',
+      backgroundColor: 'transparent',
+    }),
+    dropdownIndicator: (provided) => ({
+      ...provided,
+      display: 'none',
+    }),
+    indicatorSeparator: () => ({
+      display: 'none',
+    }),
+    menu: (provided) => ({
+      ...provided,
+      width: 'auto',
+      maxWidth: 'max-content',
+      right: matches ? '' : '0px',
+      top: matches ? '-150px' : '30px',
+      topleft: matches ? '0' : '',
+      zIndex: 10000,
+    }),
+
+    singleValue: (provided) => ({
+      ...provided,
+      whiteSpace: 'nowrap',
+      color: AppColor.Blue,
+      fontFamily: AppFont.Montserrat,
+      fontSize: '18px',
+      fontWeight: 500,
+      width: 'auto',
+      maxWidth: 'max-content',
+    }),
+    valueContainer: (provided) => ({
+      ...provided,
+      padding: '0',
+    }),
   };
 
   return (
     <CitySelectorWrapper>
       <StyledIcon className="material-symbols-outlined">location_on</StyledIcon>
       <StyledText>Город:</StyledText>
-      <div className="city-selector">
-        <Select options={cities} value={selectedCity} onChange={(option) => handleOnChange(option)} isSearchable={true} styles={customStyles} />
-      </div>
+      <CustomSelect options={cities} value={selectedCity} onChange={setSelectedCity} isSearchable={true} styles={customStyles} />
     </CitySelectorWrapper>
   );
 };

@@ -3,19 +3,35 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HeaderSelector } from './components/HeaderSelector/HeaderSelector';
 import { HomePage } from './pages/HomePage/HomePage';
 import { Path } from './enums';
+import { checkAppInitialized, initApp } from './store/reducers/cartSlice';
+import { modalInfo } from './store/reducers/modalAdditionSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import CartPage from './pages/CartPage/CartPage';
+import ModalAddProduct from './components/ModalProductAddition/ModalProductAddition';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export interface AppProps {}
 
 export const App = (props: AppProps) => {
+  const dispatch = useDispatch();
+  const modalOpen = useSelector(modalInfo);
+  const checkProducts = useSelector(checkAppInitialized);
+
+  useEffect(() => {
+    if (checkProducts) {
+      dispatch(initApp());
+    }
+  }, [dispatch, checkProducts]);
+
   return (
     <>
       <BrowserRouter>
+        {modalOpen.isOpen && <ModalAddProduct id={modalOpen.idProduct} />}
         <HeaderSelector />
         <Routes>
           <Route path={Path.HomePage} element={<HomePage />} />
-          <Route path={Path.BucketPAge} element={<div>BucketPAge</div>} />
+          <Route path={Path.CartPage} element={<CartPage />} />
           <Route path={Path.CheckoutPage} element={<div>CheckoutPage</div>} />
           <Route path={Path.PaymentPage} element={<div>PaymentPage</div>} />
           <Route path={Path.RegistrationPage} element={<div>RegistrationPage</div>} />
@@ -49,5 +65,3 @@ export const App = (props: AppProps) => {
     </>
   );
 };
-
-export default App;

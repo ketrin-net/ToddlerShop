@@ -2,7 +2,7 @@ import { AppColor, AppFont } from '../../../../enums';
 import { styled } from 'styled-components';
 import React, { useState } from 'react';
 
-export const BucketButton = () => {
+export const CartButton = () => {
   const [cartQuantity, setCartQuantity] = useState(1);
 
   return (
@@ -30,10 +30,20 @@ const StyledButton = styled.button`
   margin-left: 80px;
   cursor: pointer;
   flex-shrink: 0;
+
+  @media (max-width: 480px) {
+    margin-left: 61px;
+    margin-right: 8px;
+  }
 `;
 
 const StyledIcon = styled.span`
   color: ${AppColor.Blue};
+
+  @media (max-width: 480px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 const StyledText = styled.div`
@@ -41,6 +51,10 @@ const StyledText = styled.div`
   font-family: ${AppFont.Montserrat};
   font-size: 18px;
   font-weight: 400;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
 const CartIconContainer = styled.div`
@@ -59,9 +73,11 @@ const QuantityBadge = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${AppColor.Sea};
-  @media (max-width: 420px) {
+  @media (max-width: 480px) {
     width: 16px;
     height: 16px;
+    bottom: 16px;
+    left: 14px;
   }
 `;
 
@@ -74,7 +90,7 @@ const Quantity = styled.span`
   font-weight: 400;
 
   line-height: 88px;
-  @media (max-width: 420px) {
+  @media (max-width: 480px) {
     font-size: 14px;
   }
 `;

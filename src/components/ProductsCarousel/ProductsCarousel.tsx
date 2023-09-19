@@ -1,12 +1,14 @@
 import './ProductsCarousel.scss';
-import { ProductCard, ProductCardProps } from '../../../../components/ProductCard/ProductCard';
-import { Сarousel } from '../../../../components/Сarousel/Сarousel';
+import { Product } from '../../models/product';
+import { ProductCard } from '../ProductCard/ProductCard';
+import { Сarousel } from '../Сarousel/Сarousel';
 import React from 'react';
 
 interface ProductsCarouselProps {
   title: string;
-  products: ProductCardProps[];
+  products: Product[];
   slidesCount: number;
+  spaceBetweenCards: number;
 }
 
 export const ProductsCarousel = (props: ProductsCarouselProps) => {
@@ -14,7 +16,7 @@ export const ProductsCarousel = (props: ProductsCarouselProps) => {
     <div className="products-carousel">
       <div className="section">
         <span className="title">{props.title}</span>
-        <Сarousel slidesCount={props.slidesCount}>
+        <Сarousel slidesCount={props.slidesCount} spaceBetweenCard={props.spaceBetweenCards}>
           {props.products.map((item, i) => (
             <ProductCard
               imgSrc={item.imgSrc}
@@ -23,6 +25,8 @@ export const ProductsCarousel = (props: ProductsCarouselProps) => {
               cost={item.cost}
               oldCost={item.oldCost}
               iconNew={item.iconNew}
+              id={item.id}
+              inStock={item.inStock}
             />
           ))}
         </Сarousel>

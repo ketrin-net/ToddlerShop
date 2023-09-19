@@ -32,6 +32,10 @@ const StyledMenu = styled.button<StyledMenuProps>`
   margin-left: 44px;
   white-space: nowrap;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 const StyledText = styled.div`
