@@ -10,6 +10,7 @@ import CartPage from './pages/CartPage/CartPage';
 import ModalAddProduct from './components/ModalProductAddition/ModalProductAddition';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect } from 'react';
+import { Footer } from './components/Footer/Footer';
 
 export interface AppProps {}
 
@@ -61,6 +62,7 @@ export const App = (props: AppProps) => {
           <Route path={Path.ReturnGoodsPage} element={<div>ReturnGoodsPage</div>} />
           <Route path={Path.NotFoundPage} element={<NotFoundPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
