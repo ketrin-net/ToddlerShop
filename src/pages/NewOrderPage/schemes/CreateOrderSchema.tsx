@@ -14,8 +14,8 @@ export const CreateOrderSchema = yup.object().shape({
     .required()
     .matches(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/),
   street: yup.string().nullable(),
-  house: yup.string().matches(/^[0-10000]*$/),
-  apartment: yup.string().matches(/^[0-10000]*$/),
+  house: yup.string().matches(/^\d+$/),
+  apartment: yup.string().matches(/^\d+$/),
   methodPayment: yup.mixed<EnumMethodPayment>(),
   comment: yup.string(),
   approvalMailing: yup.boolean(),

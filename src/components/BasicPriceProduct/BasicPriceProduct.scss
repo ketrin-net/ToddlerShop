@@ -3,7 +3,6 @@
 .basic-price-product {
     font-size: 24px;
     font-weight: 600;
-    width: 102px;
     height: 32px;
     display: flex;
     justify-content: flex-end;
@@ -23,7 +22,6 @@
 @media (max-width: 850px) {
     .basic-price-product {
         font-size: 20px;
-        width: 97px;
         gap: 10px;
         
         img {

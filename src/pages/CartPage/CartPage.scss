@@ -27,31 +27,12 @@
     }
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 850px){
     .main-backetpage {
         width: auto;
         display: flex;
         flex-direction: column;
-        
-        .products-in-Cart {
-            align-self: center;
-            margin-bottom: 34px;
-        }
 
-        #total-amount-price {
-            width: 45%;
-            align-self: center;
-            margin-bottom: 73px;
-
-            .promo-code {
-                align-self: center;
-            }
-        }
-    }
-}
-
-@media (max-width: 850px){
-    .main-backetpage {
         .header {
             font-size: 30px;
             line-height: 43px;
@@ -64,7 +45,11 @@
         }
 
         #total-amount-price {
-            width: auto;
+            margin-bottom: 73px;
+
+            .promo-code {
+                align-self: center;
+            }
         }
     }
 }

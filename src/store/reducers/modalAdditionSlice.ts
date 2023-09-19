@@ -16,16 +16,16 @@ export const modalAdditionSlice = createSlice({
   name: 'modalAddition',
   initialState,
   reducers: {
-    openModal: (state, action: PayloadAction<{ id: number }>) => {
+    openModalAddition: (state, action: PayloadAction<{ id: number }>) => {
       state.isOpen = true;
       state.idProduct = action.payload.id;
     },
-    closeModal: (state) => {
+    closeModalAddition: (state) => {
       state.isOpen = false;
     },
   },
 });
 
-export const { openModal, closeModal } = modalAdditionSlice.actions;
+export const { openModalAddition, closeModalAddition } = modalAdditionSlice.actions;
 export const modalInfo = (state: RootState) => state.ModalAddition;
 export const modalAdditionReducer = modalAdditionSlice.reducer;

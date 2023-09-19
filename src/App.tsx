@@ -5,12 +5,14 @@ import { Path } from './enums';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { cleanCart } from './store/reducers/cartSlice';
 import { modalInfo } from './store/reducers/modalAdditionSlice';
+import { selectisOpenModalInfo } from './store/reducers/commonModalWindowSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CartPage from './pages/CartPage/CartPage';
+import CommonModalWindow from './components/CommonModalWindow/CommonModalWindow';
 import ModalAddProduct from './components/ModalProductAddition/ModalProductAddition';
 import NewOrderPage from './pages/NewOrderPage/NewOrderPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export interface AppProps {}
 
@@ -35,6 +37,7 @@ export const App = (props: AppProps) => {
 
   return (
     <>
+      
       {modalOpen.isOpen && <ModalAddProduct id={modalOpen.idProduct} />}
       <HeaderSelector />
       <div className="main">

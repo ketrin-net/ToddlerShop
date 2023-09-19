@@ -1,3 +1,5 @@
+@import '../../../../variables';
+
 .delivery-form {
   display: flex;
   flex-direction: column;
@@ -6,7 +8,56 @@
   .choose-company {
     display: flex;
     flex-direction: column;
-    gap: 36px;
+
+    .list {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .cost-delivery{
+      margin-top: 24px;
+      font-size: 24px;
+      line-height: 28px;
+      display: flex;
+      gap: 8px;
+
+      .price {
+        font-weight: 500;
+      }
+
+      img {
+        width: 11px;
+        height: 17px;
+      }
+    }
+
+    .adress-select {
+      margin-top: 32px;
+      font-size: 18px;
+      font-weight: 500;
+      color: $color-blue;
+    }
+
+    select {
+      margin-top: 16px;
+    }
+  }
+
+  .adress-pickup {
+    display: flex;
+    flex-direction: column;
+
+    .title-input {
+      margin-bottom: 32px;
+    }
+
+    span {
+      font-size: 18px;
+      line-height: 28px;
+      margin-top: 16px;
+    }
   }
   
   .choose-adress {
@@ -26,6 +77,56 @@
 
     .in-name {
       grid-column: span 2;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .delivery-form {
+    gap: 55px;
+
+    .choose-company {
+      .list {
+        gap: 20px;
+      }
+
+      .cost-delivery {
+        font-size: 20px;
+        justify-content: space-between;
+
+        .price {
+          font-weight: 500;
+        }
+
+        img {
+          width: 10px;
+          height: 15px;
+        }
+      }
+
+      .adress-select {
+        margin-top: 23px;
+        font-size: 16px;
+      }
+
+      select {
+        width: 100%;
+        margin-top: 12px;
+      }
+    }
+
+    .choose-adress {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 19px;
+    }
+
+    .choose-payment-method {
+      label {
+        font-size: 16px;
+        line-height: 28px;
+      }
     }
   }
 }

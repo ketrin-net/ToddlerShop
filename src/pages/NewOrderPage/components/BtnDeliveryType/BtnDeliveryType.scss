@@ -30,3 +30,28 @@
     }
   }
 }
+
+@media (max-width: 850px) {
+  .delivery-type {
+    width: 328px;
+    height: 184px;
+    padding: 22px 0px 34px 19px;
+    gap: 9px;
+
+    .title-delivery {
+      font-size: 16px;
+    }
+
+    .description-delivery {
+      font-size: 16px;
+    }
+
+    .cost-delivery {
+      font-size: 16px;
+
+      &.blue {
+        color: $color-blue;
+      }
+    }
+  }
+}

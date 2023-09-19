@@ -8,8 +8,8 @@ const TableProductsInCart = () => {
 
   return (
     <div className="products-in-Cart">
-      {allProductsInCart.map((item, key) => (
-        <OrderProductCard product={item} />
+      {allProductsInCart.map((item, index) => (
+        <OrderProductCard key={index} product={item} />
       ))}
     </div>
   );

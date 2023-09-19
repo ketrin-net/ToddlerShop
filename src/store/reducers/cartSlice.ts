@@ -1,3 +1,4 @@
+import { Cities } from '../../pages/NewOrderPage/mokCities/DeliveryAddresses';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Product } from '../../models/product';
 import { RootState } from '../store';
@@ -80,8 +81,12 @@ export const selectCountProductsInCart = (state: RootState): number => {
   return state.cart.products.filter((i) => i.isDeleted === false).reduce((sum, current) => sum + current.count, 0);
 };
 
-export const totalCostProductsInCart = (state: RootState): number => {
+export const selectTotalCostProductsInCart = (state: RootState): number => {
   return state.cart.products.filter((i) => i.isDeleted === false).reduce((sum, current) => sum + current.cost * current.count, 0);
+};
+
+export const selectCostDelivery = (state: RootState): number => {
+  return Math.floor(Math.random() * 999) + 100;
 };
 
 export const cartReducer = cartSlice.reducer;
