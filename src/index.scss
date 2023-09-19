@@ -80,6 +80,19 @@ span {
         font-weight: 400;
         line-height: 88px;
     }
+
+    &.header {
+        font-family: $text-title;
+        font-size: 48px;
+        line-height: 58px;
+        margin-bottom: 40px;
+    }
+
+    &.caption {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px
+    }
 }
 
 p {
@@ -102,6 +115,7 @@ p {
         &.error {
             border: 1px solid $color-error;
         }
+
         &.correct {
             border: 1px solid $color-blue;
         }
@@ -111,13 +125,18 @@ p {
         opacity: 0.64;
     }
     
+    input[type=submit] {
+        &.btn {
+            border: none;
+        }
+    }
+
     .form-checkbox {
         cursor: pointer;
         position: relative;
         display: flex;
         align-items: center;
         padding-left: 48px;
-        height: 32px;
         font-size: 18px;
         line-height: 28px;
     
@@ -134,8 +153,12 @@ p {
             box-shadow: 0 0 0 1px $color-sea;
             border-radius: 6px;
             margin-left: -45px;
+
+            &.error {
+                box-shadow: 2px solid $color-error;
+            }
         }
-    
+
         .checkbox-input:checked + .checkbox-style {
             background-image: url('./assets/check.svg');
             background-repeat: no-repeat;
@@ -244,6 +267,15 @@ p {
         &.title {
             font-size: 30px;
             line-height: 38px;
+        }
+
+        &.header {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        &.caption {
+            font-size: 20px;
         }
     }
 }

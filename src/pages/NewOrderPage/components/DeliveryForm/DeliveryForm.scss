@@ -48,15 +48,23 @@
   .adress-pickup {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+    align-items: start;
 
     .title-input {
-      margin-bottom: 32px;
+      margin-bottom: 16px;
     }
 
-    span {
+    p {
       font-size: 18px;
       line-height: 28px;
-      margin-top: 16px;
+      margin-top: 9px;
+    }
+
+    .adress, .phone {
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 500;
     }
   }
   

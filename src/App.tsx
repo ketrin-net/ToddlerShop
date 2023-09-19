@@ -9,6 +9,7 @@ import { selectisOpenModalInfo } from './store/reducers/commonModalWindowSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CartPage from './pages/CartPage/CartPage';
 import CommonModalWindow from './components/CommonModalWindow/CommonModalWindow';
+import ContactsPage from './pages/ContactsPage/ContactsPage';
 import ModalAddProduct from './components/ModalProductAddition/ModalProductAddition';
 import NewOrderPage from './pages/NewOrderPage/NewOrderPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
@@ -37,7 +38,6 @@ export const App = (props: AppProps) => {
 
   return (
     <>
-      
       {modalOpen.isOpen && <ModalAddProduct id={modalOpen.idProduct} />}
       <HeaderSelector />
       <div className="main">
@@ -59,7 +59,7 @@ export const App = (props: AppProps) => {
             <Route index element={<div>PromosPage</div>} />
             <Route path={Path.PromoId} element={<div>ConcretePromoPage</div>} />
           </Route>
-          <Route path={Path.ContactsPage} element={<div>ContactsPage</div>} />
+          <Route path={Path.ContactsPage} element={<ContactsPage />} />
           <Route path={Path.CategoryPage}>
             <Route index element={<div>CategoryPage</div>} />
             <Route path={Path.SubCategoryPathWithId}>

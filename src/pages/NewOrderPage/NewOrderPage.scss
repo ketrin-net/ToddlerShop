@@ -6,13 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 80px;
-
-  .header {
-    font-family: $text-title;
-    font-size: 48px;
-    line-height: 58px;
-  }
-
+  
   .checkout-info {
     display: flex;
 
@@ -28,13 +22,7 @@
         font-weight: 700;
         line-height: 32px;
       }
-  
-      input {
-        &.btn {
-          border: none;
-        }
-      }
-  
+      
       .in-city {
         margin-top: 32px;
         width: 469px;

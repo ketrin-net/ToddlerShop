@@ -22,7 +22,6 @@ export type NewOrderForm = yup.InferType<typeof CreateOrderSchema>;
 
 const NewOrderPage = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
   const navigate = useNavigate();
   const commonModalActive = useSelector(selectisOpenModalInfo);
   const [typeDelivery, setTypeDelivery] = useState(EnumTypeDelivery.transportCompany);

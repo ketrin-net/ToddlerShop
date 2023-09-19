@@ -10,6 +10,8 @@ import { selectCostDelivery } from '../../../../store/reducers/cartSlice';
 import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import moneyIconGray from '../../assets/moneyIconGray.svg';
+import { Link } from 'react-router-dom';
+import { Path } from '../../../../enums';
 
 interface DeliveryFormProps {
   typeDelivery: EnumTypeDelivery;
@@ -94,8 +96,15 @@ const DeliveryForm = (props: DeliveryFormProps) => {
       {!delivPickup && (
         <div className="adress-pickup">
           <span className="title-input">Пункт выдачи</span>
-          <span>Дворцовая пл., 2, Санкт-Петербург</span>
-          <span>(812) 710-90-79</span>
+          <div className="adress">
+            <span>Адрес</span>
+            <p>Дворцовая пл., 2, Санкт-Петербург</p>
+          </div>
+          <div className="phone">
+            <span>Телефон</span>
+            <p>+7 (812) 710-90-79</p>
+          </div>
+          <Link to={"/contacts"}>Контакты</Link>
         </div>
       )}
       <div className="choose-payment-method">
