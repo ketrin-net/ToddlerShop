@@ -4,27 +4,24 @@ import { EnumCompanyDelivery } from '../../enum/EnumCompanyDelivery';
 import { EnumMethodPayment } from '../../enum/EnumMethodPayment';
 import { EnumTypeDelivery } from '../../enum/EnumTypeDelivery';
 import { FieldErrors, UseFormRegister, UseFormSetValue } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { NewOrderForm } from '../../NewOrderPage';
-import { error } from 'console';
-import { selectCostDelivery } from '../../../../store/reducers/cartSlice';
+import { selectDeliveryCost } from '../../../../store/reducers/cartSlice';
 import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import moneyIconGray from '../../assets/moneyIconGray.svg';
-import { Link } from 'react-router-dom';
-import { Path } from '../../../../enums';
 
 interface DeliveryFormProps {
   typeDelivery: EnumTypeDelivery;
   cityDelivery: Cities;
+  costDelivery: number;
   register: UseFormRegister<NewOrderForm>;
   errors: FieldErrors;
   setValue: UseFormSetValue<NewOrderForm>;
 }
 
 const DeliveryForm = (props: DeliveryFormProps) => {
-  const register = props.register;
-  const errors = props.errors;
-  const costDelivery = useSelector(selectCostDelivery);
+  const { register, errors } = props;
   const [companyDelivery, setCompanyDelivery] = useState(EnumCompanyDelivery.CDEK);
   props.setValue('transportCompany', companyDelivery);
 
@@ -33,9 +30,9 @@ const DeliveryForm = (props: DeliveryFormProps) => {
     props.setValue('transportCompany', companyDelivery);
   };
 
-  const delivTransportCompany = props.typeDelivery === EnumTypeDelivery.transportCompany;
-  const delivPostOffice = props.typeDelivery === EnumTypeDelivery.postOffice;
-  const delivPickup = props.typeDelivery === EnumTypeDelivery.pickup;
+  const delivTransportCompany = props.typeDelivery === EnumTypeDelivery.TransportCompany;
+  const delivPostOffice = props.typeDelivery === EnumTypeDelivery.PostOffice;
+  const delivPickup = props.typeDelivery === EnumTypeDelivery.Pickup;
 
   return (
     <div className="delivery-form">
@@ -61,7 +58,7 @@ const DeliveryForm = (props: DeliveryFormProps) => {
           <div className="cost-delivery">
             <span>Стоимость доставки:</span>
             <span className="price">
-              {costDelivery} <img src={moneyIconGray} alt="" />
+              {props.costDelivery} <img src={moneyIconGray} alt="" />
             </span>
           </div>
           <label htmlFor="adress-select" className="adress-select">
@@ -71,10 +68,18 @@ const DeliveryForm = (props: DeliveryFormProps) => {
             {companyDelivery === EnumCompanyDelivery.CDEK
               ? deliveryAddressesCDEK
                   .filter((item) => item.key === props.cityDelivery)
-                  ?.map((item) => <option value={item.value}>{item.value}</option>)
+                  ?.map((item, index) => (
+                    <option key={index} value={item.value}>
+                      {item.value}
+                    </option>
+                  ))
               : deliveryAddressesBusinessLines
                   .filter((item) => item.key === props.cityDelivery)
-                  ?.map((item) => <option value={item.value}>{item.value}</option>)}
+                  ?.map((item, index) => (
+                    <option key={index} value={item.value}>
+                      {item.value}
+                    </option>
+                  ))}
           </select>
         </div>
       )}
@@ -104,28 +109,28 @@ const DeliveryForm = (props: DeliveryFormProps) => {
             <span>Телефон</span>
             <p>+7 (812) 710-90-79</p>
           </div>
-          <Link to={"/contacts"}>Контакты</Link>
+          <Link to={'/contacts'}>Контакты</Link>
         </div>
       )}
       <div className="choose-payment-method">
         <span className="title-input">Способ оплаты</span>
         <div className="form-radio">
-          <input id="radio-1" type="radio" value={EnumMethodPayment.cardOnline} {...register('methodPayment')} />
-          <label htmlFor="radio-1">{EnumMethodPayment.cardOnline}</label>
+          <input id="radio-1" type="radio" value={EnumMethodPayment.CardOnline} {...register('paymentMethod')} />
+          <label htmlFor="radio-1">{EnumMethodPayment.CardOnline}</label>
         </div>
         <div className="form-radio">
-          <input id="radio-2" type="radio" value={EnumMethodPayment.cashToCourier} {...register('methodPayment')} disabled={delivTransportCompany} />
-          <label htmlFor="radio-2">{EnumMethodPayment.cashToCourier}</label>
+          <input id="radio-2" type="radio" value={EnumMethodPayment.CashToCourier} {...register('paymentMethod')} disabled={delivTransportCompany} />
+          <label htmlFor="radio-2">{EnumMethodPayment.CashToCourier}</label>
         </div>
         {delivPickup && (
           <div className="form-radio">
-            <input id="radio-2-2" type="radio" value={EnumMethodPayment.cashUponReceipt} {...register('methodPayment')} />
-            <label htmlFor="radio-2-2">{EnumMethodPayment.cashUponReceipt}</label>
+            <input id="radio-2-2" type="radio" value={EnumMethodPayment.CashUponReceipt} {...register('paymentMethod')} />
+            <label htmlFor="radio-2-2">{EnumMethodPayment.CashUponReceipt}</label>
           </div>
         )}
         <div className="form-radio">
-          <input id="radio-3" type="radio" value={EnumMethodPayment.payPal} {...register('methodPayment')} />
-          <label htmlFor="radio-3">{EnumMethodPayment.payPal}</label>
+          <input id="radio-3" type="radio" value={EnumMethodPayment.PayPal} {...register('paymentMethod')} />
+          <label htmlFor="radio-3">{EnumMethodPayment.PayPal}</label>
         </div>
       </div>
     </div>

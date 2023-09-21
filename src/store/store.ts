@@ -1,12 +1,12 @@
 import { cartReducer } from './reducers/cartSlice';
-import { configureStore } from '@reduxjs/toolkit';
-import { modalAdditionReducer } from './reducers/modalAdditionSlice';
 import { commonModalWindowReducer } from './reducers/commonModalWindowSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import { modalAddProductReducer } from './reducers/modalAdditionSlice';
 
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
-    ModalAddition: modalAdditionReducer,
+    modalAddProduct: modalAddProductReducer,
     commonModalWindow: commonModalWindowReducer,
   },
 });

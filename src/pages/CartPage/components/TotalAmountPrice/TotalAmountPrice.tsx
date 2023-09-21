@@ -1,10 +1,10 @@
 import './TotalAmountPrice.scss';
 import { Link } from 'react-router-dom';
+import { formatNumber } from '../../../../helpers/formatNumber';
 import { selectCountProductsInCart, selectTotalCostProductsInCart } from '../../../../store/reducers/cartSlice';
 import { useSelector } from 'react-redux';
 import React from 'react';
 import moneyIcon from '../../assets/moneyIconGray.svg';
-import { formatNumber } from '../../../../helpers/formatNumber';
 
 interface TotalAmountPriceProps {
   costDelivery?: number;
@@ -12,14 +12,14 @@ interface TotalAmountPriceProps {
 
 const TotalAmountPrice = (props: TotalAmountPriceProps) => {
   const costWithoutDelivery = useSelector(selectTotalCostProductsInCart);
-  const calculationTotlaCost = () => {
-    if (props.costDelivery !== undefined) {
+  const calculateTotalCost = () => {
+    if (props.costDelivery) {
       return costWithoutDelivery + props.costDelivery;
     } else {
       return costWithoutDelivery;
     }
   };
-  const totalCost = calculationTotlaCost();
+  const totalCost = calculateTotalCost();
   const productsCountInCart = useSelector(selectCountProductsInCart);
 
   return (
@@ -59,7 +59,7 @@ const TotalAmountPrice = (props: TotalAmountPriceProps) => {
           </span>
         </div>
       </div>
-      <Link to="/neworder" className="btn blue go-order">
+      <Link to="/new-order" className="btn blue go-order">
         Перейти к оформлению
       </Link>
     </div>

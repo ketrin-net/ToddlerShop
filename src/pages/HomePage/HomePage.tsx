@@ -76,14 +76,13 @@ export const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch('http://localhost:7000/products')
       .then((response) => response.json())
       .then((products) => setProducts(products));
   }, []);
 
   const productsNew = products.filter((item) => item.iconNew).slice(-7);
   const productsDiscount = products.filter((item) => item.oldCost !== null).slice(-7);
-  const productsCountInCart = useSelector(selectCountProductsInCart);
   const matches = useMediaQuery('(min-width: 1441px)');
   const matchesMobile = useMediaQuery('(min-width: 1025px)');
 
@@ -93,7 +92,6 @@ export const HomePage = () => {
   return (
     <div className="main-homepage">
       <Title />
-      <Link to="/Cart"> В корзине = {productsCountInCart}</Link>
       <ProductsCarousel title="Новинки" products={productsNew} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
       <PromoAction />
       <ProductsCarousel title="Выгодное предложение" products={productsDiscount} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />

@@ -5,7 +5,7 @@ import React, { ReactNode } from 'react';
 import iconClose from './assets/iconX.svg';
 
 interface CommonModalWindowProps {
-  active: boolean;
+  visible: boolean;
   children?: ReactNode;
 }
 
@@ -13,7 +13,7 @@ const CommonModalWindow = (props: CommonModalWindowProps) => {
   const dispatch = useDispatch();
 
   return (
-    <div className={props.active ? 'common-modal active' : 'common-modal'}>
+    <div className={props.visible ? 'common-modal active' : 'common-modal'}>
       <div className="common-modal-content">
         <button className="icon-close" onClick={() => dispatch(closeModalCommon())}>
           <img src={iconClose} alt="iconClose" />

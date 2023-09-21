@@ -16,7 +16,7 @@ interface NavigationBarProps {
 
 export const NavigationBar = ({ closeModal }: NavigationBarProps) => {
   const location = useLocation();
-  const matches = useMediaQuery('(max-width: 480px)');
+  const matches = useMediaQuery('(max-width: 850px)');
 
   const handleOnClick = () => {
     if (closeModal) {
@@ -30,12 +30,6 @@ export const NavigationBar = ({ closeModal }: NavigationBarProps) => {
         <StyledNavBar>
           <StyledLink to={Path.PromosPage} onClick={handleOnClick}>
             Акции
-          </StyledLink>
-          <StyledLink to={Path.AboutUsPage} onClick={handleOnClick}>
-            О нас
-          </StyledLink>
-          <StyledLink to={Path.BlogsPage} onClick={handleOnClick}>
-            Блог
           </StyledLink>
           <StyledLink to={Path.WholesalersPage} onClick={handleOnClick}>
             Оптовым клиентам

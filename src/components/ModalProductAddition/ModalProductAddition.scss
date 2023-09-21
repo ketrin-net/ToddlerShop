@@ -18,7 +18,7 @@
     align-items: center;
     animation: show-loader 1.5s ease-in;
 
-    .header {
+    .header-modal {
         grid-column: span 2;
         font-family: $text-title;
         font-size: 24px;
@@ -46,6 +46,10 @@
 
     .icon-close{
         justify-self: end;
+    }
+
+    .basic-price-product {
+        justify-content: start;
     }
 }
 

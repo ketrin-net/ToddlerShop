@@ -25,7 +25,6 @@ const FeedbackForm = () => {
   });
 
   const onSubmit: SubmitHandler<NewQuestionsForm> = (data) => {
-    console.log(data);
     dispatch(openModalCommon());
     setTimeout(() => dispatch(closeModalCommon()), 5000);
   };
@@ -33,7 +32,7 @@ const FeedbackForm = () => {
   return (
     <>
       {commonModalActive && (
-        <CommonModalWindow active={commonModalActive}>
+        <CommonModalWindow visible={commonModalActive}>
           <span className="title">Спасибо за вопрос!</span>
           <p>В скором времени мы с вами свяжемся по оставленному телефону.</p>
         </CommonModalWindow>
