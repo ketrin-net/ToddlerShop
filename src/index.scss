@@ -125,10 +125,8 @@ p {
         opacity: 0.64;
     }
     
-    input[type=submit] {
-        &.btn {
-            border: none;
-        }
+    input[type=submit].btn{
+        border: none;
     }
 
     .form-checkbox {

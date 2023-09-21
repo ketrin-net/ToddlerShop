@@ -1,13 +1,17 @@
+import { authReducer } from './reducers/authSlice';
 import { cartReducer } from './reducers/cartSlice';
-import { configureStore } from '@reduxjs/toolkit';
-import { modalAdditionReducer } from './reducers/modalAdditionSlice';
 import { commonModalWindowReducer } from './reducers/commonModalWindowSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import { loginModalReducer } from './reducers/loginModalSlice';
+import { modalAdditionReducer } from './reducers/modalAdditionSlice';
 
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
+    auth: authReducer,
     ModalAddition: modalAdditionReducer,
     commonModalWindow: commonModalWindowReducer,
+    loginModal: loginModalReducer,
   },
 });
 

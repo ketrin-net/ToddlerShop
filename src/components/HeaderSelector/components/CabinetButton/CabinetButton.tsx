@@ -1,12 +1,16 @@
 import { AppColor, AppFont } from '../../../../enums';
+import { openLoginModal } from '../../../../store/reducers/loginModalSlice';
 import { styled } from 'styled-components';
+import { useDispatch } from 'react-redux';
 import React from 'react';
 
 export const CabinetButton = () => {
+  const dispatch = useDispatch();
+
   return (
     <StyledButton>
       <StyledIcon className="material-symbols-outlined">person</StyledIcon>
-      <StyledButtonText>Войти в личный кабинет</StyledButtonText>
+      <StyledButtonText onClick={() => dispatch(openLoginModal())}>Войти в личный кабинет</StyledButtonText>
     </StyledButton>
   );
 };

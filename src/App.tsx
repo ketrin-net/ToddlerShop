@@ -5,12 +5,12 @@ import { Path } from './enums';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { cleanCart } from './store/reducers/cartSlice';
 import { modalInfo } from './store/reducers/modalAdditionSlice';
-import { selectisOpenModalInfo } from './store/reducers/commonModalWindowSlice';
+import { selectisOpenLoginModalInfo } from './store/reducers/loginModalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CartPage from './pages/CartPage/CartPage';
-import CommonModalWindow from './components/CommonModalWindow/CommonModalWindow';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
 import ModalAddProduct from './components/ModalProductAddition/ModalProductAddition';
+import ModalLoginAccount from './components/ModalLoginAccount/ModalLoginAccount';
 import NewOrderPage from './pages/NewOrderPage/NewOrderPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect, useState } from 'react';
@@ -19,6 +19,7 @@ export interface AppProps {}
 
 export const App = (props: AppProps) => {
   const dispatch = useDispatch();
+  const loginModalActive = useSelector(selectisOpenLoginModalInfo);
   const modalOpen = useSelector(modalInfo);
   const location = useLocation().pathname;
 
@@ -41,6 +42,7 @@ export const App = (props: AppProps) => {
       {modalOpen.isOpen && <ModalAddProduct id={modalOpen.idProduct} />}
       <HeaderSelector />
       <div className="main">
+        {loginModalActive && <ModalLoginAccount />}
         <Routes>
           <Route path={Path.HomePage} element={<HomePage />} />
           <Route path={Path.CartPage} element={<CartPage />} />
