@@ -1,5 +1,10 @@
 @import '../../variables';
 
+.footer{
+    margin-left: 200px; 
+    margin-right: 200px;
+}
+
 .footer-main {
     display: grid;
     grid-template-columns: 3fr repeat(4, 1fr);
@@ -97,5 +102,115 @@
         font-size: 16px;
         font-weight: 400;
         opacity: 0.72;
+    }
+}
+
+@media (max-width: 850px) {
+
+    .footer{
+        padding-left: -16px;
+        padding-right: 16px;
+    }
+
+    .footer-main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        padding-top: 73px;
+    
+        .footer-logo { 
+            display: none;
+        }
+    
+        .logo-section{
+            display: none;
+        }
+    
+        .description{
+            color:  $color-sea;
+            font-family: Balsamiq Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: 0.32px;
+            white-space: nowrap;
+            padding-left: 16px;
+        }
+    
+        .footer-links { 
+            grid-area: 1 / 1 / 3 / 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    
+        .footer-links2 { 
+            grid-area: 2 / 2 / 3 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    
+        .footer-links3 {
+            grid-area: 1 / 2 / 2 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: -16px;
+        }
+    
+        .footer-social-media { 
+            grid-area: 3 / 1 / 4 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 16px;
+            .social-media{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                .item{
+                    display: flex;
+                    flex-direction: row;
+                    margin-right: 16px;
+                }
+            }
+        }
+    
+        .click{
+            text-decoration: none;
+            color: $color-sea;
+            font-family: Montserrat;
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.8;
+            display: block;
+            padding-bottom: 16px;
+        }
+    }
+    
+    .footer-rights{
+        display: grid;
+        grid-template-columns: 3fr 4fr;
+        grid-template-rows: 1fr;
+    
+        .date { 
+            grid-area: 4 / 1 / 5 / 6;
+        }
+        .agreement { 
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    
+        .click{
+            text-decoration: none;
+            color: $color-sea;
+            font-family: Montserrat;
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0.72;
+        }
     }
 }

@@ -59,7 +59,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className="footer-rights">
-        <div className="date click"> Ⓒ 2020 karapuz05.ru </div>
+        <div className="date click"> Ⓒ 2023 karapuz05.ru </div>
         <div className="agreement">
           <Link to="/" className="click">
             Пользовательское соглашение / политика конфиденциальности
