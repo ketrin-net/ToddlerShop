@@ -2,6 +2,7 @@ import { authReducer } from './reducers/authSlice';
 import { cartReducer } from './reducers/cartSlice';
 import { commonModalWindowReducer } from './reducers/commonModalWindowSlice';
 import { configureStore } from '@reduxjs/toolkit';
+import { loginModalReducer } from './reducers/loginModalSlice';
 import { modalAddProductReducer } from './reducers/modalAdditionSlice';
 
 export const store = configureStore({
