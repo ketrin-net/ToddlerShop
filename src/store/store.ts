@@ -4,6 +4,7 @@ import { commonModalWindowReducer } from './reducers/commonModalWindowSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { loginModalReducer } from './reducers/loginModalSlice';
 import { modalAdditionReducer } from './reducers/modalAdditionSlice';
+import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
   reducer: {

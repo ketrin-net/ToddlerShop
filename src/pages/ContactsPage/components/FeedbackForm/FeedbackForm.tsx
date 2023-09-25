@@ -43,11 +43,10 @@ const FeedbackForm = () => {
         <input type="text" placeholder="Имя" className={errors.name ? 'error' : ''} {...register('name')} />
         <input type="text" placeholder="Телефон" className={errors.phone ? 'error' : ''} {...register('phone')} />
         <textarea placeholder="Сообщение" className={errors.comment ? 'error' : ''} {...register('comment')} />
-        <label className="form-checkbox">
+        <label className={errors.agreement ? 'form-checkbox error' : 'form-checkbox'}>
           <input className="checkbox-input" type="checkbox" {...register('agreement')} />
           <span className="checkbox-style"></span>
           Соглашение на обработку данных и пользовательское соглашение
-          {errors.comment && <p className="error">Мы не сможем с вами связаться без соглашения!</p>}
         </label>
         <input type="submit" value="Отправить" className="btn blue" />
       </form>

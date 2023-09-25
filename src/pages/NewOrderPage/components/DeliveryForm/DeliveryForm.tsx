@@ -91,7 +91,7 @@ const DeliveryForm = (props: DeliveryFormProps) => {
         )}
         <input type="text" placeholder="Фамилия и имя по паспорту*" {...register('name')} className={errors.name ? 'in-name error' : 'in-name'} />
         <input type="text" placeholder="Электронная почта*" {...register('email')} className={errors.email ? 'in-email error' : 'in-email'} />
-        <input type="text" placeholder="+7 999 999 99 99*" {...register('phone')} className={errors.phone ? 'in-phone error' : 'in-phone'} />
+        <input type="text" placeholder="8 999 999 99 99*" {...register('phone')} className={errors.phone ? 'in-phone error' : 'in-phone'} />
       </div>
       {!delivPickup && (
         <div className="adress-pickup">

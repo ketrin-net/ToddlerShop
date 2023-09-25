@@ -13,7 +13,7 @@ const CommonModalWindow = (props: CommonModalWindowProps) => {
   const dispatch = useDispatch();
 
   return (
-    <div className={props.active ? 'common-modal active' : 'common-modal'}>
+    <div className="common-modal active">
       <div className="common-modal-content">
         <button className="icon-close" onClick={() => dispatch(closeModalCommon())}>
           <img src={iconClose} alt="iconClose" />

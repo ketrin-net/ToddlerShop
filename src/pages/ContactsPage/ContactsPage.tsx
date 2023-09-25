@@ -10,7 +10,7 @@ const ContactsPage = () => {
   console.log(matches);
 
   return (
-    <div className="main-contacts">
+    <div className="main contacts">
       <span className="header">Контакты</span>
       <div className="info">
         <СontactsInfo />

@@ -102,157 +102,157 @@ p {
 }
 
 .main {
-    input[type=text] {
-        padding: 18px 24px;
-        height: 64px;
-        border: 1px solid rgb(68, 107, 128, 0.4);
-        border-radius: 12px;
-        background-color: white;
-        font-size: 18px;
-        font-weight: 400;
-        outline: none;
-    
-        &.error {
-            border: 1px solid $color-error;
-        }
+    margin: 32px auto 120px auto;
+    max-width: 1456px;
+}
 
-        &.correct {
-            border: 1px solid $color-blue;
-        }
-    }
-    
-    input::placeholder {
-        opacity: 0.64;
-    }
-    
-    input[type=submit].btn{
-        border: none;
+.error {
+    color: $color-error;
+}
+
+input[type=text] {
+    padding: 18px 24px;
+    height: 64px;
+    border: 1px solid rgb(68, 107, 128, 0.4);
+    border-radius: 12px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 400;
+    outline: none;
+
+    &.error {
+        border: 1px solid $color-error;
     }
 
-    .form-checkbox {
-        cursor: pointer;
-        position: relative;
-        display: flex;
-        align-items: center;
-        padding-left: 48px;
-        font-size: 18px;
-        line-height: 28px;
-    
-        .checkbox-input {
-            position: absolute;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-        
-        .checkbox-style {
-            position: absolute;
-            width: 32px;
-            height: 32px;
-            box-shadow: 0 0 0 1px $color-sea;
-            border-radius: 6px;
-            margin-left: -45px;
-
-            &.error {
-                box-shadow: 2px solid $color-error;
-            }
-        }
-
-        .checkbox-input:checked + .checkbox-style {
-            background-image: url('./assets/check.svg');
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-        }
-    
-        .checkbox-input:focus + .checkbox-style {
-            box-shadow: 
-                0 0 0 1px $color-sea,
-                0 0 0 2px $color-sea,
-        }
-    }
-    
-    .form-radio {
-        position: relative;
-        margin-top: 24px;
-    
-        input[type=radio] {
-            display: none;
-        }
-    
-        label {
-            height: 40px;
-            display: inline-block;
-            cursor: pointer;
-            padding-left: 50px;
-            padding-top: 7px;
-            line-height: 18px;
-            user-select: none;
-            font-size: 18px;
-            line-height: 28px;
-        }
-    
-        label:before {
-            content: "";
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            left: 0;
-            bottom: 0px;
-            background: url(./assets/radioBtn.svg) 0 0 no-repeat;
-        }
-    
-        input[type=radio]:checked+label:before {
-            background: url(./assets/radioBtnClick.svg) 0 0 no-repeat;
-        }
-
-        input[type=radio]:focus+label:before {
-            box-shadow: 0 0 0 1px $color-sea;
-        }
-    
-        input[type=radio]:disabled+label:before {
-            filter: grayscale(100%);
-            opacity: 0.32;
-        }
-    }
-    
-    textarea {
-        padding: 18px 24px;
-        width: 100%;
-        min-height: 96px;
-        resize: none;
-        border: 1px solid rgb(68, 107, 128, 0.4);
-        border-radius: 12px;
-        font-size: 18px;
-        line-height: 28px;
-    }
-    
-    textarea::placeholder {
-        font-size: 18px;
-        line-height: 28px;
-        opacity: 0.64;
-    }
-    
-    select {
-        width: 50%;
-        height: 50px;
-        border: 1px solid rgb(68, 107, 128, 0.4);
-        border-radius: 12px;
-        font-size: 18px;
-        font-weight: 400;
-        padding-left: 18px;
-    }
-    
-    select:active,
-    select:focus {
-        outline: none
+    &.correct {
+        border: 1px solid $color-blue;
     }
 }
 
+input::placeholder {
+    opacity: 0.64;
+}
 
-@media (max-width: 1439px){
-    .main {
-        margin: 0px 50px;
+input[type=submit].btn{
+    border: none;
+}
+
+.form-checkbox {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 48px;
+    font-size: 18px;
+    line-height: 28px;
+
+    .checkbox-input {
+        position: absolute;
+        -webkit-appearance: none;
+        appearance: none;
     }
+    
+    .checkbox-style {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        box-shadow: 0 0 0 1px $color-sea;
+        border-radius: 6px;
+        margin-left: -45px;
+
+        &.error {
+            box-shadow: 2px solid $color-error;
+        }
+    }
+
+    .checkbox-input:checked + .checkbox-style {
+        background-image: url('./assets/check.svg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .checkbox-input:focus + .checkbox-style {
+        box-shadow: 
+            0 0 0 1px $color-sea,
+            0 0 0 2px $color-sea,
+    }
+}
+
+.form-radio {
+    position: relative;
+    margin-top: 24px;
+
+    input[type=radio] {
+        display: none;
+    }
+
+    label {
+        height: 40px;
+        display: inline-block;
+        cursor: pointer;
+        padding-left: 50px;
+        padding-top: 7px;
+        line-height: 18px;
+        user-select: none;
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    label:before {
+        content: "";
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        background: url(./assets/radioBtn.svg) 0 0 no-repeat;
+    }
+
+    input[type=radio]:checked+label:before {
+        background: url(./assets/radioBtnClick.svg) 0 0 no-repeat;
+    }
+
+    input[type=radio]:focus+label:before {
+        box-shadow: 0 0 0 1px $color-sea;
+    }
+
+    input[type=radio]:disabled+label:before {
+        filter: grayscale(100%);
+        opacity: 0.32;
+    }
+}
+
+textarea {
+    padding: 18px 24px;
+    width: 100%;
+    min-height: 96px;
+    resize: none;
+    border: 1px solid rgb(68, 107, 128, 0.4);
+    border-radius: 12px;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+textarea::placeholder {
+    font-size: 18px;
+    line-height: 28px;
+    opacity: 0.64;
+}
+
+select {
+    width: 50%;
+    height: 50px;
+    border: 1px solid rgb(68, 107, 128, 0.4);
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 400;
+    padding-left: 18px;
+}
+
+select:active,
+select:focus {
+    outline: none
 }
 
 @media (max-width: 850px) {

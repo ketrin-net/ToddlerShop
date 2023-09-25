@@ -14,6 +14,7 @@ import ModalLoginAccount from './components/ModalLoginAccount/ModalLoginAccount'
 import NewOrderPage from './pages/NewOrderPage/NewOrderPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect, useState } from 'react';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 
 export interface AppProps {}
 
@@ -41,14 +42,12 @@ export const App = (props: AppProps) => {
     <>
       {modalOpen.isOpen && <ModalAddProduct id={modalOpen.idProduct} />}
       <HeaderSelector />
-      <div className="main">
         {loginModalActive && <ModalLoginAccount />}
         <Routes>
           <Route path={Path.HomePage} element={<HomePage />} />
           <Route path={Path.CartPage} element={<CartPage />} />
           <Route path={Path.NewOrderPage} element={<NewOrderPage />} />
-          <Route path={Path.PaymentPage} element={<div>PaymentPage</div>} />
-          <Route path={Path.RegistrationPage} element={<div>RegistrationPage</div>} />
+          <Route path={Path.RegistrationPage} element={<RegistrationPage />} />
           <Route path={Path.RestorePasswordPAge} element={<div>RestorePasswordPAge</div>} />
           <Route path={Path.OrdersPage} element={<div>OrdersPage</div>} />
           <Route path={Path.FavoritesPage} element={<div>FavoritesPage</div>} />
@@ -75,7 +74,6 @@ export const App = (props: AppProps) => {
           <Route path={Path.ReturnGoodsPage} element={<div>ReturnGoodsPage</div>} />
           <Route path={Path.NotFoundPage} element={<NotFoundPage />} />
         </Routes>
-      </div>
     </>
   );
 };

@@ -1,8 +1,6 @@
 @import '../../variables';
 
-.main-contacts{
-  margin: 32px auto;
-  max-width: 1456px;
+.contacts{
   display: flex;
   flex-direction: column;
 
@@ -14,9 +12,7 @@
 }
 
 @media (max-width: 850px) {
-  .main-contacts {
-      margin: 16px 0px 80px 0px;
-  
+  .contacts {
       .info {
         flex-direction: column;
         margin-bottom: 61px;

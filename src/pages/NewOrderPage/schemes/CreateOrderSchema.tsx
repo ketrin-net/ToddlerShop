@@ -12,7 +12,7 @@ export const CreateOrderSchema = yup.object().shape({
   phone: yup
     .string()
     .required()
-    .matches(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/),
+    .matches(/^8\d{10}$/),
   street: yup.string().nullable(),
   house: yup.string().matches(/^\d+$/),
   apartment: yup.string().matches(/^\d+$/),

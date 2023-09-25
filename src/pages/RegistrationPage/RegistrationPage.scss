@@ -1,0 +1,42 @@
+@import '../../variables';
+
+.registrationpage {
+  display: flex;
+  flex-direction: column;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    input {
+      max-width: 469px;
+    }
+
+    .btn {
+      margin-top: 34px;
+      width: 244px;
+    }
+
+    .form-checkbox {
+      margin-top: 34px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .registrationpage {
+    form {
+      gap: 19px;
+
+      .btn {
+        margin-top: 15px;
+        width: 100%;
+      }
+
+      .form-checkbox {
+        margin-top: 10px;
+      }
+    }
+  }
+}

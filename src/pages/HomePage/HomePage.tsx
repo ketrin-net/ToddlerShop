@@ -76,7 +76,7 @@ export const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch('http://localhost:7000/products')
       .then((response) => response.json())
       .then((products) => setProducts(products));
   }, []);
@@ -91,9 +91,8 @@ export const HomePage = () => {
   let spaceBetweenCards = matches ? 24 : matchesMobile ? 24 : 5;
 
   return (
-    <div className="main-homepage">
+    <div className="homepage">
       <Title />
-      <Link to="/Cart"> В корзине = {productsCountInCart}</Link>
       <ProductsCarousel title="Новинки" products={productsNew} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
       <PromoAction />
       <ProductsCarousel title="Выгодное предложение" products={productsDiscount} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
