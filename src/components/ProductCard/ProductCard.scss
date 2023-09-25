@@ -40,10 +40,12 @@
     }
 
     .title {
+        height: 48px;
+        overflow: hidden;
         margin-top: 24px;
         color: $color-sea;
         text-align: center;
-        font-family: Balsamiq Sans;
+        font-family: $text-title;
         font-size: 18px;
         font-weight: 400;
         line-height: 24px;
@@ -136,8 +138,12 @@
             margin-top: 12px;
         }
 
+        .btn {
+            margin-top: 20px;
+        }
+
         .btns-add-delete-unit {
-            margin-top: 12px;
+            margin-top: 20px;
         }
     }
 }

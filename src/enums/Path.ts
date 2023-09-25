@@ -1,7 +1,7 @@
 export enum Path {
   HomePage = '/',
   CartPage = 'cart',
-  CheckoutPage = 'checkout',
+  NewOrderPage = 'new-order',
   PaymentPage = 'payment',
   RegistrationPage = 'registration',
   RestorePasswordPAge = 'restore-password',

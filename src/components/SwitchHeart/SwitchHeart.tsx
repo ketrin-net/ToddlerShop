@@ -1,3 +1,4 @@
+import './SwitchHeart.scss';
 import { HeartSwitch } from '@anatoliygatt/heart-switch';
 import { useState } from 'react';
 

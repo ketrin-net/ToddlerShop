@@ -3,9 +3,9 @@
 .basic-price-product {
     font-size: 24px;
     font-weight: 600;
-    width: 102px;
     height: 32px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 8px;
 
@@ -16,5 +16,17 @@
     img {
         width: 11px;
         height: 17px;
+    }
+}
+
+@media (max-width: 850px) {
+    .basic-price-product {
+        font-size: 20px;
+        gap: 10px;
+        
+        img {
+            width: 10px;
+            height: 15px;
+        }
     }
 }

@@ -1,0 +1,25 @@
+@import '../../variables';
+
+.main-contacts{
+  margin: 32px auto;
+  max-width: 1456px;
+  display: flex;
+  flex-direction: column;
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 850px) {
+  .main-contacts {
+      margin: 16px 0px 80px 0px;
+  
+      .info {
+        flex-direction: column;
+        margin-bottom: 61px;
+      }
+    }
+}

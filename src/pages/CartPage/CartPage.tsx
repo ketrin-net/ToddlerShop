@@ -2,6 +2,7 @@ import './CartPage.scss';
 import { Product } from '../../models/product';
 import { ProductInCart, selectCountProductsInCart } from '../../store/reducers/cartSlice';
 import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
+import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import TableProductsInCart from './components/TableProductsInCart/TableProductsInCart';
@@ -76,13 +77,16 @@ export const popularProducts: Product[] = [
 
 const CartPage = () => {
   const productsCountInCart = useSelector(selectCountProductsInCart);
+  const matches = useMediaQuery('(min-width: 1025px)');
+
+  let slidesCount = matches ? 3 : 2;
 
   return (
     <div className="main-backetpage">
       <div className="header">В корзине {productsCountInCart} товара</div>
       <TableProductsInCart />
       <TotalAmountPrice />
-      <ProductsCarousel title="С этим покупают" products={popularProducts} slidesCount={3} spaceBetweenCards={0} />
+      <ProductsCarousel title="С этим покупают" products={popularProducts} slidesCount={slidesCount} spaceBetweenCards={0} />
     </div>
   );
 };
