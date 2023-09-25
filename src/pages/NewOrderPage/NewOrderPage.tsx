@@ -55,7 +55,7 @@ const NewOrderPage = () => {
   return (
     <>
       {commonModalActive && (
-        <CommonModalWindow visible={commonModalActive}>
+        <CommonModalWindow>
           <img src={iconSend} alt="iconSend" />
           <span className="title">Спасибо за заказ!</span>
           <p>Счет на оплату придет по адрессу </p>

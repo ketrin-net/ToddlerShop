@@ -17,7 +17,6 @@ const FeedbackForm = () => {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm<NewQuestionsForm>({
     mode: 'onBlur',
@@ -32,7 +31,7 @@ const FeedbackForm = () => {
   return (
     <>
       {commonModalActive && (
-        <CommonModalWindow visible={commonModalActive}>
+        <CommonModalWindow>
           <span className="title">Спасибо за вопрос!</span>
           <p>В скором времени мы с вами свяжемся по оставленному телефону.</p>
         </CommonModalWindow>
