@@ -85,7 +85,7 @@ export const selectTotalCostProductsInCart = (state: RootState): number => {
   return state.cart.products.filter((i) => i.isDeleted === false).reduce((sum, current) => sum + current.cost * current.count, 0);
 };
 
-export const selectCostDelivery = (state: RootState): number => {
+export const selectDeliveryCost = (state: RootState): number => {
   return Math.floor(Math.random() * 999) + 100;
 };
 

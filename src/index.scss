@@ -101,15 +101,6 @@ p {
     line-height: 28px;
 }
 
-.main {
-    margin: 32px auto 120px auto;
-    max-width: 1456px;
-}
-
-.error {
-    color: $color-error;
-}
-
 input[type=text] {
     padding: 18px 24px;
     height: 64px;
@@ -133,8 +124,10 @@ input::placeholder {
     opacity: 0.64;
 }
 
-input[type=submit].btn{
-    border: none;
+input[type=submit] {
+    &.btn {
+        border: none;
+    }
 }
 
 .form-checkbox {
@@ -255,9 +248,10 @@ select:focus {
     outline: none
 }
 
+
 @media (max-width: 850px) {
     .main {
-        margin: 21px 16px;
+        margin: 21px 12px;
         overflow: hidden;
     }
 

@@ -2,30 +2,30 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Product } from '../../models/product';
 import { RootState } from '../store';
 
-export interface ModalAdditionProductState {
+export interface ModalAddProductState {
   isOpen: boolean;
   idProduct: number;
 }
 
-const initialState: ModalAdditionProductState = {
+const initialState: ModalAddProductState = {
   isOpen: false,
   idProduct: 0,
 };
 
-export const modalAdditionSlice = createSlice({
-  name: 'modalAddition',
+export const modalAddProductSlice = createSlice({
+  name: 'modalAddProduct',
   initialState,
   reducers: {
-    openModalAddition: (state, action: PayloadAction<{ id: number }>) => {
+    openModalAddProduct: (state, action: PayloadAction<{ id: number }>) => {
       state.isOpen = true;
       state.idProduct = action.payload.id;
     },
-    closeModalAddition: (state) => {
+    closeModalAddProduct: (state) => {
       state.isOpen = false;
     },
   },
 });
 
-export const { openModalAddition, closeModalAddition } = modalAdditionSlice.actions;
-export const modalInfo = (state: RootState) => state.ModalAddition;
-export const modalAdditionReducer = modalAdditionSlice.reducer;
+export const { openModalAddProduct, closeModalAddProduct } = modalAddProductSlice.actions;
+export const selectModalAddProductInfo = (state: RootState) => state.modalAddProduct;
+export const modalAddProductReducer = modalAddProductSlice.reducer;

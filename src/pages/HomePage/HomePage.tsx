@@ -83,7 +83,6 @@ export const HomePage = () => {
 
   const productsNew = products.filter((item) => item.iconNew).slice(-7);
   const productsDiscount = products.filter((item) => item.oldCost !== null).slice(-7);
-  const productsCountInCart = useSelector(selectCountProductsInCart);
   const matches = useMediaQuery('(min-width: 1441px)');
   const matchesMobile = useMediaQuery('(min-width: 1025px)');
 

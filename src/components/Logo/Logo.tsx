@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import logoImage from '../../assets/logo.png';
 import styled from 'styled-components';
@@ -5,7 +6,9 @@ import styled from 'styled-components';
 export const Logo = () => {
   return (
     <StyledWrapper className="logo-wrapper">
-      <StyledLogo src={logoImage} className="logo" alt="logo" />
+      <Link to="/">
+        <StyledLogo src={logoImage} className="logo" alt="logo" />
+      </Link>
     </StyledWrapper>
   );
 };

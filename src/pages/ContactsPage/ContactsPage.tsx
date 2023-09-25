@@ -6,9 +6,7 @@ import СontactsInfo from './components/СontactsInfo/СontactsInfo';
 
 const ContactsPage = () => {
   const matches = useMediaQuery('(max-width: 850px)');
-
-  console.log(matches);
-
+  
   return (
     <div className="main contacts">
       <span className="header">Контакты</span>

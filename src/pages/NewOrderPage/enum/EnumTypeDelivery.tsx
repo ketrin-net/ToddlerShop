@@ -1,7 +1,7 @@
 import React from 'react';
 
 export enum EnumTypeDelivery {
-  transportCompany = 'Транспортной компанией',
-  postOffice = 'Почтой',
-  pickup = 'Самовывоз',
+  TransportCompany = 'Транспортной компанией',
+  PostOffice = 'Почтой',
+  Pickup = 'Самовывоз',
 }

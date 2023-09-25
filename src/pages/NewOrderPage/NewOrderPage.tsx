@@ -1,12 +1,12 @@
 import './NewOrderPage.scss';
 import * as yup from 'yup';
 import { Cities, deliveryAddressesCDEK } from './mokCities/DeliveryAddresses';
-import { CreateOrderSchema } from './schemes/CreateOrderSchema';
 import { EnumMethodPayment } from './enum/EnumMethodPayment';
 import { EnumTypeDelivery } from './enum/EnumTypeDelivery';
-import { RegisterOptions, SubmitHandler, UseFormRegisterReturn, useForm } from 'react-hook-form';
+import { SubmitHandler, UseFormRegisterReturn, useForm } from 'react-hook-form';
 import { closeModalCommon, openModalCommon, selectisOpenModalInfo } from '../../store/reducers/commonModalWindowSlice';
-import { selectCostDelivery } from '../../store/reducers/cartSlice';
+import { createOrderSchema } from './schemes/CreateOrderSchema';
+import { selectDeliveryCost } from '../../store/reducers/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -18,34 +18,33 @@ import React, { useState } from 'react';
 import TotalAmountPrice from '../CartPage/components/TotalAmountPrice/TotalAmountPrice';
 import iconSend from '../../assets/iconSend.svg';
 
-export type NewOrderForm = yup.InferType<typeof CreateOrderSchema>;
+export type NewOrderForm = yup.InferType<typeof createOrderSchema>;
 
 const NewOrderPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const commonModalActive = useSelector(selectisOpenModalInfo);
-  const [typeDelivery, setTypeDelivery] = useState(EnumTypeDelivery.transportCompany);
+  const [typeDelivery, setTypeDelivery] = useState(EnumTypeDelivery.TransportCompany);
   const [cityDelivery, setCityDelivery] = useState<Cities>(Cities.Moscow);
-  const costDelivery = useSelector(selectCostDelivery);
+  const costDelivery = useSelector(selectDeliveryCost);
 
   const {
-    register,
     handleSubmit,
+    register,
     setValue,
     formState: { errors },
   } = useForm<NewOrderForm>({
     mode: 'onBlur',
-    resolver: yupResolver(CreateOrderSchema),
-    defaultValues: { methodPayment: EnumMethodPayment.cardOnline, approvalMailing: true },
+    resolver: yupResolver(createOrderSchema),
+    defaultValues: { paymentMethod: EnumMethodPayment.CardOnline, mailingApproval: true },
   });
 
   const setMethodReceiving = (value: EnumTypeDelivery) => {
     setTypeDelivery(value);
-    setValue('methodReceiving', value);
+    setValue('receivingMethod', value);
   };
 
   const onSubmit: SubmitHandler<NewOrderForm> = (data) => {
-    console.log(data);
     dispatch(openModalCommon());
     setTimeout(() => {
       dispatch(closeModalCommon());
@@ -56,7 +55,7 @@ const NewOrderPage = () => {
   return (
     <>
       {commonModalActive && (
-        <CommonModalWindow active={commonModalActive}>
+        <CommonModalWindow>
           <img src={iconSend} alt="iconSend" />
           <span className="title">Спасибо за заказ!</span>
           <p>Счет на оплату придет по адрессу </p>
@@ -88,8 +87,8 @@ const NewOrderPage = () => {
                 <div className="list">
                   <button
                     type="button"
-                    onClick={() => setMethodReceiving(EnumTypeDelivery.transportCompany)}
-                    className={typeDelivery !== EnumTypeDelivery.transportCompany ? 'btn white-delivery' : 'btn white-delivery-active'}
+                    onClick={() => setMethodReceiving(EnumTypeDelivery.TransportCompany)}
+                    className={typeDelivery !== EnumTypeDelivery.TransportCompany ? 'btn white-delivery' : 'btn white-delivery-active'}
                   >
                     <BtnDeliveryType
                       title={'Транспортной компанией'}
@@ -99,26 +98,33 @@ const NewOrderPage = () => {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setMethodReceiving(EnumTypeDelivery.postOffice)}
-                    className={typeDelivery !== EnumTypeDelivery.postOffice ? 'btn white-delivery' : 'btn white-delivery-active'}
+                    onClick={() => setMethodReceiving(EnumTypeDelivery.PostOffice)}
+                    className={typeDelivery !== EnumTypeDelivery.PostOffice ? 'btn white-delivery' : 'btn white-delivery-active'}
                   >
                     <BtnDeliveryType title={'Почтой'} description={'В ближайшее отделение почти России'} costDelivery={'Бесплатно'} />
                   </button>
                   <button
                     type="button"
-                    onClick={() => setMethodReceiving(EnumTypeDelivery.pickup)}
-                    className={typeDelivery !== EnumTypeDelivery.pickup ? 'btn white-delivery' : 'btn white-delivery-active'}
+                    onClick={() => setMethodReceiving(EnumTypeDelivery.Pickup)}
+                    className={typeDelivery !== EnumTypeDelivery.Pickup ? 'btn white-delivery' : 'btn white-delivery-active'}
                   >
                     <BtnDeliveryType title={'Самовывоз'} description={'В пункте выдачи'} costDelivery={'Бесплатно'} />
                   </button>
                 </div>
               </div>
-              <DeliveryForm typeDelivery={typeDelivery} register={register} errors={errors} setValue={setValue} cityDelivery={cityDelivery} />
+              <DeliveryForm
+                costDelivery={costDelivery}
+                typeDelivery={typeDelivery}
+                register={register}
+                errors={errors}
+                setValue={setValue}
+                cityDelivery={cityDelivery}
+              />
               <label className="title-input">
                 Дополнительно <br /> <textarea placeholder="Комментарий к заказу" {...register('comment')} className="in-comment" />
               </label>
               <label className="form-checkbox">
-                <input className="checkbox-input" type="checkbox" {...register('approvalMailing')} />
+                <input className="checkbox-input" type="checkbox" {...register('mailingApproval')} />
                 <span className="checkbox-style"></span>
                 Сообщать мне об акциях и скидках
               </label>

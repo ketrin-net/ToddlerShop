@@ -5,7 +5,6 @@ import React, { ReactNode } from 'react';
 import iconClose from './assets/iconX.svg';
 
 interface CommonModalWindowProps {
-  active: boolean;
   children?: ReactNode;
 }
 

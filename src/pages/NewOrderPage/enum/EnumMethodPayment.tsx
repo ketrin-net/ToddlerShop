@@ -1,8 +1,8 @@
 import React from 'react';
 
 export enum EnumMethodPayment {
-  cardOnline = 'Картой онлайн',
-  cashToCourier = 'Наличными курьеру',
-  cashUponReceipt = 'Наличными при получении',
-  payPal = 'Онлайн-платежем PayPal',
+  CardOnline = 'Картой онлайн',
+  CashToCourier = 'Наличными курьеру',
+  CashUponReceipt = 'Наличными при получении',
+  PayPal = 'Онлайн-платежем PayPal',
 }
