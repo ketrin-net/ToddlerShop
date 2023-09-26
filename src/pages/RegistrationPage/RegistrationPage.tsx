@@ -45,10 +45,10 @@ const RegistrationPage = () => {
         password: data.password,
       }),
     );
-    // setTimeout(() => {
-    //   dispatch(closeModalCommon());
-    //   navigate('/');
-    // }, 3000);
+    setTimeout(() => {
+      dispatch(closeModalCommon());
+      navigate('/');
+    }, 3000);
   };
 
   return (

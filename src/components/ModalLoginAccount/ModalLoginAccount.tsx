@@ -43,7 +43,7 @@ const ModalLoginAccount = () => {
           <div className="line"></div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
-              type="text"
+              type="email"
               placeholder="Электронный адрес"
               {...register('email', { required: true, maxLength: 100, pattern: /@/ })}
               className={errors.email ? 'error' : ''}

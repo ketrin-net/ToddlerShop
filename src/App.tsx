@@ -16,9 +16,9 @@ import ModalAddProduct from './components/ModalProductAddition/ModalProductAddit
 import ModalLoginAccount from './components/ModalLoginAccount/ModalLoginAccount';
 import NewOrderPage from './pages/NewOrderPage/NewOrderPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
-import ScrollToTop from './helpers/ScrollToTop';
+import RestorePasswordPage from './pages/RestorePasswordPage/RestorePasswordPage';
 
 export interface AppProps {}
 
@@ -56,9 +56,8 @@ export const App = (props: AppProps) => {
         <Route path={Path.HomePage} element={<HomePage />} />
         <Route path={Path.CartPage} element={<CartPage />} />
         <Route path={Path.NewOrderPage} element={<NewOrderPage />} />
-        <Route path={Path.PaymentPage} element={<div>PaymentPage</div>} />
         <Route path={Path.RegistrationPage} element={<RegistrationPage />} />
-        <Route path={Path.RestorePasswordPage} element={<div>RestorePasswordPage</div>} />
+        <Route path={Path.RestorePasswordPage} element={<RestorePasswordPage />} />
         <Route path={Path.OrdersPage} element={<div>OrdersPage</div>} />
         <Route path={Path.FavoritesPage} element={<div>FavoritesPage</div>} />
         <Route path={Path.PersonalDataPage} element={<div>PersonalDataPage</div>} />

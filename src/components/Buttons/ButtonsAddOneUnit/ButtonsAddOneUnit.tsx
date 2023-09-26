@@ -1,7 +1,7 @@
 import './ButtonsAddOneUnit.scss';
 import { changeCountProductInCart, selectProductsInCart } from '../../../store/reducers/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useState } from 'react';
+import React from 'react';
 import minus from './assets/minus.svg';
 import plus from './assets/plus.svg';
 

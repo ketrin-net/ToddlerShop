@@ -106,7 +106,7 @@ p {
     max-width: 1456px;
 }
 
-input[type=text] {
+input[type=text],input[type=email] {
     padding: 18px 24px;
     height: 64px;
     border: 1px solid rgb(68, 107, 128, 0.4);
