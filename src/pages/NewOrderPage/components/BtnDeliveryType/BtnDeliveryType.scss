@@ -1,0 +1,57 @@
+@import '../../../../variables';
+
+.delivery-type {
+  width: 346px;
+  height: 198px;
+  padding: 24px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+
+  .title-delivery {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+
+  .description-delivery {
+    font-size: 18px;
+    line-height: 28px;
+    color: rgb(68, 107, 128, 0.64);
+  }
+
+  .cost-delivery {
+    font-size: 18px;
+    line-height: 32px;
+
+    &.blue {
+      color: $color-blue;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .delivery-type {
+    width: 328px;
+    height: 184px;
+    padding: 22px 0px 34px 19px;
+    gap: 9px;
+
+    .title-delivery {
+      font-size: 16px;
+    }
+
+    .description-delivery {
+      font-size: 16px;
+    }
+
+    .cost-delivery {
+      font-size: 16px;
+
+      &.blue {
+        color: $color-blue;
+      }
+    }
+  }
+}

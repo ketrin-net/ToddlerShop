@@ -1,0 +1,116 @@
+@import '../../variables';
+
+.main-checkoutpage{
+  margin: 32px auto;
+  max-width: 1456px;
+  display: flex;
+  flex-direction: column;
+  
+  .checkout-info {
+    display: flex;
+
+    .new-order-form {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      
+      .title-input {
+        font-family: $text-title;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+      }
+      
+      .in-city {
+        margin-top: 32px;
+        width: 469px;
+      }
+  
+      .checkout-form {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+  
+        .in-comment {
+          margin-top: 32px;
+        }
+  
+        .choose-delivery-type {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+
+          .list{
+            display: flex;
+            justify-content: space-between;
+          }
+      
+          .btn {
+            padding: 0px;
+          }
+        }
+      }
+    }
+
+    #total-amount-price {
+      .btn.go-order {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .main-checkoutpage {
+    margin: 21px 0px 81px 0px;
+    gap: 33px;
+
+    .header {
+      font-family: $text-title;
+      font-size: 30px;
+      line-height: 43px;
+    }
+
+    .checkout-info {
+      flex-direction: column;
+      gap: 76px;
+
+      .new-order-form {
+        gap: 55px;
+
+        .title-input {
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 43px;
+        }
+
+        .in-city {
+          margin-top: 25px;
+          width: 100%;
+        }
+
+        .checkout-form {
+          .choose-delivery-type {
+            display: flex;
+            gap: 25px;
+        
+            .list {
+              flex-direction: column;
+              gap: 18px;
+            }
+          }
+        }
+      }
+
+      #total-amount-price {
+        margin-top: 0px;
+        order: -1;
+
+        .promo-code {
+          align-self: center;
+        }
+      }
+    }
+  }
+}

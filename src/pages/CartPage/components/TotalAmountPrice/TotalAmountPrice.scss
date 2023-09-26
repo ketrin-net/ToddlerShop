@@ -4,8 +4,8 @@
   align-self: flex-start;
   display: flex;
   flex-direction: column;
+  gap: 24px;
   justify-content: space-between;
-  width: 346px;
   padding: 32px;
   border-radius: 12px;
   border: 1px solid  rgb(34, 53, 64, 0.16);
@@ -16,6 +16,7 @@
     flex-direction: row;
 
     input {
+      height: 48px;
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
       width: 124px;
@@ -28,27 +29,28 @@
     }
   }
 
+  .price-information, .counting {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(34, 53, 64, 0.16);
+  }
+
   .sum-cost {
-    padding: 24px 0px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(34, 53, 64, 0.16);
 
     img {
       width: 9px;
       height: 13px;
     }
 
-    &.sale {
-      padding-bottom: 0px;
-      border-bottom: none;
-    }
-
     &.total {
-      padding-top: 0px;
-      margin-top: 16px;
-      border-bottom: none;
-
       span {
         font-size: 24px;
       }
@@ -66,7 +68,41 @@
 
   span {
     font-size: 18px;
-    font-weight: 400;
     line-height: 28px;
+  }
+}
+
+@media (max-width: 850px) {
+  #total-amount-price {
+    width: 100%;
+
+    .sum-cost {
+      display: flex;
+      justify-content: space-between;
+  
+      img {
+        width: 9px;
+        height: 13px;
+      }
+  
+      &.total {
+        span {
+          font-size: 24px;
+        }
+  
+        span.sum {
+          font-weight: 500;
+        }
+  
+        img {
+          width: 11px;
+          height: 17px;
+        }
+      }
+    }
+
+    span {
+      font-size: 16px;
+    }
   }
 }

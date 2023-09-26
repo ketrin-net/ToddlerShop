@@ -1,17 +1,21 @@
 import { AppColor, AppFont } from '../../../../enums';
+import { Link, useNavigate } from 'react-router-dom';
+import { selectCountProductsInCart } from '../../../../store/reducers/cartSlice';
 import { styled } from 'styled-components';
+import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 
 export const CartButton = () => {
-  const [cartQuantity, setCartQuantity] = useState(1);
+  const productsCountInCart = useSelector(selectCountProductsInCart);
+  const navigate = useNavigate();
 
   return (
-    <StyledButton>
+    <StyledButton onClick={() => navigate('/Cart')}>
       <CartIconContainer>
         <StyledIcon className="material-symbols-outlined">shopping_cart</StyledIcon>
-        {cartQuantity > 0 && (
+        {productsCountInCart > 0 && (
           <QuantityBadge>
-            <Quantity>{cartQuantity}</Quantity>
+            <Quantity>{productsCountInCart}</Quantity>
           </QuantityBadge>
         )}
       </CartIconContainer>

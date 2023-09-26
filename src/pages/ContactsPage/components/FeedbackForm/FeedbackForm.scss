@@ -1,0 +1,64 @@
+@import '../../../../variables';
+
+.feedback-form {
+  max-width: 716px;
+  height: 412px;
+  display: grid;
+  grid-template-columns:repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 24px;
+
+  .caption {
+    grid-column: span 2;
+  }
+
+  textarea {
+    grid-column: span 2;
+  }
+
+  .form-checkbox {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+
+    .error {
+      font-size: 16px;
+      color: $color-error;
+    }
+  }
+
+  .btn {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 850px) {
+  .feedback-form {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+
+    .caption {
+    }
+
+    textarea {
+    }
+
+    .form-checkbox {
+      display: flex;
+      flex-direction: column;
+      align-items: self-start;
+
+      .error {
+        font-size: 16px;
+        color: $color-error;
+      }
+    }
+
+    .btn {
+      grid-column: span 2;
+    }
+  }
+}

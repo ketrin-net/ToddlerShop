@@ -8,8 +8,9 @@ import { useSelector } from 'react-redux';
 import ButtonAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
 import ButtonAddProductToCart from '../Buttons/ButtonsAddProductToCard/ButtonsAddProductToCard';
 import React from 'react';
-import SwitchHeart from '../SwitchHeart';
+import SwitchHeart from '../SwitchHeart/SwitchHeart';
 import moneyIconGray from './assets/moneyIconGray.svg';
+import { formatNumber } from '../../helpers/formatNumber';
 
 export const ProductCard = (prod: Product) => {
   const matchesMobile = useMediaQuery('(min-width: 1025px)');
@@ -26,7 +27,7 @@ export const ProductCard = (prod: Product) => {
         <BasicPriceProduct cost={prod.cost} />
         {prod.oldCost && (
           <div className="old-price">
-            <span>{prod.oldCost}</span>
+            <span>{formatNumber(prod.oldCost)}</span>
             <img src={moneyIconGray} alt="moneyIconGray" />
           </div>
         )}

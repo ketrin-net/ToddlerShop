@@ -17,8 +17,9 @@ export const ProductsCarousel = (props: ProductsCarouselProps) => {
       <div className="section">
         <span className="title">{props.title}</span>
         <Сarousel slidesCount={props.slidesCount} spaceBetweenCard={props.spaceBetweenCards}>
-          {props.products.map((item, i) => (
+          {props.products.map((item, index) => (
             <ProductCard
+              key={index}
               imgSrc={item.imgSrc}
               imgAlt={item.imgAlt}
               title={item.title}

@@ -1,3 +1,4 @@
+import { Cities } from '../../pages/NewOrderPage/mokCities/DeliveryAddresses';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Product } from '../../models/product';
 import { RootState } from '../store';
@@ -12,12 +13,10 @@ const saveAllProductsInStorage = (item: ProductInCart[]) => {
 
 export interface CartState {
   products: ProductInCart[];
-  isAppInitialized: boolean;
 }
 
 const initialState: CartState = {
   products: itemInStorage,
-  isAppInitialized: true,
 };
 
 export const cartSlice = createSlice({
@@ -47,7 +46,6 @@ export const cartSlice = createSlice({
 
       if (prod) {
         prod.isDeleted = true;
-        state.isAppInitialized = false;
 
         saveAllProductsInStorage(state.products);
       }
@@ -57,39 +55,38 @@ export const cartSlice = createSlice({
 
       if (prod) {
         prod.isDeleted = false;
-        state.isAppInitialized = true;
 
         saveAllProductsInStorage(state.products);
       }
     },
     deleteProductInCart: (state, action: PayloadAction<{ id: number }>) => {
       state.products = state.products.filter((item) => item.id !== action.payload.id);
-      state.isAppInitialized = false;
 
       saveAllProductsInStorage(state.products);
     },
-    initApp: (state) => {
+    cleanCart: (state) => {
       state.products = state.products.filter((item) => !item.isDeleted);
-      state.isAppInitialized = true;
 
       saveAllProductsInStorage(state.products);
     },
   },
 });
 
-export const { addProductInCart, changeCountProductInCart, hiddenProductInCart, deleteProductInCart, cancelDeleteProductInCart, initApp } =
+export const { addProductInCart, changeCountProductInCart, hiddenProductInCart, deleteProductInCart, cancelDeleteProductInCart, cleanCart } =
   cartSlice.actions;
 
 export const selectProductsInCart = (state: RootState) => state.cart.products;
-
-export const checkAppInitialized = (state: RootState) => state.cart.isAppInitialized;
 
 export const selectCountProductsInCart = (state: RootState): number => {
   return state.cart.products.filter((i) => i.isDeleted === false).reduce((sum, current) => sum + current.count, 0);
 };
 
-export const totalCostProductsInCart = (state: RootState): number => {
-  return state.cart.products.filter((i) => i.isDeleted === false).reduce((sum, current) => sum + current.cost, 0);
+export const selectTotalCostProductsInCart = (state: RootState): number => {
+  return state.cart.products.filter((i) => i.isDeleted === false).reduce((sum, current) => sum + current.cost * current.count, 0);
+};
+
+export const selectDeliveryCost = (state: RootState): number => {
+  return Math.floor(Math.random() * 999) + 100;
 };
 
 export const cartReducer = cartSlice.reducer;

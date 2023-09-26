@@ -4,7 +4,7 @@ import { ProductInCart, cancelDeleteProductInCart, deleteProductInCart, hiddenPr
 import { useDispatch } from 'react-redux';
 import ButtonAddOneUnit from '../../../../components/Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
 import React, { useState } from 'react';
-import SwitchHeart from '../../../../components/SwitchHeart';
+import SwitchHeart from '../../../../components/SwitchHeart/SwitchHeart';
 import iconTrash from '../../assets/iconTrash.svg';
 import iconX from '../../assets/iconX.svg';
 
@@ -41,7 +41,7 @@ const OrderProductCard = (props: OrderProductCardProps) => {
           <button className="cancel" onClick={() => dispatch(cancelDeleteProductInCart({ id: props.product.id }))}>
             Отменить
           </button>
-          <button onClick={() => dispatch(deleteProductInCart({ id: props.product.id }))}>
+          <button className="icon-x" onClick={() => dispatch(deleteProductInCart({ id: props.product.id }))}>
             <img src={iconX} alt="iconX" />
           </button>
         </div>
