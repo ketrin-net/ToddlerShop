@@ -13,7 +13,7 @@ import React from 'react';
 import iconClose from './assets/iconX.svg';
 
 const ModalLoginAccount = () => {
-  const matches = useMediaQuery('(max-width: 850px)');
+  const matches = useMediaQuery('(max-width: 900px)');
   const dispatch = useDispatch<AppDispatch>();
   const authUser = useSelector(selectAllAuthState);
 

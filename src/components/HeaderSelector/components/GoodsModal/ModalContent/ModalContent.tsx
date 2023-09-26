@@ -28,7 +28,7 @@ interface ModalContentProps {
 
 export const ModalContent = ({ closeModal }: ModalContentProps) => {
   const [categories, setCategories] = useState<Category[]>(mockedCategories);
-  const matches = useMediaQuery('(max-width: 850px)');
+  const matches = useMediaQuery('(max-width: 900px)');
 
   const navigate = useNavigate();
 

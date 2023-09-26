@@ -3,8 +3,10 @@ import { CabinetButton } from '../../../../CabinetButton/CabinetButton';
 import { CitySelector } from '../../../../CitySelector/CitySelector';
 import { CloseModalButton } from '../CloseModalButton/CloseModalButton';
 import { NavigationBar } from '../../../../CommonHeader/components/NavigationBar/NavigationBar';
+import { selectAllAuthState } from '../../../../../../../store/reducers/authSlice';
 import { styled } from 'styled-components';
 import { useMediaQuery } from '../../../../../../../customHooks/useMediaQuery';
+import { useSelector } from 'react-redux';
 import AuthAccount from '../../../../../../ModalLoginAccount/components/AuthAccount/AuthAccount';
 import React from 'react';
 
@@ -14,12 +16,13 @@ interface NavModalContentProps {
 }
 
 export const NavModalContent = ({ closeModal, openGoodsModal }: NavModalContentProps) => {
-  const matches = useMediaQuery('(max-width: 850px)');
+  const matches = useMediaQuery('(max-width: 900px)');
+  const authUser = useSelector(selectAllAuthState);
 
   return (
     <ContentWrapper className="nav-modal-content">
       <CloseModalButton closeModal={closeModal} color={AppColor.Sea} />
-      {matches ? <AuthAccount closeModal={closeModal} /> : <CabinetButton />}
+      {matches && authUser.isAuth ? <AuthAccount closeModal={closeModal} /> : <CabinetButton />}
       <StyledGoodsButton onClick={openGoodsModal}>Каталог товаров</StyledGoodsButton>
       <NavigationBar closeModal={closeModal} />
     </ContentWrapper>
@@ -34,7 +37,7 @@ const ContentWrapper = styled.div`
   justify-content: center;
   position: relative;
 
-  .modal-login-account{
+  .modal-login-account {
     position: relative;
     padding: 0px;
     background-color: transparent;

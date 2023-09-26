@@ -258,7 +258,7 @@ select:focus {
 }
 
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .main {
         margin: 21px 12px;
         overflow: hidden;
@@ -273,6 +273,7 @@ select:focus {
         &.header {
             font-size: 30px;
             margin-bottom: 25px;
+            line-height: 38px;
         }
 
         &.caption {

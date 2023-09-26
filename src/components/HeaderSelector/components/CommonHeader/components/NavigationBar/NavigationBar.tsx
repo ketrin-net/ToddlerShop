@@ -16,7 +16,7 @@ interface NavigationBarProps {
 
 export const NavigationBar = ({ closeModal }: NavigationBarProps) => {
   const location = useLocation();
-  const matches = useMediaQuery('(max-width: 850px)');
+  const matches = useMediaQuery('(max-width: 900px)');
 
   const handleOnClick = () => {
     if (closeModal) {

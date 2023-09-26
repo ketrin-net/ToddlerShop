@@ -6,7 +6,7 @@ import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import React from 'react';
 
 export const HeaderSelector = () => {
-  const matches = useMediaQuery('(max-width: 850px)');
+  const matches = useMediaQuery('(max-width: 900px)');
 
   return (
     <>
