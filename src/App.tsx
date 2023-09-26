@@ -17,6 +17,7 @@ import NewOrderPage from './pages/NewOrderPage/NewOrderPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect, useState } from 'react';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import { Footer } from './components/Footer/Footer';
 
 export interface AppProps {}
 

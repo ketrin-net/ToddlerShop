@@ -1,5 +1,6 @@
 import './HomePage.scss';
 import { Link } from 'react-router-dom';
+import { Footer } from '../../components/Footer/Footer';
 import { Product } from '../../models/product';
 import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
 import { PromoAction } from './components/PromoAction/PromoAction';
