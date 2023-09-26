@@ -6,13 +6,20 @@ interface NavLinkAccountProps {
   icon: string;
   name: string;
   linkTo: string;
+  closeModal?: () => void;
 }
 
-const NavLinkAccount = (props: NavLinkAccountProps) => {
+const NavLinkAccount = ({ icon, name, linkTo, closeModal }: NavLinkAccountProps) => {
+  const handleOnClick = () => {
+    if (closeModal) {
+      closeModal();
+    }
+  };
+
   return (
-    <NavLink to={props.linkTo} className="navlink-account">
-      <img src={props.icon} alt="icon" />
-      {props.name}
+    <NavLink to={linkTo} className="navlink-account" onClick={handleOnClick}>
+      <img src={icon} alt="icon" />
+      {name}
     </NavLink>
   );
 };

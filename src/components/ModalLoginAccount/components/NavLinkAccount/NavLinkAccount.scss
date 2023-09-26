@@ -5,4 +5,21 @@
   gap: 16px;
   font-weight: 400;
   color: $color-sea;
+
+  img{
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 850px) {
+  .navlink-account {
+    gap: 8px;
+    font-size: 16px;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
