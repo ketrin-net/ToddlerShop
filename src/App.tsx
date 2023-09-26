@@ -1,11 +1,13 @@
 import './App.scss';
+import { AppDispatch } from './store/store';
 import { HeaderSelector } from './components/HeaderSelector/HeaderSelector';
 import { HomePage } from './pages/HomePage/HomePage';
 import { Path } from './enums';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { cleanCart } from './store/reducers/cartSlice';
+import { currentUserAuth } from './store/reducers/authSlice';
 import { selectModalAddProductInfo } from './store/reducers/modalAdditionSlice';
-import { selectisOpenLoginModalInfo } from './store/reducers/loginModalSlice';
+import { closeLoginModal, selectisOpenLoginModalInfo } from './store/reducers/loginModalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CartPage from './pages/CartPage/CartPage';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
@@ -20,12 +22,17 @@ export interface AppProps {}
 
 export const App = (props: AppProps) => {
   const dispatch = useDispatch();
+  const dispatchApp = useDispatch<AppDispatch>();
   const modalOpen = useSelector(selectModalAddProductInfo);
   const loginModalActive = useSelector(selectisOpenLoginModalInfo);
   const location = useLocation().pathname;
 
+  const tokenInStorage = (localStorage.getItem('token') !== null ? localStorage.getItem('token') : " ") as string;
+
   useEffect(() => {
     dispatch(cleanCart());
+    dispatchApp(currentUserAuth(tokenInStorage));
+    dispatch(closeLoginModal());
   }, [dispatch, location]);
 
   useEffect(() => {
@@ -41,13 +48,14 @@ export const App = (props: AppProps) => {
   return (
     <>
       {modalOpen.isOpen && <ModalAddProduct id={modalOpen.idProduct} />}
+      {loginModalActive && <ModalLoginAccount />}
       <HeaderSelector />
       <Routes>
         <Route path={Path.HomePage} element={<HomePage />} />
         <Route path={Path.CartPage} element={<CartPage />} />
         <Route path={Path.NewOrderPage} element={<NewOrderPage />} />
         <Route path={Path.PaymentPage} element={<div>PaymentPage</div>} />
-        <Route path={Path.RegistrationPage} element={<div>RegistrationPage</div>} />
+        <Route path={Path.RegistrationPage} element={<RegistrationPage/>} />
         <Route path={Path.RestorePasswordPAge} element={<div>RestorePasswordPAge</div>} />
         <Route path={Path.OrdersPage} element={<div>OrdersPage</div>} />
         <Route path={Path.FavoritesPage} element={<div>FavoritesPage</div>} />
@@ -66,7 +74,6 @@ export const App = (props: AppProps) => {
           <Route path={Path.SubCategoryPathWithId}>
             <Route index element={<div>Sub Category Page</div>} />
             <Route path={Path.ProductPathWithId} element={<div>ConcreteProductPage</div>} />
-        {loginModalActive && <ModalLoginAccount />}
           </Route>
         </Route>
         <Route path={Path.DeliveryPage} element={<div>DeliveryPage</div>} />

@@ -1,8 +1,10 @@
 import './RegistrationPage.scss';
 import * as yup from 'yup';
+import { AppDispatch } from '../../store/store';
 import { RegistrationSchema } from './schemes/RegistrationSchema';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { closeModalCommon, openModalCommon, selectisOpenModalInfo } from '../../store/reducers/commonModalWindowSlice';
+import { registrationAuth } from '../../store/reducers/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,6 +15,7 @@ export type RegistrationForm = yup.InferType<typeof RegistrationSchema>;
 
 const RegistrationPage = () => {
   const navigate = useNavigate();
+  const dispatchApp = useDispatch<AppDispatch>();
   const dispatch = useDispatch();
   const commonModalActive = useSelector(selectisOpenModalInfo);
 
@@ -33,12 +36,19 @@ const RegistrationPage = () => {
   });
 
   const onSubmit: SubmitHandler<RegistrationForm> = (data) => {
-    console.log(data);
     dispatch(openModalCommon());
-    setTimeout(() => {
-      dispatch(closeModalCommon());
-      navigate('/');
-    }, 5000);
+    dispatchApp(
+      registrationAuth({
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        password: data.password,
+      }),
+    );
+    // setTimeout(() => {
+    //   dispatch(closeModalCommon());
+    //   navigate('/');
+    // }, 3000);
   };
 
   return (

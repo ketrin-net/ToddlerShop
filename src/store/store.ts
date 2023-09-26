@@ -13,6 +13,7 @@ export const store = configureStore({
     commonModalWindow: commonModalWindowReducer,
     loginModal: loginModalReducer,
   },
+  
 });
 
 export type RootState = ReturnType<typeof store.getState>;

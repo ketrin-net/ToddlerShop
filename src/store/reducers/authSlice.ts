@@ -1,69 +1,81 @@
-import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { AnyAction, PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { User } from '../../models/user';
 import { UserLogIn } from '../../models/userLogin';
+import { UserRegictration } from '../../models/userRegictration';
+import { useEffect } from 'react';
 
 const tokenInStorage = localStorage.getItem('token') !== null ? localStorage.getItem('token') : '';
 
 export const loginAuth = createAsyncThunk(`auth/loginAuth`, async (user: UserLogIn, { rejectWithValue, dispatch }) => {
-  try {
-    const response = await fetch('http://localhost:7000/auth/login', {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    });
-    if (!response.ok) {
-      throw new Error('Server Error!');
-    }
-    const data = await response.json();
-    localStorage.setItem('token', JSON.stringify(data.token).slice(1, -1));
-
-    dispatch(login());
-
-    currentUserAuth(data);
-  } catch (error) {
-    return rejectWithValue(error);
+  const response = await fetch('http://localhost:7000/auth/login', {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  if (!response.ok) {
+    return rejectWithValue('Такого пользователя не существует');
   }
+  const data = await response.json();
+  localStorage.setItem('token', data.token);
+
+  dispatch(currentUserAuth(data.token));
 });
 
-export const currentUserAuth = createAsyncThunk(`auth/loginAuth`, async (token: string, { rejectWithValue, dispatch }) => {
-  try {
+export const currentUserAuth = createAsyncThunk<User, string, { rejectValue: string }>(
+  `auth/currentUserAuth`,
+  async (token: string, { rejectWithValue }) => {
     const currentUserResponse = await fetch('http://localhost:7000/auth/current', {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${token}`,
       },
     });
 
     if (!currentUserResponse.ok) {
-      throw new Error('Server Error!');
+      return rejectWithValue('Пользователь не найден');
     }
 
-    const currentUserData = await currentUserResponse.json();
-    dispatch(currentUser(currentUserData));
-  } catch (error) {
-    return rejectWithValue(error);
+    return await currentUserResponse.json();
+  },
+);
+
+export const registrationAuth = createAsyncThunk(`auth/registrationAuth`, async (newUser: UserRegictration, { rejectWithValue, dispatch }) => {
+  const newUserResponse = await fetch('http://localhost:7000/auth/registration', {
+    method: 'POST',
+    body: JSON.stringify(newUser),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+
+  if (!newUserResponse.ok) {
+    return rejectWithValue('Пользователь не зарегистрирован');
   }
+
+  const data = await newUserResponse.json();
+  dispatch(
+    loginAuth({
+      email: newUser.email,
+      password: newUser.password,
+    }),
+  );
 });
 
 export interface AuthState {
-  user: User;
+  user: User | null;
   isAuth: boolean;
-  error: boolean;
+  loading: boolean;
+  error: string | null;
 }
 
 const initialState: AuthState = {
-  user: {
-    id: 0,
-    name: 'undefined',
-    email: 'undefined',
-    phone: 'undefined',
-    token: 'undefined',
-  },
+  user: null,
   isAuth: Boolean(tokenInStorage),
-  error: false,
+  loading: false,
+  error: null,
 };
 
 export const authSlice = createSlice({
@@ -81,6 +93,40 @@ export const authSlice = createSlice({
       state.isAuth = false;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginAuth.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(loginAuth.fulfilled, (state, action) => {
+        state.isAuth = true;
+        state.loading = false;
+        state.user = action.payload ?? null;
+      })
+      .addCase(currentUserAuth.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(currentUserAuth.fulfilled, (state, action) => {
+        state.isAuth = true;
+        state.loading = false;
+        state.user = action.payload ?? null;
+      })
+      .addCase(registrationAuth.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(registrationAuth.fulfilled, (state, action) => {
+        state.isAuth = true;
+        state.loading = false;
+        state.user = action.payload ?? null;
+      })
+      .addMatcher(isError, (state, action: PayloadAction<string>) => {
+        state.error = action.payload;
+        state.loading = false;
+      });
+  },
 });
 
 export const { login, logout, currentUser } = authSlice.actions;
@@ -88,3 +134,7 @@ export const selectAllAuthState = (state: RootState) => state.auth;
 export const selectIsAuthState = (state: RootState) => state.auth.isAuth;
 export const selectAuthUser = (state: RootState) => state.auth.user;
 export const authReducer = authSlice.reducer;
+
+function isError(action: AnyAction) {
+  return action.type.endsWith('rejected');
+}

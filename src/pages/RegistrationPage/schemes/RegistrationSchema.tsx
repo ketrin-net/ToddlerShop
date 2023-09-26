@@ -2,8 +2,11 @@
 import * as yup from 'yup';
 
 export const RegistrationSchema = yup.object().shape({
-  name: yup.string().matches(/[a-zA-ZА-Яа-я]/),
-  email: yup.string().email().matches(/@/),
+  name: yup
+    .string()
+    .required()
+    .matches(/[a-zA-ZА-Яа-я]/),
+  email: yup.string().required().email().matches(/@/),
   phone: yup
     .string()
     .required()

@@ -76,7 +76,7 @@ export const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:7000/products')
+    fetch('http://194.87.210.5:7000/products')
       .then((response) => response.json())
       .then((products) => setProducts(products));
   }, []);
