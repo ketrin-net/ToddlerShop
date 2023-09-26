@@ -12,6 +12,7 @@ import ModalAddProduct from './components/ModalProductAddition/ModalProductAddit
 import NewOrderPage from './pages/NewOrderPage/NewOrderPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect, useState } from 'react';
+import { Footer } from './components/Footer/Footer';
 
 export interface AppProps {}
 
