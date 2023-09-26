@@ -54,7 +54,6 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
     }
 
     .footer-social-media { 
@@ -85,6 +84,7 @@
         font-weight: 400;
         opacity: 0.8;
         display: block;
+        text-align: start;
     }
 }
 
@@ -118,15 +118,15 @@
 @media (max-width: 850px) {
 
     .footer{
-        padding-left: -16px;
-        padding-right: 16px;
+        margin-top: 80px;
+        padding: 32px 16px;
     }
 
     .footer-main {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        padding-top: 73px;
+        grid-template-rows: auto 1fr 1fr;
+        padding-top: 0px;
     
         .footer-logo { 
             display: none;
@@ -153,6 +153,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            gap: 0px;
         }
     
         .footer-links2 { 
@@ -160,6 +161,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            gap: 0px;
         }
     
         .footer-links3 {
@@ -167,7 +169,6 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-bottom: -16px;
         }
     
         .footer-social-media { 
@@ -177,6 +178,7 @@
             align-items: flex-start;
             margin-top: 16px;
             .social-media{
+                margin-top: 16px;
                 display: flex;
                 flex-direction: row;
                 align-items: flex-start;
@@ -192,7 +194,7 @@
             text-decoration: none;
             color: $color-sea;
             font-family: Montserrat;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 400;
             opacity: 0.8;
             display: block;
@@ -218,7 +220,7 @@
             text-decoration: none;
             color: $color-sea;
             font-family: Montserrat;
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 400;
             opacity: 0.72;
         }
