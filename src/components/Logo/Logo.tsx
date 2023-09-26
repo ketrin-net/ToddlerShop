@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Path } from '../../enums/Path';
 import React from 'react';
 import logoImage from '../../assets/logo.png';
 import styled from 'styled-components';
@@ -6,7 +7,7 @@ import styled from 'styled-components';
 export const Logo = () => {
   return (
     <StyledWrapper className="logo-wrapper">
-      <Link to="/">
+      <Link to={Path.HomePage}>
         <StyledLogo src={logoImage} className="logo" alt="logo" />
       </Link>
     </StyledWrapper>

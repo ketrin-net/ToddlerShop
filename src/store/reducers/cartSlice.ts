@@ -1,4 +1,3 @@
-import { Cities } from '../../pages/NewOrderPage/mokCities/DeliveryAddresses';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Product } from '../../models/product';
 import { RootState } from '../store';

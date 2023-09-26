@@ -23,7 +23,7 @@ button {
     padding: 0;
     border: none;
     background-color: transparent;
-
+    cursor: pointer;
     
     text-align: center;
     font-size: 18px;
@@ -133,6 +133,10 @@ input[type=submit] {
     &.btn {
         border: none;
     }
+}
+
+.error {
+    color: $color-error;
 }
 
 .form-checkbox {

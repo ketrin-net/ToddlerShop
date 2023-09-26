@@ -57,7 +57,7 @@ const ModalLoginAccount = () => {
             {authUser.error !== null && <p className="error-auth">{authUser.error}</p>}
             <div className="navigations">
               <input type="submit" value="Войти" className="btn blue" />
-              <Link to="/restore-password" onClick={() => dispatch(closeLoginModal())}>
+              <Link to={Path.RestorePasswordPage} onClick={() => dispatch(closeLoginModal())}>
                 Забыли пароль?
               </Link>
             </div>

@@ -1,6 +1,7 @@
 import './ModalProductAddition.scss';
 import { BasicPriceProduct } from '../BasicPriceProduct/BasicPriceProduct';
 import { Link } from 'react-router-dom';
+import { Path } from '../../enums';
 import { closeModalAddProduct } from '../../store/reducers/modalAdditionSlice';
 import { selectProductsInCart } from '../../store/reducers/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,7 +28,7 @@ const ModalAddProduct = ({ id }: { id: number }) => {
             <BasicPriceProduct cost={currentProduct.cost} />
           </div>
           <ButtonAddOneUnit id={currentProduct.id} />
-          <Link to="/Cart" className="btn white">
+          <Link to={Path.CartPage} className="btn white">
             Перейти в корзину
           </Link>
         </div>

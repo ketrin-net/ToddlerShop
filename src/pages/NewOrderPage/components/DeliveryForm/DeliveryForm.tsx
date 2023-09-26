@@ -10,6 +10,7 @@ import { selectDeliveryCost } from '../../../../store/reducers/cartSlice';
 import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import moneyIconGray from '../../assets/moneyIconGray.svg';
+import { Path } from '../../../../enums/Path';
 
 interface DeliveryFormProps {
   typeDelivery: EnumTypeDelivery;
@@ -109,7 +110,7 @@ const DeliveryForm = (props: DeliveryFormProps) => {
             <span>Телефон</span>
             <p>+7 (812) 710-90-79</p>
           </div>
-          <Link to={'/contacts'}>Контакты</Link>
+          <Link to={Path.ContactsPage}>Контакты</Link>
         </div>
       )}
       <div className="choose-payment-method">

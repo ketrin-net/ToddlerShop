@@ -18,6 +18,7 @@ const FeedbackForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<NewQuestionsForm>({
     mode: 'onBlur',
     resolver: yupResolver(QuestionsSchema),
@@ -25,7 +26,8 @@ const FeedbackForm = () => {
 
   const onSubmit: SubmitHandler<NewQuestionsForm> = (data) => {
     dispatch(openModalCommon());
-    setTimeout(() => dispatch(closeModalCommon()), 5000);
+    setTimeout(() => dispatch(closeModalCommon()), 3000);
+    reset();
   };
 
   return (
