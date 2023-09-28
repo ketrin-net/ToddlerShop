@@ -50,30 +50,24 @@
     align-self: center;
     font-size: 14px;
   }
+}
 
-  .user-info {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    gap: 4px 16px;
-    margin-bottom: 16px;
+@media (max-width: 900px) {
+  .modal-login-account {
+    top: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    gap: 16px;
+    border-radius: 0px;
 
-    img {
-      grid-row: span 2;
-      width: 40px;
-      height: 40px;
+    nav {
+      gap: 18px;
     }
-  }
 
-  nav {
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-  }
-  
-  .icon-close {
-    position: absolute;
-    top: 31px;
-    right: 24px;
+    .icon-close {
+      display: none;
+    }
   }
 }

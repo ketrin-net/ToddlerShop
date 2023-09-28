@@ -18,7 +18,7 @@ const cities: CityOption[] = [
 
 export const CitySelector: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState<CityOption>({ value: 'moscow', label: 'Москва' });
-  const matches = useMediaQuery('(max-width: 850px)');
+  const matches = useMediaQuery('(max-width: 900px)');
 
   const customStyles: StylesConfig<CityOption> = {
     control: (provided) => ({

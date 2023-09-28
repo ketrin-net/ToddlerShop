@@ -65,9 +65,9 @@ const RegistrationPage = () => {
         <input type="text" placeholder="8 999 999 99 99" className={errors.phone ? 'error' : ''} {...register('phone')} />
         <input type="text" placeholder="Электронный адрес" className={errors.email ? 'error' : ''} {...register('email')} />
         <input type="text" placeholder="Пароль" className={errors.password ? 'error' : ''} {...register('password')} />
-        {/* {errors.password && <p className="error-text">{errors.password.message}</p>} */}
+        {errors.password && <p className="error">{errors.password.message}</p>}
         <input type="text" placeholder="Повторите пароль" className={errors.passwordRepeat ? 'error' : ''} {...register('passwordRepeat')} />
-        {/* {errors.passwordRepeat && <p className="error-text">{errors.passwordRepeat.message}</p>} */}
+        {errors.passwordRepeat && <p className="error">{errors.passwordRepeat.message}</p>}
         <label className={errors.acceptancePrivacyPolicy ? 'form-checkbox error' : 'form-checkbox'}>
           <input className="checkbox-input" type="checkbox" {...register('acceptancePrivacyPolicy')} />
           <span className="checkbox-style"></span>
