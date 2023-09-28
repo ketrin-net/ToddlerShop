@@ -6,7 +6,7 @@ export const SearchInput = () => {
   return (
     <SearchInputWrapper>
       <StyledSearchIcon className="material-symbols-outlined">search</StyledSearchIcon>
-      <StyledInput type="text" placeholder="Я хочу купить..." />
+      <StyledInput className="styled" type="text" placeholder="Я хочу купить..." />
       <StyledButton>Найти</StyledButton>
     </SearchInputWrapper>
   );

@@ -106,7 +106,8 @@ p {
     max-width: 1456px;
 }
 
-input[type=text],input[type=email] {
+input[type=text]:not(.styled),
+input[type=email]:not(.styled) {
     padding: 18px 24px;
     height: 64px;
     border: 1px solid rgb(68, 107, 128, 0.4);
@@ -137,6 +138,7 @@ input[type=submit] {
 
 .error {
     color: $color-error;
+    font-size: 14px;
 }
 
 .form-checkbox {

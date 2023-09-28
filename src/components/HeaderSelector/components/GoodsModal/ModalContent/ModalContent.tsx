@@ -1,10 +1,9 @@
 import { AppColor, AppFont, Path } from '../../../../../enums';
 import { CloseModalButton } from '../../MobileHeader/components/MobileModal/CloseModalButton/CloseModalButton';
-import { mockedCategories } from './ModalContentMockData';
 import { styled } from 'styled-components';
 import { useMediaQuery } from '../../../../../customHooks/useMediaQuery';
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface SubCategory {
   id: number;
@@ -15,7 +14,7 @@ export interface Category {
   id: number;
   name: string;
   isActive: boolean;
-  subCategories: SubCategory[];
+  subcategories: SubCategory[];
 }
 
 interface StyledCategoryProps {
@@ -27,7 +26,13 @@ interface ModalContentProps {
 }
 
 export const ModalContent = ({ closeModal }: ModalContentProps) => {
-  const [categories, setCategories] = useState<Category[]>(mockedCategories);
+  useEffect(() => {
+    fetch('http://localhost:7000/category')
+      .then((response) => response.json())
+      .then((category) => setCategories(category));
+  }, []);
+
+  const [categories, setCategories] = useState<Category[]>([]);
   const matches = useMediaQuery('(max-width: 900px)');
 
   const navigate = useNavigate();
@@ -66,7 +71,7 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
         <StyledSubCategories>
           {categories
             .find((c) => c.isActive)
-            ?.subCategories.map((p) => (
+            ?.subcategories?.map((p) => (
               <StyledButton onClick={handleOnSubCategoryClick(p.id)} key={p.id}>
                 {p.name}
               </StyledButton>
@@ -113,16 +118,17 @@ const StyledSubCategories = styled.div`
 `;
 
 const StyledCategory = styled.button<StyledCategoryProps>`
+  text-align: start;
   border: none;
   background: none;
-  min-width: 271px;
+  min-width: 300px;
   color: ${(props) => (props.$isActive ? AppColor.Sea : AppColor.White)};
   font-family: ${AppFont.Montserrat};
   font-size: 18px;
   font-style: normal;
   font-weight: ${(props) => (props.$isActive ? '500' : '400')};
   line-height: normal;
-  padding: 19px 0 19px 24px;
+  padding: 19px 0px 19px 24px;
   border-radius: 12px 0px 0px 12px;
   cursor: pointer;
   ${(props) => props.$isActive && 'background-color: ' + AppColor.White + ';'}
@@ -135,6 +141,7 @@ const StyledCategory = styled.button<StyledCategoryProps>`
 `;
 
 const StyledButton = styled.button`
+  text-align: start;
   border: none;
   background: none;
   padding: 0;
