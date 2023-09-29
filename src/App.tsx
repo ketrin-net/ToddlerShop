@@ -19,6 +19,7 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect } from 'react';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import RestorePasswordPage from './pages/RestorePasswordPage/RestorePasswordPage';
+import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 
 export interface AppProps {}
 
@@ -70,13 +71,14 @@ export const App = (props: AppProps) => {
           <Route path={Path.PromoId} element={<div>ConcretePromoPage</div>} />
         </Route>
         <Route path={Path.ContactsPage} element={<ContactsPage />} />
+
         <Route path={Path.CategoryPage}>
-          <Route index element={<div>CategoryPage</div>} />
-          <Route path={Path.SubCategoryPathWithId}>
-            <Route index element={<div>Sub Category Page</div>} />
-            <Route path={Path.ProductPathWithId} element={<div>ConcreteProductPage</div>} />
-          </Route>
+          <Route index element={<CatalogPage />} />
         </Route>
+          <Route path={Path.SubCategoryPage}>
+          <Route index element={<CatalogPage />} />
+          </Route>
+
         <Route path={Path.DeliveryPage} element={<div>DeliveryPage</div>} />
         <Route path={Path.WholesalersPage} element={<div>WholesalersPage</div>} />
         <Route path={Path.AboutUsPage} element={<div>AboutUsPage</div>} />
