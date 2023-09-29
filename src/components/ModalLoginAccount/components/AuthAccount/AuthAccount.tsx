@@ -1,8 +1,8 @@
 import './AuthAccount.scss';
 import { AppDispatch } from '../../../../store/store';
 import { Path } from '../../../../enums/Path';
-import { closeLoginModal } from '../../../../store/reducers/loginModalSlice';
-import { logout, selectAllAuthState } from '../../../../store/reducers/authSlice';
+import { closeLoginModal } from '../../../../store/slices/loginModalSlice';
+import { logout, selectAllAuthState } from '../../../../store/slices/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import NavLinkAccount from '../NavLinkAccount/NavLinkAccount';
 import React from 'react';

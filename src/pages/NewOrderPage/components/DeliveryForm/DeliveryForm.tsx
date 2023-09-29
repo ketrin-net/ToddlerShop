@@ -6,7 +6,7 @@ import { EnumTypeDelivery } from '../../enum/EnumTypeDelivery';
 import { FieldErrors, UseFormRegister, UseFormSetValue } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { NewOrderForm } from '../../NewOrderPage';
-import { selectDeliveryCost } from '../../../../store/reducers/cartSlice';
+import { selectDeliveryCost } from '../../../CartPage/slice/cartSlice';
 import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import moneyIconGray from '../../assets/moneyIconGray.svg';

@@ -1,5 +1,5 @@
 import './OrderComposition.scss';
-import { selectProductsInCart } from '../../../../store/reducers/cartSlice';
+import { selectProductsInCart } from '../../../CartPage/slice/cartSlice';
 import { useSelector } from 'react-redux';
 import React from 'react';
 

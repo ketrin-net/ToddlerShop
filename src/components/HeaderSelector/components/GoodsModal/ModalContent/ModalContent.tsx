@@ -1,5 +1,6 @@
 import { AppColor, AppFont, Path } from '../../../../../enums';
 import { CloseModalButton } from '../../MobileHeader/components/MobileModal/CloseModalButton/CloseModalButton';
+import { baseUrl } from '../../../../../helpers/baseUrl';
 import { styled } from 'styled-components';
 import { useMediaQuery } from '../../../../../customHooks/useMediaQuery';
 import { useNavigate } from 'react-router-dom';
@@ -27,7 +28,7 @@ interface ModalContentProps {
 
 export const ModalContent = ({ closeModal }: ModalContentProps) => {
   useEffect(() => {
-    fetch('http://localhost:7000/category')
+    fetch(`${baseUrl}/category`)
       .then((response) => response.json())
       .then((category) => setCategories(category));
   }, []);

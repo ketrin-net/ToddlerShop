@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Path } from '../../enums/Path';
 import { Product } from '../../models/product';
 import { formatNumber } from '../../helpers/formatNumber';
-import { selectProductsInCart } from '../../store/reducers/cartSlice';
+import { selectProductsInCart } from '../../pages/CartPage/slice/cartSlice';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';
 import ButtonAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';

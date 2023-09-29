@@ -5,11 +5,11 @@ import { HeaderSelector } from './components/HeaderSelector/HeaderSelector';
 import { HomePage } from './pages/HomePage/HomePage';
 import { Path } from './enums';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { cleanCart } from './store/reducers/cartSlice';
-import { closeLoginModal, selectisOpenLoginModalInfo } from './store/reducers/loginModalSlice';
-import { currentUserAuth } from './store/reducers/authSlice';
-import { selectModalAddProductInfo } from './store/reducers/modalAdditionSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { batch, useDispatch, useSelector } from 'react-redux';
+import { cleanCart } from './pages/CartPage/slice/cartSlice';
+import { closeLoginModal, selectisOpenLoginModalInfo } from './store/slices/loginModalSlice';
+import { currentUserAuth } from './store/slices/authSlice';
+import { selectModalAddProductInfo } from './store/slices/modalAdditionSlice';
 import CartPage from './pages/CartPage/CartPage';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
 import ModalAddProduct from './components/ModalProductAddition/ModalProductAddition';
@@ -24,8 +24,7 @@ import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 export interface AppProps {}
 
 export const App = (props: AppProps) => {
-  const dispatch = useDispatch();
-  const dispatchApp = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>();
   const modalOpen = useSelector(selectModalAddProductInfo);
   const loginModalActive = useSelector(selectisOpenLoginModalInfo);
   const location = useLocation().pathname;
@@ -33,9 +32,11 @@ export const App = (props: AppProps) => {
   const tokenInStorage = (localStorage.getItem('token') !== null ? localStorage.getItem('token') : ' ') as string;
 
   useEffect(() => {
-    dispatch(cleanCart());
-    dispatchApp(currentUserAuth(tokenInStorage));
-    dispatch(closeLoginModal());
+    batch(() => {
+      dispatch(cleanCart());
+      dispatch(currentUserAuth(tokenInStorage));
+      dispatch(closeLoginModal());
+    });
   }, [dispatch, location]);
 
   useEffect(() => {

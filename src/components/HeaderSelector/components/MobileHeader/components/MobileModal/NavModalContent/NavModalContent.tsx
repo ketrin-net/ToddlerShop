@@ -3,7 +3,7 @@ import { CabinetButton } from '../../../../CabinetButton/CabinetButton';
 import { CitySelector } from '../../../../CitySelector/CitySelector';
 import { CloseModalButton } from '../CloseModalButton/CloseModalButton';
 import { NavigationBar } from '../../../../CommonHeader/components/NavigationBar/NavigationBar';
-import { selectAllAuthState } from '../../../../../../../store/reducers/authSlice';
+import { selectAllAuthState } from '../../../../../../../store/slices/authSlice';
 import { styled } from 'styled-components';
 import { useMediaQuery } from '../../../../../../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';

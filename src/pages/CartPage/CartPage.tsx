@@ -1,6 +1,6 @@
 import './CartPage.scss';
 import { Product } from '../../models/product';
-import { ProductInCart, selectCountProductsInCart } from '../../store/reducers/cartSlice';
+import { ProductInCart, selectCountProductsInCart } from './slice/cartSlice';
 import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';

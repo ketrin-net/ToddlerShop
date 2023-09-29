@@ -1,5 +1,5 @@
 import './ButtonsAddOneUnit.scss';
-import { changeCountProductInCart, selectProductsInCart } from '../../../store/reducers/cartSlice';
+import { changeCountProductInCart, selectProductsInCart } from '../../../pages/CartPage/slice/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import minus from './assets/minus.svg';

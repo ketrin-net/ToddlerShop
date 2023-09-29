@@ -1,7 +1,7 @@
 import './TotalAmountPrice.scss';
 import { Link } from 'react-router-dom';
 import { formatNumber } from '../../../../helpers/formatNumber';
-import { selectCountProductsInCart, selectTotalCostProductsInCart } from '../../../../store/reducers/cartSlice';
+import { selectCountProductsInCart, selectTotalCostProductsInCart } from '../../slice/cartSlice';
 import { useSelector } from 'react-redux';
 import React from 'react';
 import moneyIcon from '../../assets/moneyIconGray.svg';

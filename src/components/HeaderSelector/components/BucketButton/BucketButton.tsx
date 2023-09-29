@@ -1,6 +1,6 @@
 import { AppColor, AppFont } from '../../../../enums';
 import { Link, useNavigate } from 'react-router-dom';
-import { selectCountProductsInCart } from '../../../../store/reducers/cartSlice';
+import { selectCountProductsInCart } from '../../../../pages/CartPage/slice/cartSlice';
 import { styled } from 'styled-components';
 import { useSelector } from 'react-redux';
 import React, { useState } from 'react';

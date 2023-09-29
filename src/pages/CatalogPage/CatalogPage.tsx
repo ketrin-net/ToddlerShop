@@ -1,7 +1,7 @@
-import React from 'react';
-import { Product } from '../../models/product';
 import './CatalogPage.scss';
+import { Product } from '../../models/product';
 import { useParams } from 'react-router-dom';
+import React from 'react';
 
 export const popularProducts: Product[] = [
   {

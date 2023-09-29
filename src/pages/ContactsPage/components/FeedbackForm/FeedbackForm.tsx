@@ -2,7 +2,7 @@ import './FeedbackForm.scss';
 import * as yup from 'yup';
 import { QuestionsSchema } from './schemes/QuestionsSchema';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { closeModalCommon, openModalCommon, selectisOpenModalInfo } from '../../../../store/reducers/commonModalWindowSlice';
+import { closeModalCommon, openModalCommon, selectisOpenModalInfo } from '../../../../store/slices/commonModalWindowSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import CommonModalWindow from '../../../../components/CommonModalWindow/CommonModalWindow';
