@@ -1,6 +1,6 @@
 import './CardProductInOrder.scss';
 import { BasicPriceProduct } from '../../../../components/BasicPriceProduct/BasicPriceProduct';
-import { ProductInCart, cancelDeleteProductInCart, deleteProductInCart, hiddenProductInCart } from '../../../../store/reducers/cartSlice';
+import { ProductInCart, cancelDeleteProductInCart, deleteProductInCart, hiddenProductInCart } from '../../slice/cartSlice';
 import { useDispatch } from 'react-redux';
 import ButtonAddOneUnit from '../../../../components/Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
 import React, { useState } from 'react';

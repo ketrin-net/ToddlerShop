@@ -6,10 +6,11 @@ import { EnumTypeDelivery } from '../../enum/EnumTypeDelivery';
 import { FieldErrors, UseFormRegister, UseFormSetValue } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { NewOrderForm } from '../../NewOrderPage';
-import { selectDeliveryCost } from '../../../../store/reducers/cartSlice';
+import { selectDeliveryCost } from '../../../CartPage/slice/cartSlice';
 import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import moneyIconGray from '../../assets/moneyIconGray.svg';
+import { Path } from '../../../../enums/Path';
 
 interface DeliveryFormProps {
   typeDelivery: EnumTypeDelivery;
@@ -96,7 +97,7 @@ const DeliveryForm = (props: DeliveryFormProps) => {
         )}
         <input type="text" placeholder="Фамилия и имя по паспорту*" {...register('name')} className={errors.name ? 'in-name error' : 'in-name'} />
         <input type="text" placeholder="Электронная почта*" {...register('email')} className={errors.email ? 'in-email error' : 'in-email'} />
-        <input type="text" placeholder="+7 999 999 99 99*" {...register('phone')} className={errors.phone ? 'in-phone error' : 'in-phone'} />
+        <input type="text" placeholder="8 999 999 99 99*" {...register('phone')} className={errors.phone ? 'in-phone error' : 'in-phone'} />
       </div>
       {!delivPickup && (
         <div className="adress-pickup">
@@ -109,7 +110,7 @@ const DeliveryForm = (props: DeliveryFormProps) => {
             <span>Телефон</span>
             <p>+7 (812) 710-90-79</p>
           </div>
-          <Link to={'/contacts'}>Контакты</Link>
+          <Link to={Path.ContactsPage}>Контакты</Link>
         </div>
       )}
       <div className="choose-payment-method">

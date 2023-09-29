@@ -1,6 +1,6 @@
 import './CartPage.scss';
 import { Product } from '../../models/product';
-import { ProductInCart, selectCountProductsInCart } from '../../store/reducers/cartSlice';
+import { ProductInCart, selectCountProductsInCart } from './slice/cartSlice';
 import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';
@@ -82,8 +82,8 @@ const CartPage = () => {
   let slidesCount = matches ? 3 : 2;
 
   return (
-    <div className="main-backetpage">
-      <div className="header">В корзине {productsCountInCart} товара</div>
+    <div className="main backetpage">
+      <span className="header">В корзине {productsCountInCart} товара</span>
       <TableProductsInCart />
       <TotalAmountPrice />
       <ProductsCarousel title="С этим покупают" products={popularProducts} slidesCount={slidesCount} spaceBetweenCards={0} />

@@ -5,10 +5,10 @@ import React from 'react';
 import СontactsInfo from './components/СontactsInfo/СontactsInfo';
 
 const ContactsPage = () => {
-  const matches = useMediaQuery('(max-width: 850px)');
+  const matches = useMediaQuery('(max-width: 900px)');
   
   return (
-    <div className="main-contacts">
+    <div className="main contacts">
       <span className="header">Контакты</span>
       <div className="info">
         <СontactsInfo />

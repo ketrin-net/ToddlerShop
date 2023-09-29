@@ -1,4 +1,4 @@
-import { selectProductsInCart } from '../../../../store/reducers/cartSlice';
+import { selectProductsInCart } from '../../slice/cartSlice';
 import { useSelector } from 'react-redux';
 import OrderProductCard from '../CardProductInOrder/CardProductInOrder';
 import React, { useState } from 'react';

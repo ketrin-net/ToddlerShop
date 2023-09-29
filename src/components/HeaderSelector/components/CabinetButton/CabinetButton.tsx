@@ -1,12 +1,22 @@
 import { AppColor, AppFont } from '../../../../enums';
+import { openLoginModal } from '../../../../store/slices/loginModalSlice';
+import { selectIsAuthState } from '../../../../store/slices/authSlice';
 import { styled } from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 
 export const CabinetButton = () => {
+  const dispatch = useDispatch();
+  const isAuthUser = useSelector(selectIsAuthState);
+
   return (
     <StyledButton>
       <StyledIcon className="material-symbols-outlined">person</StyledIcon>
-      <StyledButtonText>Войти в личный кабинет</StyledButtonText>
+      {isAuthUser ? (
+        <StyledButtonText onClick={() => dispatch(openLoginModal())}>Личный кабинет</StyledButtonText>
+      ) : (
+        <StyledButtonText onClick={() => dispatch(openLoginModal())}>Войти в личный кабинет</StyledButtonText>
+      )}
     </StyledButton>
   );
 };

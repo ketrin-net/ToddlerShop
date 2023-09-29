@@ -4,7 +4,7 @@ export enum Path {
   NewOrderPage = 'new-order',
   PaymentPage = 'payment',
   RegistrationPage = 'registration',
-  RestorePasswordPAge = 'restore-password',
+  RestorePasswordPage = 'restore-password',
   OrdersPage = 'orders',
   FavoritesPage = 'favorites',
   PersonalDataPage = 'personal-data',

@@ -1,8 +1,10 @@
 import './ProductCard.scss';
 import { BasicPriceProduct } from '../BasicPriceProduct/BasicPriceProduct';
 import { Link } from 'react-router-dom';
+import { Path } from '../../enums/Path';
 import { Product } from '../../models/product';
-import { selectProductsInCart } from '../../store/reducers/cartSlice';
+import { formatNumber } from '../../helpers/formatNumber';
+import { selectProductsInCart } from '../../pages/CartPage/slice/cartSlice';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';
 import ButtonAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
@@ -10,7 +12,6 @@ import ButtonAddProductToCart from '../Buttons/ButtonsAddProductToCard/ButtonsAd
 import React from 'react';
 import SwitchHeart from '../SwitchHeart/SwitchHeart';
 import moneyIconGray from './assets/moneyIconGray.svg';
-import { formatNumber } from '../../helpers/formatNumber';
 
 export const ProductCard = (prod: Product) => {
   const matchesMobile = useMediaQuery('(min-width: 1025px)');
@@ -33,7 +34,7 @@ export const ProductCard = (prod: Product) => {
         )}
       </div>
       {!almostInCart ? <ButtonAddProductToCart product={prod} /> : <ButtonAddOneUnit id={prod.id} />}
-      <Link to="/orders" className="buy-click">
+      <Link to={Path.NewOrderPage} className="buy-click">
         Купить в {matchesMobile ? '' : <br />} один клик
       </Link>
     </div>
