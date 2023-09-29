@@ -1,5 +1,5 @@
 import './CommonModalWindow.scss';
-import { closeModalCommon } from '../../store/reducers/commonModalWindowSlice';
+import { closeModalCommon } from '../../store/slices/commonModalWindowSlice';
 import { useDispatch } from 'react-redux';
 import React, { ReactNode } from 'react';
 import iconClose from './assets/iconX.svg';

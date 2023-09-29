@@ -1,11 +1,12 @@
 import './HomePage.scss';
-import { Link } from 'react-router-dom';
 import { Footer } from '../../components/Footer/Footer';
+import { Link } from 'react-router-dom';
 import { Product } from '../../models/product';
 import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
 import { PromoAction } from './components/PromoAction/PromoAction';
 import { Title } from './components/Title/Title';
-import { selectCountProductsInCart } from '../../store/reducers/cartSlice';
+import { baseUrl } from '../../helpers/baseUrl';
+import { selectCountProductsInCart } from '../CartPage/slice/cartSlice';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
@@ -14,7 +15,7 @@ export const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:7000/products')
+    fetch(`${baseUrl}/products`)
       .then((response) => response.json())
       .then((products) => setProducts(products));
   }, []);

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Product } from '../../models/product';
-import { RootState } from '../store';
+import { Product } from '../../../models/product';
+import { RootState } from '../../../store/store';
 
 export type ProductInCart = Product & { count: number; isDeleted: boolean };
 

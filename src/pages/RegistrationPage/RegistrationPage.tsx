@@ -3,8 +3,8 @@ import * as yup from 'yup';
 import { AppDispatch } from '../../store/store';
 import { RegistrationSchema } from './schemes/RegistrationSchema';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { closeModalCommon, openModalCommon, selectisOpenModalInfo } from '../../store/reducers/commonModalWindowSlice';
-import { registrationAuth } from '../../store/reducers/authSlice';
+import { closeModalCommon, openModalCommon, selectisOpenModalInfo } from '../../store/slices/commonModalWindowSlice';
+import { registrationAuth } from '../../store/slices/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -15,8 +15,7 @@ export type RegistrationForm = yup.InferType<typeof RegistrationSchema>;
 
 const RegistrationPage = () => {
   const navigate = useNavigate();
-  const dispatchApp = useDispatch<AppDispatch>();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const commonModalActive = useSelector(selectisOpenModalInfo);
 
   const {
@@ -37,7 +36,7 @@ const RegistrationPage = () => {
 
   const onSubmit: SubmitHandler<RegistrationForm> = (data) => {
     dispatch(openModalCommon());
-    dispatchApp(
+    dispatch(
       registrationAuth({
         name: data.name,
         phone: data.phone,
@@ -64,9 +63,9 @@ const RegistrationPage = () => {
         <input type="text" placeholder="Имя" className={errors.name ? 'error' : ''} {...register('name')} />
         <input type="text" placeholder="8 999 999 99 99" className={errors.phone ? 'error' : ''} {...register('phone')} />
         <input type="text" placeholder="Электронный адрес" className={errors.email ? 'error' : ''} {...register('email')} />
-        <input type="text" placeholder="Пароль" className={errors.password ? 'error' : ''} {...register('password')} />
+        <input type="password" placeholder="Пароль" className={errors.password ? 'error' : ''} {...register('password')} />
         {errors.password && <p className="error">{errors.password.message}</p>}
-        <input type="text" placeholder="Повторите пароль" className={errors.passwordRepeat ? 'error' : ''} {...register('passwordRepeat')} />
+        <input type="password" placeholder="Повторите пароль" className={errors.passwordRepeat ? 'error' : ''} {...register('passwordRepeat')} />
         {errors.passwordRepeat && <p className="error">{errors.passwordRepeat.message}</p>}
         <label className={errors.acceptancePrivacyPolicy ? 'form-checkbox error' : 'form-checkbox'}>
           <input className="checkbox-input" type="checkbox" {...register('acceptancePrivacyPolicy')} />

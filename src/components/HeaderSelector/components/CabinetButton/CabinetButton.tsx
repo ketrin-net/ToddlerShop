@@ -1,6 +1,6 @@
 import { AppColor, AppFont } from '../../../../enums';
-import { openLoginModal } from '../../../../store/reducers/loginModalSlice';
-import { selectIsAuthState } from '../../../../store/reducers/authSlice';
+import { openLoginModal } from '../../../../store/slices/loginModalSlice';
+import { selectIsAuthState } from '../../../../store/slices/authSlice';
 import { styled } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';

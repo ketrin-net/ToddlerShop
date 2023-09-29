@@ -3,12 +3,12 @@ import { RootState } from '../store';
 import { User } from '../../models/user';
 import { UserLogIn } from '../../models/userLogin';
 import { UserRegictration } from '../../models/userRegictration';
-import { useEffect } from 'react';
+import { baseUrl } from '../../helpers/baseUrl';
 
 const tokenInStorage = localStorage.getItem('token') !== null ? localStorage.getItem('token') : '';
 
 export const loginAuth = createAsyncThunk(`auth/loginAuth`, async (user: UserLogIn, { rejectWithValue, dispatch }) => {
-  const response = await fetch('http://localhost:7000/auth/login', {
+  const response = await fetch(`${baseUrl}/auth/login`, {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {
@@ -27,7 +27,7 @@ export const loginAuth = createAsyncThunk(`auth/loginAuth`, async (user: UserLog
 export const currentUserAuth = createAsyncThunk<User, string, { rejectValue: string }>(
   `auth/currentUserAuth`,
   async (token: string, { rejectWithValue }) => {
-    const currentUserResponse = await fetch('http://localhost:7000/auth/current', {
+    const currentUserResponse = await fetch(`${baseUrl}/auth/current`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -43,7 +43,7 @@ export const currentUserAuth = createAsyncThunk<User, string, { rejectValue: str
 );
 
 export const registrationAuth = createAsyncThunk(`auth/registrationAuth`, async (newUser: UserRegictration, { rejectWithValue, dispatch }) => {
-  const newUserResponse = await fetch('http://localhost:7000/auth/registration', {
+  const newUserResponse = await fetch(`${baseUrl}/auth/registration`, {
     method: 'POST',
     body: JSON.stringify(newUser),
     headers: {
@@ -56,10 +56,11 @@ export const registrationAuth = createAsyncThunk(`auth/registrationAuth`, async 
   }
 
   const data = await newUserResponse.json();
+  
   dispatch(
     loginAuth({
-      email: newUser.email,
-      password: newUser.password,
+      email: data.email,
+      password: data.password,
     }),
   );
 });

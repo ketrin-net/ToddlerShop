@@ -1,12 +1,7 @@
-import './CartPage.scss';
+import './CatalogPage.scss';
 import { Product } from '../../models/product';
-import { ProductInCart, selectCountProductsInCart } from './slice/cartSlice';
-import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
-import { useMediaQuery } from '../../customHooks/useMediaQuery';
-import { useSelector } from 'react-redux';
-import React, { useEffect, useState } from 'react';
-import TableProductsInCart from './components/TableProductsInCart/TableProductsInCart';
-import TotalAmountPrice from './components/TotalAmountPrice/TotalAmountPrice';
+import { useParams } from 'react-router-dom';
+import React from 'react';
 
 export const popularProducts: Product[] = [
   {
@@ -75,20 +70,15 @@ export const popularProducts: Product[] = [
   },
 ];
 
-const CartPage = () => {
-  const productsCountInCart = useSelector(selectCountProductsInCart);
-  const matches = useMediaQuery('(min-width: 1025px)');
+export const CatalogPage = () => {
+  const { categoryId, subCategoryId } = useParams();
 
-  let slidesCount = matches ? 3 : 2;
-
+  // const categories = useSelect(...)
+  // const categoryName = categories.find(c => c.id == categoryId)
   return (
-    <div className="main backetpage">
-      <span className="header">В корзине {productsCountInCart} товара</span>
-      <TableProductsInCart />
-      <TotalAmountPrice />
-      <ProductsCarousel title="С этим покупают" products={popularProducts} slidesCount={slidesCount} spaceBetweenCards={0} />
+    <div>
+      {categoryId}
+      {subCategoryId}
     </div>
   );
 };
-
-export default CartPage;

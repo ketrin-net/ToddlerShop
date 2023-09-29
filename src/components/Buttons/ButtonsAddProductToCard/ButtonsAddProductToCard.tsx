@@ -1,6 +1,6 @@
 import { Product } from '../../../models/product';
-import { addProductInCart } from '../../../store/reducers/cartSlice';
-import { openModalAddProduct } from '../../../store/reducers/modalAdditionSlice';
+import { addProductInCart } from '../../../pages/CartPage/slice/cartSlice';
+import { openModalAddProduct } from '../../../store/slices/modalAdditionSlice';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 

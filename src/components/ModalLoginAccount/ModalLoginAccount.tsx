@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Path } from '../../enums/Path';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { UserLogIn } from '../../models/userLogin';
-import { closeLoginModal } from '../../store/reducers/loginModalSlice';
-import { loginAuth, logout, selectAllAuthState } from '../../store/reducers/authSlice';
+import { closeLoginModal } from '../../store/slices/loginModalSlice';
+import { loginAuth, logout, selectAllAuthState } from '../../store/slices/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import AuthAccount from './components/AuthAccount/AuthAccount';
@@ -47,7 +47,7 @@ const ModalLoginAccount = () => {
                 className={errors.email ? 'error' : ''}
               />
               <input
-                type="text"
+                type="password"
                 placeholder="Пароль"
                 {...register('password', { required: true, maxLength: 200 })}
                 className={errors.password ? 'error' : ''}
