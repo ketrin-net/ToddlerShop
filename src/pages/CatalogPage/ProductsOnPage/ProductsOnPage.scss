@@ -11,3 +11,13 @@
     gap: 24px;
   }
 }
+
+@media (max-width: 900px) {
+#products-in-page {
+    .list-products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+  }
+}

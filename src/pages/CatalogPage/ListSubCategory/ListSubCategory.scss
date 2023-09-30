@@ -1,4 +1,4 @@
-.list-subcategory  {
+#list-subcategory  {
   text-align: start;
   display: flex;
   flex-direction: column;
@@ -6,4 +6,23 @@
   gap: 16px;
   font-size: 24px;
   font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  #list-subcategory {
+    gap: 9px;
+    font-size: 18px;
+
+    .line {
+      height: 1px;
+      width: 100%;
+      background-color:rgb(34, 53, 64, 0.16);
+    }
+
+    .subcategory+.subcategory {
+      width: 100%;
+      padding-top: 9px;
+      border-top: 1px solid rgb(34, 53, 64, 0.16);
+    }
+  }
 }
