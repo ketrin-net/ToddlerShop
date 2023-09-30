@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.contacts{
+.contacts-page{
   display: flex;
   flex-direction: column;
 
@@ -12,7 +12,7 @@
 }
 
 @media (max-width: 900px) {
-  .contacts {
+  .contacts-page {
       .info {
         flex-direction: column;
         margin-bottom: 61px;

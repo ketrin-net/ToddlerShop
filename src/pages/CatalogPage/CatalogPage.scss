@@ -1,0 +1,19 @@
+
+
+.catalog-page {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: auto auto auto;
+
+  .header {
+    grid-column: span 2;
+  }
+
+  .list-subcategory {
+    grid-row: span 2;
+  }
+
+  .products-carousel {
+    margin-top: 128px;
+  }
+}

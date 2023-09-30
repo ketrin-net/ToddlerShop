@@ -82,7 +82,7 @@ const CartPage = () => {
   let slidesCount = matches ? 3 : 2;
 
   return (
-    <div className="main backetpage">
+    <div className="main backet-page">
       <span className="header">В корзине {productsCountInCart} товара</span>
       <TableProductsInCart />
       <TotalAmountPrice />

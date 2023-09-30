@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.registrationpage {
+.registration-page{
   display: flex;
   flex-direction: column;
 
@@ -29,7 +29,7 @@
 }
 
 @media (max-width: 900px) {
-  .registrationpage {
+  .registration-page {
     form {
       gap: 19px;
 

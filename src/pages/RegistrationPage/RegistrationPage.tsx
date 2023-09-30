@@ -51,7 +51,7 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="main registrationpage">
+    <div className="main registration-page">
       {commonModalActive && (
         <CommonModalWindow>
           <span className="title">Регистрация прошла успешно!</span>

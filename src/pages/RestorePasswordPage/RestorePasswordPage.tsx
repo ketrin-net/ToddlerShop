@@ -24,7 +24,7 @@ const RestorePasswordPage = () => {
   };
 
   return (
-    <div className="main restore-passwordpage">
+    <div className="main restore-password-page">
       {isSentRequest ? (
         <>
           <span className="header">Спасибо</span>

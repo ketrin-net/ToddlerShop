@@ -5,6 +5,7 @@ import { selectCountProductsInCart, selectTotalCostProductsInCart } from '../../
 import { useSelector } from 'react-redux';
 import React from 'react';
 import moneyIcon from '../../assets/moneyIconGray.svg';
+import { Path } from '../../../../enums/Path';
 
 interface TotalAmountPriceProps {
   costDelivery?: number;
@@ -59,7 +60,7 @@ const TotalAmountPrice = (props: TotalAmountPriceProps) => {
           </span>
         </div>
       </div>
-      <Link to="/new-order" className="btn blue go-order">
+      <Link to={Path.NewOrderPage} className="btn blue go-order">
         Перейти к оформлению
       </Link>
     </div>

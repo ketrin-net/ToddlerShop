@@ -56,8 +56,10 @@ export const App = (props: AppProps) => {
       <HeaderSelector />
       <Routes>
         <Route path={Path.HomePage} element={<HomePage />} />
-        <Route path={Path.CartPage} element={<CartPage />} />
-        <Route path={Path.NewOrderPage} element={<NewOrderPage />} />
+        <Route path={Path.CartPage}>
+          <Route index element={<CartPage />} />
+          <Route path={Path.NewOrderPage} element={<NewOrderPage />} />
+        </Route>
         <Route path={Path.RegistrationPage} element={<RegistrationPage />} />
         <Route path={Path.RestorePasswordPage} element={<RestorePasswordPage />} />
         <Route path={Path.OrdersPage} element={<div>OrdersPage</div>} />
@@ -73,12 +75,8 @@ export const App = (props: AppProps) => {
         </Route>
         <Route path={Path.ContactsPage} element={<ContactsPage />} />
 
-        <Route path={Path.CategoryPage}>
-          <Route index element={<CatalogPage />} />
-        </Route>
-          <Route path={Path.SubCategoryPage}>
-          <Route index element={<CatalogPage />} />
-          </Route>
+        <Route path={Path.CategoryPage} element={<CatalogPage />} />
+        <Route path={Path.SubCategoryPage} element={<CatalogPage />} />
 
         <Route path={Path.DeliveryPage} element={<div>DeliveryPage</div>} />
         <Route path={Path.WholesalersPage} element={<div>WholesalersPage</div>} />

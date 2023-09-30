@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.homepage {
+.home-page {
     display: flex;
     flex-direction: column;
     gap: 120px;
@@ -12,7 +12,7 @@
 }
 
 @media (max-width: 900px) {
-    .main-homepage {
+    .home-page {
         gap: 80px;
     }
 }

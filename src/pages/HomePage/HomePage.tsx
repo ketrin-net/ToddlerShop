@@ -29,7 +29,7 @@ export const HomePage = () => {
   let spaceBetweenCards = matches ? 24 : matchesMobile ? 24 : 5;
 
   return (
-    <div className="homepage">
+    <div className="home-page">
       <Title />
       <ProductsCarousel title="Новинки" products={productsNew} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
       <PromoAction />

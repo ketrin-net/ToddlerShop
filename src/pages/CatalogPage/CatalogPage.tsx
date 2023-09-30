@@ -1,84 +1,37 @@
 import './CatalogPage.scss';
+import { AppDispatch } from '../../store/store';
 import { Product } from '../../models/product';
+import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCarousel';
+import { fetchCategoryCatalog, selectCategoriesInState } from './slice/catalogSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useParams } from 'react-router-dom';
-import React from 'react';
-
-export const popularProducts: Product[] = [
-  {
-    id: 1,
-    imgSrc: `./components/ProductCard/assets/cot.png`,
-    imgAlt: 'cot',
-    title: 'Кроватка Riko Basic, Польша',
-    cost: 52000,
-    inStock: true,
-  },
-  {
-    id: 2,
-    imgSrc: `./components/ProductCard/assets/linen.png`,
-    imgAlt: 'linen',
-    title: 'Постельное белье Forest Sky (3 предмета)',
-    cost: 4000,
-    inStock: true,
-  },
-  {
-    id: 3,
-    imgSrc: `./components/ProductCard/assets/wheelchair1.png`,
-    imgAlt: 'wheelchair1',
-    title: 'Коляска Riko Basic, Польша',
-    cost: 52000,
-    inStock: true,
-  },
-  {
-    id: 4,
-    imgSrc: `./components/ProductCard/assets/wheelchair2.png`,
-    imgAlt: 'wheelchair2',
-    title: 'Коляска Riko Basic, Польша',
-    cost: 12000,
-    inStock: true,
-  },
-  {
-    id: 5,
-    imgSrc: `./components/ProductCard/assets/cot.png`,
-    imgAlt: 'cot',
-    title: 'Кроватка Riko Basic, Польша',
-    cost: 52000,
-    inStock: true,
-  },
-  {
-    id: 6,
-    imgSrc: `./components/ProductCard/assets/linen.png`,
-    imgAlt: 'linen',
-    title: 'Постельное белье Forest Sky (3 предмета)',
-    cost: 2000,
-    inStock: true,
-  },
-  {
-    id: 7,
-    imgSrc: `./components/ProductCard/assets/wheelchair1.png`,
-    imgAlt: 'wheelchair1',
-    title: 'Коляска Riko Basic, Польша',
-    cost: 52000,
-    inStock: true,
-  },
-  {
-    id: 8,
-    imgSrc: `./components/ProductCard/assets/wheelchair2.png`,
-    imgAlt: 'wheelchair2',
-    title: 'Коляска Riko Basic, Польша',
-    cost: 12000,
-    inStock: true,
-  },
-];
+import ListSubCategory from './ListSubCategory/ListSubCategory';
+import ProductsOnPage from './ProductsOnPage/ProductsOnPage';
+import React, { useEffect, useState } from 'react';
+import { baseUrl } from '../../helpers/baseUrl';
 
 export const CatalogPage = () => {
-  const { categoryId, subCategoryId } = useParams();
+  const matches = useMediaQuery('(min-width: 900px)');
+  const [products, setProducts] = useState<Product[]>([]);
+  const { categoryId } = useParams();
+  const dispatch = useDispatch<AppDispatch>();
+  const categories = useSelector(selectCategoriesInState);
+  const categoryName = categories?.find((i) => i.id === parseInt(categoryId as string))?.name;
 
-  // const categories = useSelect(...)
-  // const categoryName = categories.find(c => c.id == categoryId)
+  useEffect(() => {
+    dispatch(fetchCategoryCatalog());
+    fetch(`${baseUrl}/category/${categoryId}/products`)
+      .then((response) => response.json())
+      .then((products) => setProducts(products.slice(-7)));
+  }, [categoryId]);
+
   return (
-    <div>
-      {categoryId}
-      {subCategoryId}
+    <div className="main catalog-page">
+      <span className="header">{categoryName}</span>
+      <ListSubCategory />
+      <ProductsOnPage />
+      <ProductsCarousel title={'Похожие товары'} products={products} slidesCount={matches ? 3 : 2} spaceBetweenCards={24} />
     </div>
   );
 };

@@ -1,0 +1,13 @@
+#products-in-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1086px;
+
+  .list-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    gap: 24px;
+  }
+}
