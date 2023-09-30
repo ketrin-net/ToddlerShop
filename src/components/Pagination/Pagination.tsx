@@ -1,5 +1,5 @@
 import './Pagination.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 import iconRight from './assets/iconRight.svg';
 
 interface PaginationProps {
@@ -11,6 +11,10 @@ interface PaginationProps {
 
 const Pagination = ({ totalProducts, productsPerPage, setCurrentPage, currentPage }: PaginationProps) => {
   const pageNumbers = [];
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i);

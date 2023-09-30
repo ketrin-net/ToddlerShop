@@ -14,7 +14,7 @@ export const Title = () => {
         <p>
           Посмотрите нашу новую подборку <br /> для ухода за вашим ребенком
         </p>
-        <Link to="/" className="btn blue">
+        <Link to="/category/10" className="btn blue">
           Смотреть
         </Link>
         <picture>

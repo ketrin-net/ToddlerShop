@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 const ProductsOnPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const { categoryId, subCategoryId } = useParams();
-  const [postsPerPage] = useState(9);
+  const [postsPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {

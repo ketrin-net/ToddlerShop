@@ -5,7 +5,7 @@ import { ProductsCarousel } from '../../components/ProductsCarousel/ProductsCaro
 import { fetchCategoryCatalog, selectCategoriesInState } from './slice/catalogSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ListSubCategory from './ListSubCategory/ListSubCategory';
 import ProductsOnPage from './ProductsOnPage/ProductsOnPage';
 import React, { useEffect, useState } from 'react';
@@ -28,7 +28,7 @@ export const CatalogPage = () => {
 
   return (
     <div className="main catalog-page">
-      <span className="header">{categoryName}</span>
+      <Link to={`/category/${categoryId}`} className="header">{categoryName}</Link>
       <ListSubCategory />
       <ProductsOnPage />
       <ProductsCarousel title={'Похожие товары'} products={products} slidesCount={matches ? 3 : 2} spaceBetweenCards={24} />

@@ -1,10 +1,18 @@
+@import '../../variables';
+
 .catalog-page {
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: auto auto auto;
 
   .header {
+    justify-self: start;
     grid-column: span 2;
+    font-family: $text-title;
+    color: $color-sea;
+    font-size: 48px;
+    line-height: 58px;
+    margin-bottom: 40px;
   }
 
   #list-subcategory {
@@ -22,7 +30,9 @@
       flex-direction: column;
   
       .header {
-        grid-column: span 2;
+        font-size: 30px;
+        margin-bottom: 25px;
+        line-height: 38px;
       }
   
       #list-subcategory {
