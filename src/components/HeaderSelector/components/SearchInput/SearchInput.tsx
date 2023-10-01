@@ -18,7 +18,6 @@ const SearchInputWrapper = styled.div`
   align-items: center;
   border-radius: 12px;
   background: rgb(34, 53, 64, 0.04);
-  margin-left: 24px;
 
   @media (max-width: 480px) {
     margin: 0 16px;

@@ -5,6 +5,7 @@ import { Path } from '../../enums/Path';
 import { Product } from '../../models/product';
 import { formatNumber } from '../../helpers/formatNumber';
 import { selectProductsInCart } from '../../pages/CartPage/slice/cartSlice';
+import { selectProductsInFavorites } from '../../pages/FavoritesPage/slice/favoritesSlice';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';
 import ButtonAddOneUnit from '../Buttons/ButtonsAddOneUnit/ButtonsAddOneUnit';
@@ -20,7 +21,7 @@ export const ProductCard = (prod: Product) => {
 
   return (
     <div className="product-card">
-      <SwitchHeart />
+      <SwitchHeart product={prod} />
       {prod.iconNew && <div className="icon-new">NEW</div>}
       <img src={prod.imgSrc} alt={prod.imgAlt} className="poster" />
       <p className="title">{prod.title}</p>

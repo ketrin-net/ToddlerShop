@@ -1,10 +1,11 @@
 import { authReducer } from './slices/authSlice';
 import { cartReducer } from '../pages/CartPage/slice/cartSlice';
+import { catalogReducer } from '../pages/CatalogPage/slice/catalogSlice';
 import { commonModalWindowReducer } from './slices/commonModalWindowSlice';
 import { configureStore } from '@reduxjs/toolkit';
+import { favoritesReducer } from '../pages/FavoritesPage/slice/favoritesSlice';
 import { loginModalReducer } from './slices/loginModalSlice';
 import { modalAddProductReducer } from './slices/modalAdditionSlice';
-import { catalogReducer } from '../pages/CatalogPage/slice/catalogSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     commonModalWindow: commonModalWindowReducer,
     loginModal: loginModalReducer,
     catalog: catalogReducer,
+    favorites: favoritesReducer,
   },
 });
 

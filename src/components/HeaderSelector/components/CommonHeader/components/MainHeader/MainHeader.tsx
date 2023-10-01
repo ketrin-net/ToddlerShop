@@ -1,6 +1,7 @@
 import { AppColor } from '../../../../../../enums';
 import { CabinetButton } from '../../../CabinetButton/CabinetButton';
 import { CartButton } from '../../../BucketButton/BucketButton';
+import { FavoriteButton } from '../../../FavoriteButton/FavoriteButton';
 import { GoodsCatalogMenu } from '../../../GoodsCatalogMenu/GoodsCatalogMenu';
 import { Logo } from '../../../../../Logo/Logo';
 import { SearchInput } from '../../../SearchInput/SearchInput';
@@ -25,6 +26,7 @@ export const MainHeader = ({ switchModal, modalIsOpen }: MainHeaderProps) => {
       <GoodsCatalogMenu switchModal={switchModal} modalIsOpen={modalIsOpen} />
       <SearchInput />
       <CabinetButton />
+      <FavoriteButton />
       <CartButton />
     </StyledMainHeader>
   );
@@ -35,8 +37,7 @@ const StyledMainHeader = styled.div<StyledMainHeaderProps>`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 17px 0 15px 0;
+  padding: 17px 10px 15px 10px;
   z-index: 1000;
-  /* position: relative; */
   background: ${(props) => (props.$isHomePage ? '#fcf6f5' : AppColor.White)};
 `;

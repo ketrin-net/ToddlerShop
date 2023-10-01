@@ -29,7 +29,7 @@ const OrderProductCard = (props: OrderProductCardProps) => {
             </div>
           </div>
           <div className="interaction-panel">
-            <SwitchHeart />
+            <SwitchHeart product={props.product} />
             <button onClick={() => dispatch(hiddenProductInCart({ id: props.product.id }))}>
               <img src={iconTrash} alt="iconTrash" />
             </button>

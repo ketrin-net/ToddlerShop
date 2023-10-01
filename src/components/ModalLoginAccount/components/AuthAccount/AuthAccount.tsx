@@ -33,7 +33,6 @@ const AuthAccount = ({ closeModal }: AuthAccountProps) => {
       </div>
       <nav>
         <NavLinkAccount icon={boxOrdersIcon} name={'Мои заказы'} linkTo={Path.OrdersPage} closeModal={closeModal} />
-        <NavLinkAccount icon={heartFavouritesIcon} name={'Мое избранное'} linkTo={Path.FavoritesPage} closeModal={closeModal} />
         <NavLinkAccount icon={settingsIcon} name={'Настройки личных данных'} linkTo={Path.PersonalDataPage} closeModal={closeModal} />
         <button className="navlink-account" onClick={() => dispatch(logout())}>
           <img src={logoutIcon} alt="icon" />
