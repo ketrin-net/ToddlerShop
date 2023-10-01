@@ -4,6 +4,7 @@ import { commonModalWindowReducer } from './slices/commonModalWindowSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { loginModalReducer } from './slices/loginModalSlice';
 import { modalAddProductReducer } from './slices/modalAdditionSlice';
+import { catalogReducer } from '../pages/CatalogPage/slice/catalogSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,8 +13,8 @@ export const store = configureStore({
     auth: authReducer,
     commonModalWindow: commonModalWindowReducer,
     loginModal: loginModalReducer,
+    catalog: catalogReducer,
   },
-  
 });
 
 export type RootState = ReturnType<typeof store.getState>;

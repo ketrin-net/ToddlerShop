@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.checkoutpage{
+.checkout-page{
   display: flex;
   flex-direction: column;
   
@@ -60,7 +60,7 @@
 }
 
 @media (max-width: 900px) {
-  .checkoutpage {
+  .checkoutpage-page {
     gap: 33px;
 
     .header {

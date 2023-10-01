@@ -1,21 +1,17 @@
 import { AppColor, AppFont, Path } from '../../../../../enums';
 import { CloseModalButton } from '../../MobileHeader/components/MobileModal/CloseModalButton/CloseModalButton';
+import { SubCategory } from '../../../../../models/subCategory';
 import { baseUrl } from '../../../../../helpers/baseUrl';
 import { styled } from 'styled-components';
 import { useMediaQuery } from '../../../../../customHooks/useMediaQuery';
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
-interface SubCategory {
-  id: number;
-  name: string;
-}
-
 export interface Category {
   id: number;
   name: string;
   isActive: boolean;
-  subcategories: SubCategory[];
+  subCategory: SubCategory[];
 }
 
 interface StyledCategoryProps {
@@ -72,7 +68,7 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
         <StyledSubCategories>
           {categories
             .find((c) => c.isActive)
-            ?.subcategories?.map((p) => (
+            ?.subCategory?.map((p) => (
               <StyledButton onClick={handleOnSubCategoryClick(p.id)} key={p.id}>
                 {p.name}
               </StyledButton>

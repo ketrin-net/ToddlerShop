@@ -1,0 +1,30 @@
+#pagination {
+  display: flex;
+  gap: 4px;
+
+  .btn {
+    position: relative;
+    min-width: 40px;
+    height: 40px;
+    border: none;
+    padding: 0px;
+
+    &.active {
+      border: 1px solid #446B80;
+    }
+
+    &.next {
+      width: 120px;
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+
+      img{ 
+        position: absolute;
+        right: 5px;
+        bottom: 7px;
+      }
+    }
+  }
+}

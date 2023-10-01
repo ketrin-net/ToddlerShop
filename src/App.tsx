@@ -19,6 +19,7 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect } from 'react';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import RestorePasswordPage from './pages/RestorePasswordPage/RestorePasswordPage';
+import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 
 export interface AppProps {}
 
@@ -55,8 +56,10 @@ export const App = (props: AppProps) => {
       <HeaderSelector />
       <Routes>
         <Route path={Path.HomePage} element={<HomePage />} />
-        <Route path={Path.CartPage} element={<CartPage />} />
-        <Route path={Path.NewOrderPage} element={<NewOrderPage />} />
+        <Route path={Path.CartPage}>
+          <Route index element={<CartPage />} />
+          <Route path={Path.NewOrderPage} element={<NewOrderPage />} />
+        </Route>
         <Route path={Path.RegistrationPage} element={<RegistrationPage />} />
         <Route path={Path.RestorePasswordPage} element={<RestorePasswordPage />} />
         <Route path={Path.OrdersPage} element={<div>OrdersPage</div>} />
@@ -71,13 +74,10 @@ export const App = (props: AppProps) => {
           <Route path={Path.PromoId} element={<div>ConcretePromoPage</div>} />
         </Route>
         <Route path={Path.ContactsPage} element={<ContactsPage />} />
-        <Route path={Path.CategoryPage}>
-          <Route index element={<div>CategoryPage</div>} />
-          <Route path={Path.SubCategoryPathWithId}>
-            <Route index element={<div>Sub Category Page</div>} />
-            <Route path={Path.ProductPathWithId} element={<div>ConcreteProductPage</div>} />
-          </Route>
-        </Route>
+
+        <Route path={Path.CategoryPage} element={<CatalogPage />} />
+        <Route path={Path.SubCategoryPage} element={<CatalogPage />} />
+
         <Route path={Path.DeliveryPage} element={<div>DeliveryPage</div>} />
         <Route path={Path.WholesalersPage} element={<div>WholesalersPage</div>} />
         <Route path={Path.AboutUsPage} element={<div>AboutUsPage</div>} />

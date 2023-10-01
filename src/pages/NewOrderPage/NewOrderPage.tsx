@@ -61,7 +61,7 @@ const NewOrderPage = () => {
           <p>Счет на оплату придет по адрессу </p>
         </CommonModalWindow>
       )}
-      <div className="main checkoutpage">
+      <div className="main checkout-page">
         <span className="header">Оформление заказа</span>
         <div className="checkout-info">
           <div className="new-order-form">

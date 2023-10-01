@@ -1,4 +1,4 @@
-import { AppColor, AppFont } from '../../../../enums';
+import { AppColor, AppFont, Path } from '../../../../enums';
 import { Link, useNavigate } from 'react-router-dom';
 import { selectCountProductsInCart } from '../../../../pages/CartPage/slice/cartSlice';
 import { styled } from 'styled-components';
@@ -10,7 +10,7 @@ export const CartButton = () => {
   const navigate = useNavigate();
 
   return (
-    <StyledButton onClick={() => navigate('/Cart')}>
+    <StyledButton onClick={() => navigate(Path.CartPage)}>
       <CartIconContainer>
         <StyledIcon className="material-symbols-outlined">shopping_cart</StyledIcon>
         {productsCountInCart > 0 && (
