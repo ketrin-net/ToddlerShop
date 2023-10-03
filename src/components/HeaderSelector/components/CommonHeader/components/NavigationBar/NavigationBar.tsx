@@ -55,7 +55,6 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0 16px 0;
   z-index: 10;
   max-width: 1456px;
   margin: auto;

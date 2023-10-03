@@ -1,5 +1,6 @@
 import './App.scss';
 import { AppDispatch } from './store/store';
+import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 import { Footer } from './components/Footer/Footer';
 import { HeaderSelector } from './components/HeaderSelector/HeaderSelector';
 import { HomePage } from './pages/HomePage/HomePage';
@@ -19,7 +20,7 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import React, { useEffect } from 'react';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import RestorePasswordPage from './pages/RestorePasswordPage/RestorePasswordPage';
-import { CatalogPage } from './pages/CatalogPage/CatalogPage';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 
 export interface AppProps {}
 
@@ -63,7 +64,7 @@ export const App = (props: AppProps) => {
         <Route path={Path.RegistrationPage} element={<RegistrationPage />} />
         <Route path={Path.RestorePasswordPage} element={<RestorePasswordPage />} />
         <Route path={Path.OrdersPage} element={<div>OrdersPage</div>} />
-        <Route path={Path.FavoritesPage} element={<div>FavoritesPage</div>} />
+        <Route path={Path.FavoritesPage} element={<FavoritesPage />} />
         <Route path={Path.PersonalDataPage} element={<div>PersonalDataPage</div>} />
         <Route path={Path.BlogsPage}>
           <Route index element={<div>BlogsPage</div>} />

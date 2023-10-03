@@ -1,5 +1,6 @@
 import './HeaderSelector.scss';
 import { CommonHeader } from './components/CommonHeader/CommonHeader';
+import { Delimiter } from './components/Delimiter/Delimiter';
 import { MobileHeader } from './components/MobileHeader/MobileHeader';
 import { NavigationBar } from './components/CommonHeader/components/NavigationBar/NavigationBar';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
@@ -15,6 +16,7 @@ export const HeaderSelector = () => {
       ) : (
         <>
           <CommonHeader />
+          <Delimiter />
           <NavigationBar />
         </>
       )}

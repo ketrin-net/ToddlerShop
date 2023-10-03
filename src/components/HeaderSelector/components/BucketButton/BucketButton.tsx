@@ -4,6 +4,7 @@ import { selectCountProductsInCart } from '../../../../pages/CartPage/slice/cart
 import { styled } from 'styled-components';
 import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
+import shoppingCart from '../../../../assets/shopping-cart.svg';
 
 export const CartButton = () => {
   const productsCountInCart = useSelector(selectCountProductsInCart);
@@ -12,7 +13,9 @@ export const CartButton = () => {
   return (
     <StyledButton onClick={() => navigate(Path.CartPage)}>
       <CartIconContainer>
-        <StyledIcon className="material-symbols-outlined">shopping_cart</StyledIcon>
+        <StyledIcon>
+          <img src={shoppingCart} alt="" />
+        </StyledIcon>
         {productsCountInCart > 0 && (
           <QuantityBadge>
             <Quantity>{productsCountInCart}</Quantity>
@@ -25,13 +28,16 @@ export const CartButton = () => {
 };
 
 const StyledButton = styled.button`
+  margin-left: 20px;
   border: none;
   background: none;
   padding: 0;
   display: flex;
-  flex-direction: row;
-  gap: 12px;
-  margin-left: 80px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 58px;
+  gap: 5px;
   cursor: pointer;
   flex-shrink: 0;
 
@@ -42,6 +48,7 @@ const StyledButton = styled.button`
 `;
 
 const StyledIcon = styled.span`
+  align-self: center;
   color: ${AppColor.Blue};
 
   @media (max-width: 480px) {
@@ -51,8 +58,6 @@ const StyledIcon = styled.span`
 `;
 
 const StyledText = styled.div`
-  color: ${AppColor.Sea};
-  font-family: ${AppFont.Montserrat};
   font-size: 18px;
   font-weight: 400;
 

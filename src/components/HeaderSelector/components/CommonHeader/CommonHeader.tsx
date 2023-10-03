@@ -1,5 +1,3 @@
-import { AppColor } from '../../../../enums';
-import { Delimiter } from '../Delimiter/Delimiter';
 import { GoodsModal } from '../GoodsModal/GoodsModal';
 import { MainHeader } from './components/MainHeader/MainHeader';
 import { StyledLayout } from '../StyledLayout/StyledLayout';
@@ -22,7 +20,6 @@ export const CommonHeader = () => {
       <HeaderWrapper>
         <MainHeader switchModal={switchModal} modalIsOpen={modalIsOpen} />
         <GoodsModal isOpen={modalIsOpen} onRequestClose={closeModal} />
-        <Delimiter />
       </HeaderWrapper>
     </StyledLayout>
   );
