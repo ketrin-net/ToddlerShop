@@ -1,0 +1,83 @@
+@import '../../variables';
+
+.delivery-page {
+  display: flex;
+  flex-direction: column;
+
+  .navigation {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .border {
+    padding-bottom: 64px;
+    border-bottom: 1px solid rgb(34, 53, 64, 0.16);
+  }
+
+  section {
+    flex-basis: 50%;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .title-list {
+      display: block;
+      margin-bottom: 25px;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 32px;
+    }
+
+    li+li {
+      margin-top: 12px;
+    }
+
+    ol {
+      padding-left: 20px;
+    }
+
+    strong {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+
+    p {
+      line-height: 32px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .delivery-page {
+    .header {
+      margin-bottom: 38px;
+    }
+
+    section {
+      font-size: 16px;
+      line-height: 28px;
+      gap: 21px;
+  
+      .title-list {
+        margin-bottom: 0px;
+        font-size: 20px;
+      }
+  
+      strong {
+        font-size: 16px;
+        line-height: 24px;
+      }
+  
+      p {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+
+}

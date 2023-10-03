@@ -88,7 +88,7 @@ const NewOrderPage = () => {
                   <button
                     type="button"
                     onClick={() => setMethodReceiving(EnumTypeDelivery.TransportCompany)}
-                    className={typeDelivery !== EnumTypeDelivery.TransportCompany ? 'btn white-delivery' : 'btn white-delivery-active'}
+                    className={typeDelivery !== EnumTypeDelivery.TransportCompany ? 'btn white-delivery' : 'btn white-delivery active'}
                   >
                     <BtnDeliveryType
                       title={'Транспортной компанией'}
@@ -99,14 +99,14 @@ const NewOrderPage = () => {
                   <button
                     type="button"
                     onClick={() => setMethodReceiving(EnumTypeDelivery.PostOffice)}
-                    className={typeDelivery !== EnumTypeDelivery.PostOffice ? 'btn white-delivery' : 'btn white-delivery-active'}
+                    className={typeDelivery !== EnumTypeDelivery.PostOffice ? 'btn white-delivery' : 'btn white-delivery active'}
                   >
                     <BtnDeliveryType title={'Почтой'} description={'В ближайшее отделение почти России'} costDelivery={'Бесплатно'} />
                   </button>
                   <button
                     type="button"
                     onClick={() => setMethodReceiving(EnumTypeDelivery.Pickup)}
-                    className={typeDelivery !== EnumTypeDelivery.Pickup ? 'btn white-delivery' : 'btn white-delivery-active'}
+                    className={typeDelivery !== EnumTypeDelivery.Pickup ? 'btn white-delivery' : 'btn white-delivery active'}
                   >
                     <BtnDeliveryType title={'Самовывоз'} description={'В пункте выдачи'} costDelivery={'Бесплатно'} />
                   </button>

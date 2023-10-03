@@ -44,14 +44,14 @@ const DeliveryForm = (props: DeliveryFormProps) => {
             <button
               type="button"
               onClick={() => setNameCompanyDelivery(EnumCompanyDelivery.CDEK)}
-              className={companyDelivery !== EnumCompanyDelivery.CDEK ? 'btn white-delivery' : 'btn white-delivery-active'}
+              className={companyDelivery !== EnumCompanyDelivery.CDEK ? 'btn white-delivery' : 'btn white-delivery active'}
             >
               <span>{EnumCompanyDelivery.CDEK}</span>
             </button>
             <button
               type="button"
               onClick={() => setNameCompanyDelivery(EnumCompanyDelivery.BusinessLines)}
-              className={companyDelivery !== EnumCompanyDelivery.BusinessLines ? 'btn white-delivery' : 'btn white-delivery-active'}
+              className={companyDelivery !== EnumCompanyDelivery.BusinessLines ? 'btn white-delivery' : 'btn white-delivery active'}
             >
               <div>{EnumCompanyDelivery.BusinessLines}</div>
             </button>
@@ -110,7 +110,7 @@ const DeliveryForm = (props: DeliveryFormProps) => {
             <span>Телефон</span>
             <p>+7 (812) 710-90-79</p>
           </div>
-          <Link to={Path.ContactsPage}>Контакты</Link>
+          <Link to="/contacts">Контакты</Link>
         </div>
       )}
       <div className="choose-payment-method">

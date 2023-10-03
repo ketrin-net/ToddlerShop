@@ -22,6 +22,7 @@ import React, { useEffect } from 'react';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import RestorePasswordPage from './pages/RestorePasswordPage/RestorePasswordPage';
 import WholesalersPage from './pages/WholesalersPage/WholesalersPage';
+import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
 
 export interface AppProps {}
 
@@ -67,23 +68,15 @@ export const App = (props: AppProps) => {
         <Route path={Path.OrdersPage} element={<div>OrdersPage</div>} />
         <Route path={Path.FavoritesPage} element={<FavoritesPage />} />
         <Route path={Path.PersonalDataPage} element={<div>PersonalDataPage</div>} />
-        <Route path={Path.BlogsPage}>
-          <Route index element={<div>BlogsPage</div>} />
-          <Route path={Path.BlogId} element={<div>ConcreteBlogPage</div>} />
-        </Route>
         <Route path={Path.PromosPage}>
-          <Route index element={<div>PromosPage</div>} />
+          <Route index element={<NotFoundPage />} />
           <Route path={Path.PromoId} element={<div>ConcretePromoPage</div>} />
         </Route>
         <Route path={Path.ContactsPage} element={<ContactsPage />} />
-
         <Route path={Path.CategoryPage} element={<CatalogPage />} />
         <Route path={Path.SubCategoryPage} element={<CatalogPage />} />
-
-        <Route path={Path.DeliveryPage} element={<div>DeliveryPage</div>} />
+        <Route path={Path.DeliveryPage} element={<DeliveryPage />} />
         <Route path={Path.WholesalersPage} element={<WholesalersPage />} />
-        <Route path={Path.AboutUsPage} element={<div>AboutUsPage</div>} />
-        <Route path={Path.ReturnGoodsPage} element={<div>ReturnGoodsPage</div>} />
         <Route path={Path.NotFoundPage} element={<NotFoundPage />} />
       </Routes>
       <Footer />

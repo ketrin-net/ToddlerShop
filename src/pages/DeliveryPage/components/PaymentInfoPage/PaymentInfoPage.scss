@@ -1,0 +1,23 @@
+#payment-info-page {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  .payment-options {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  #payment-info-page {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+
+    .payment-options {
+      flex-direction: column;
+      gap: 33px;
+    }
+  }
+}

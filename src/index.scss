@@ -67,7 +67,7 @@ button {
     font-size: 18px;
     line-height: 32px;
 
-    &-active{
+    &.active{
       border: 1px solid $color-blue;
     }
   }

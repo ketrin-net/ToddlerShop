@@ -34,10 +34,7 @@ export const NavigationBar = ({ closeModal }: NavigationBarProps) => {
           <StyledLink to={Path.WholesalersPage} onClick={handleOnClick}>
             Оптовым клиентам
           </StyledLink>
-          <StyledLink to={Path.ReturnGoodsPage} onClick={handleOnClick}>
-            Возврат
-          </StyledLink>
-          <StyledLink to={Path.PaymentPage} onClick={handleOnClick}>
+          <StyledLink to={Path.DeliveryPage} onClick={handleOnClick}>
             Оплата и доставка
           </StyledLink>
           <StyledLink to={Path.ContactsPage} onClick={handleOnClick}>
