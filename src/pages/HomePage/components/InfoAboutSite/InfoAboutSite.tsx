@@ -9,7 +9,7 @@ import numberTwo from './assets/numberTwo.svg';
 const InfoAboutSite = () => {
   return (
     <div id="info-about-site" className="section">
-      <span className="title">
+      <span className="header">
         Карапуз - это онлайн гипермаркет товаров <br /> для детей. С нами вырастают поколения!
       </span>
       <div className="blocks">

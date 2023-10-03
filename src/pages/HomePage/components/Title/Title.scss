@@ -34,16 +34,16 @@
 }
 
 @media (max-width: 900px) {
-  .title-homepage {
+  #title-homepage {
     text-align: center;
     
     .section {
       position: relative;
       padding: 24px 24px 428px 24px;
-    }
 
-    span.title {
-        margin-bottom: 0px;
+      .title {
+        line-height: 38px;
+      }
     }
 
     p {

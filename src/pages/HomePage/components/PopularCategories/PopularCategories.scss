@@ -10,3 +10,15 @@
     gap: 23px;
   }
 }
+
+@media (max-width: 900px) {
+  .popular-categories {
+    margin: 0px 16px;
+
+    .block-info {
+      display: flex;
+      flex-direction: column;
+      gap: 23px;
+    }
+  }
+}

@@ -5,11 +5,14 @@ import bed from './assets/bed.png';
 import carSeats from './assets/carSeats.png';
 import wheelchair from './assets/wheelchair.png';
 import { Path } from '../../../../enums';
+import { useMediaQuery } from '../../../../customHooks/useMediaQuery';
 
 const PopularCategories = () => {
+  const matches = useMediaQuery('(max-width: 900px)');
+
   return (
     <div className="section popular-categories">
-      <span className="title">Популярные категории</span>
+      <span className="title">Популярные {matches ? <br /> : ''} категории</span>
       <div className="block-info">
         <BlockPromoCategories
           title={'Детская мебель'}

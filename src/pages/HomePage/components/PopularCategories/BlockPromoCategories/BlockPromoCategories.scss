@@ -51,3 +51,28 @@
     background-color: #E5F4FC;
   }
 }
+
+@media (max-width: 900px) {
+  .block-promo-categories {
+    width: 327px;
+    height: 278px;
+    padding: 40px 24px;
+
+    section {
+      .head {
+        font-size: 18px;
+        line-height: 26px;
+      }
+
+      .description {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+
+    img {
+      width: 154px;
+      height: 145px;
+    }
+  }
+}

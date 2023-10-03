@@ -21,3 +21,22 @@
     width: 80px;
   }
 }
+
+@media (max-width: 900px) {
+  .block-info-about-site {
+      width: 154px;
+      height: 100px;
+      border: none;
+      padding-top: 0px;
+      gap: 16px;
+
+      span {
+        font-size: 14px;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+}
