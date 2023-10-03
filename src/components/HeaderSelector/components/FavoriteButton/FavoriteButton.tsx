@@ -8,11 +8,11 @@ export const FavoriteButton = () => {
   const navigation = useNavigate();
 
   return (
-    <StyledButton>
+    <StyledButton onClick={() => navigation(Path.FavoritesPage)}>
       <StyledIcon>
         <img src={heartFill} alt="" />
       </StyledIcon>
-      <StyledButtonText onClick={() => navigation(Path.FavoritesPage)}>Избранное</StyledButtonText>
+      <StyledButtonText>Избранное</StyledButtonText>
     </StyledButton>
   );
 };

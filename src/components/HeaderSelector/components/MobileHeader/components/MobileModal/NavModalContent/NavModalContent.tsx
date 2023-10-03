@@ -1,4 +1,4 @@
-import { AppColor, AppFont } from '../../../../../../../enums';
+import { AppColor, AppFont, Path } from '../../../../../../../enums';
 import { CabinetButton } from '../../../../CabinetButton/CabinetButton';
 import { CitySelector } from '../../../../CitySelector/CitySelector';
 import { CloseModalButton } from '../CloseModalButton/CloseModalButton';
@@ -6,6 +6,7 @@ import { NavigationBar } from '../../../../CommonHeader/components/NavigationBar
 import { selectAllAuthState } from '../../../../../../../store/slices/authSlice';
 import { styled } from 'styled-components';
 import { useMediaQuery } from '../../../../../../../customHooks/useMediaQuery';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import AuthAccount from '../../../../../../ModalLoginAccount/components/AuthAccount/AuthAccount';
 import React from 'react';
@@ -16,6 +17,7 @@ interface NavModalContentProps {
 }
 
 export const NavModalContent = ({ closeModal, openGoodsModal }: NavModalContentProps) => {
+  const navigation = useNavigate();
   const matches = useMediaQuery('(max-width: 900px)');
   const authUser = useSelector(selectAllAuthState);
 
@@ -23,6 +25,14 @@ export const NavModalContent = ({ closeModal, openGoodsModal }: NavModalContentP
     <ContentWrapper className="nav-modal-content">
       <CloseModalButton closeModal={closeModal} color={AppColor.Sea} />
       {matches && authUser.isAuth ? <AuthAccount closeModal={closeModal} /> : <CabinetButton />}
+      <StyledGoodsButton
+        onClick={() => {
+          navigation(Path.FavoritesPage);
+          closeModal();
+        }}
+      >
+        Избранное
+      </StyledGoodsButton>
       <StyledGoodsButton onClick={openGoodsModal}>Каталог товаров</StyledGoodsButton>
       <NavigationBar closeModal={closeModal} />
     </ContentWrapper>
@@ -56,4 +66,5 @@ const StyledGoodsButton = styled.button`
   font-weight: 500;
   font-size: 16px;
   text-align: start;
+  margin-bottom: 16px;
 `;

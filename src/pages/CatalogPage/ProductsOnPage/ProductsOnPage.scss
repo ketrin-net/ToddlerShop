@@ -7,7 +7,6 @@
   .list-products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto, 1fr);
     gap: 24px;
   }
 }
@@ -15,9 +14,8 @@
 @media (max-width: 900px) {
 #products-in-page {
     .list-products {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 53px 15px;
     }
   }
 }

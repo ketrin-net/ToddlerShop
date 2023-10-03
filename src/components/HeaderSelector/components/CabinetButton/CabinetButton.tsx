@@ -11,15 +11,11 @@ export const CabinetButton = () => {
   const isAuthUser = useSelector(selectIsAuthState);
 
   return (
-    <StyledButton>
+    <StyledButton onClick={() => dispatch(openLoginModal())}>
       <StyledIcon>
         <img src={userIcon} alt="" />
       </StyledIcon>
-      {isAuthUser ? (
-        <StyledButtonText onClick={() => dispatch(openLoginModal())}>Личный кабинет</StyledButtonText>
-      ) : (
-        <StyledButtonText onClick={() => dispatch(openLoginModal())}>Войти в личный кабинет</StyledButtonText>
-      )}
+      {isAuthUser ? <StyledButtonText>Личный кабинет</StyledButtonText> : <StyledButtonText>Войти в личный кабинет</StyledButtonText>}
     </StyledButton>
   );
 };

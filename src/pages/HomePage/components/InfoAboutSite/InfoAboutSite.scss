@@ -1,0 +1,27 @@
+@import '../../../../variables';
+
+#info-about-site {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .header {
+    margin-bottom: 64px;
+  }
+
+  .blocks {
+    display: flex;
+    gap: 24px; 
+  }
+}
+
+@media (max-width: 900px) {
+  #info-about-site {
+    margin: 0px 16px;
+
+    .blocks {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

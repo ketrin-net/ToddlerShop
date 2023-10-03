@@ -1,9 +1,12 @@
-import { AppColor, AppFont } from '../../enums';
+import { AppColor, AppFont, Path } from '../../enums';
 import { styled } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 export const Description = () => {
+  const navigate = useNavigate();
+
   return (
-    <StyledDescription>
+    <StyledDescription onClick={() => navigate(Path.HomePage)}>
       Онлайн гипермаркет
       <br />
       товаров для детей

@@ -1,0 +1,23 @@
+@import '../../../variables';
+
+#form-for-wholesale {
+  display: flex;
+  flex-direction: column;
+  max-width: 469px;
+  gap: 24px;
+
+  select {
+    height: 64px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  #form-for-wholesale {
+    gap: 19px;
+
+    .form-checkbox {
+      margin-top: 22px;
+    }
+  }
+}

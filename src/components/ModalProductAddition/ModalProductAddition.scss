@@ -68,3 +68,47 @@
         transform: translateX(0);
     }
 }
+
+@media (max-width: 900px) {
+    .modal-product-add {
+        bottom: 40px;
+        right: 10px;
+
+        padding: 20px 40px;
+
+        width: 328px;
+        height: 452px;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-modal {
+            font-size: 18px;
+        }
+
+        .poster {
+            width: 69px;
+            height: 80px;
+        }
+
+        .description {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 0px;
+            margin-bottom: 10px;
+        }
+
+        .icon-close {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+        }
+
+        .basic-price-product {
+            justify-content: center;
+        }
+    }
+}
