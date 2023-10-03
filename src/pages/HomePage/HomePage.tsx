@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import PopularCategories from './components/PopularCategories/PopularCategories';
 import InfoAboutSite from './components/InfoAboutSite/InfoAboutSite';
-
 export const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
 

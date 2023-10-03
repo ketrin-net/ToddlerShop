@@ -37,10 +37,7 @@ export const Footer = () => {
           </Link>
         </div>
         <div className="footer-links2">
-          <Link to={Path.ReturnGoodsPage} className="click">
-            Возврат и гарантия
-          </Link>
-          <Link to={Path.PaymentPage} className="click">
+          <Link to={Path.DeliveryPage} className="click">
             Оплата и доставка
           </Link>
         </div>
@@ -53,10 +50,18 @@ export const Footer = () => {
         <div className="footer-social-media click">
           Мы в социальных сетях
           <div className="social-media">
-            <img className="item" src={VkLogo} alt={'VKontakte'} />
-            <img className="item" src={InstaLogo} alt={'Instagram'} />
-            <img className="item" src={FbLogo} alt={'Facebook'} />
-            <img className="item" src={WhatsappLogo} alt={'whatsApp'} />
+            <Link to={'https://vk.com/hermitage_museum'} target="_blank">
+              <img className="item" src={VkLogo} alt={'VKontakte'} />
+            </Link>
+            <Link to={'https://www.youtube.com/@thehermitagemuseum/videos'} target="_blank">
+              <img className="item" src={FbLogo} alt={'Facebook'} />
+            </Link>
+            <Link to={'https://www.youtube.com/@thehermitagemuseum/videos'} target="_blank">
+              <img className="item" src={InstaLogo} alt={'Instagram'} />
+            </Link>
+            <Link to={'https://www.youtube.com/@thehermitagemuseum/videos'} target="_blank">
+              <img className="item" src={WhatsappLogo} alt={'whatsApp'} />
+            </Link>
           </div>
         </div>
       </div>

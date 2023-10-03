@@ -34,8 +34,10 @@
     "zod": "^3.22.2"
   },
   "scripts": {
+    "build": "nest build && npm run copy && npm run node_modules:prod",
+    "copy": "copy \"package.json\" \"dist/\"",
+    "node_modules:prod": "cd dist && npm install --only=production",
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
