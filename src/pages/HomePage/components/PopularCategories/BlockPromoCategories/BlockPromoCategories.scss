@@ -1,0 +1,53 @@
+
+.block-promo-categories{
+  position: relative;
+  width: 470px;
+  height: 360px;
+  padding: 64px 48px;
+  border-radius: 12px;
+
+  section {
+    height: 100%;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .head {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+    }
+
+    .description {
+      font-weight: 400;
+      flex-grow: 1;
+    }
+
+    .btn {
+      padding: 13px 16px;
+      background-color: transparent;
+    }
+  } 
+
+  img {
+    width: 271px;
+    height: 271px;
+    object-fit: cover;
+    position: absolute;
+    right: 0px;
+    top: 59px;
+  }
+
+  &.pink{
+    background-color: #F3DBD7;
+  }
+
+  &.vanil {
+    background-color: #FDF6EF;
+  }
+
+  &.blue {
+    background-color: #E5F4FC;
+  }
+}

@@ -58,7 +58,7 @@ const NewOrderPage = () => {
         <CommonModalWindow>
           <img src={iconSend} alt="iconSend" />
           <span className="title">Спасибо за заказ!</span>
-          <p>Счет на оплату придет по адрессу </p>
+          <p>Счет на оплату придет по указанному почтовому адресу</p>
         </CommonModalWindow>
       )}
       <div className="main checkout-page">

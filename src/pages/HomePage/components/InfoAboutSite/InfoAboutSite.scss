@@ -1,0 +1,18 @@
+@import '../../../../variables';
+
+#info-about-site {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .title {
+    font-family: $text-title;
+    font-size: 48px;
+    line-height: 58px;
+  }
+
+  .blocks {
+    display: flex;
+    gap: 24px; 
+  }
+}

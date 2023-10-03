@@ -10,6 +10,8 @@ import { selectCountProductsInCart } from '../CartPage/slice/cartSlice';
 import { useMediaQuery } from '../../customHooks/useMediaQuery';
 import { useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
+import PopularCategories from './components/PopularCategories/PopularCategories';
+import InfoAboutSite from './components/InfoAboutSite/InfoAboutSite';
 
 export const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -31,10 +33,12 @@ export const HomePage = () => {
   return (
     <div className="home-page">
       <Title />
+      <PopularCategories />
       <ProductsCarousel title="Новинки" products={productsNew} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
       <PromoAction />
       <ProductsCarousel title="Выгодное предложение" products={productsDiscount} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
       <ProductsCarousel title="Популярные товары" products={products} slidesCount={slidesCount} spaceBetweenCards={spaceBetweenCards} />
+      <InfoAboutSite />
     </div>
   );
 };

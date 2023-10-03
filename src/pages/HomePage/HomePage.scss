@@ -5,7 +5,14 @@
     flex-direction: column;
     gap: 120px;
 
+    .title {
+        align-self: center;
+        display: inline-block;
+        margin-bottom: 64px;
+    }
+
     .section {
+        position: relative;
         max-width: 1456px;
         margin: auto;
     }

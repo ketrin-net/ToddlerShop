@@ -6,7 +6,7 @@ import React from 'react';
 
 export const Title = () => {
   return (
-    <div className="title-homepage">
+    <div id="title-homepage">
       <div className="section">
         <span className="title">
           Все самое <br className="mobile-only" /> необходимое для вашего ребенка
