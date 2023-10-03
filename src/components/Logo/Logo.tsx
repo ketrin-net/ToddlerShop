@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Path } from '../../enums/Path';
 import React from 'react';
 import logoImage from '../../assets/logo.png';
 import styled from 'styled-components';
 
 export const Logo = () => {
+  const navigation = useNavigate();
+
   return (
-    <StyledWrapper className="logo-wrapper">
-      <Link to={Path.HomePage}>
-        <StyledLogo src={logoImage} className="logo" alt="logo" />
-      </Link>
+    <StyledWrapper className="logo-wrapper" onClick={() => navigation(Path.HomePage)}>
+      <StyledLogo src={logoImage} className="logo" alt="logo" />
     </StyledWrapper>
   );
 };

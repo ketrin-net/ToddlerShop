@@ -51,13 +51,13 @@ export const NavigationBar = ({ closeModal }: NavigationBarProps) => {
 };
 
 const StyledWrapper = styled.div<StyledWrapperProps>`
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
   max-width: 1456px;
-  margin: auto;
   //background: ${(props) => (props.$isHomePage ? '#fcf6f5' : AppColor.White)};
   position: relative;
 
