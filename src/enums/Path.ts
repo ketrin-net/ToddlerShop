@@ -23,4 +23,5 @@ export enum Path {
   AboutUsPage = 'about',
   ReturnGoodsPage = 'return-goods',
   NotFoundPage = '*',
+  QrCod = '/qr',
 }

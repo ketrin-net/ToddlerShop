@@ -19,6 +19,7 @@ import ModalAddProduct from './components/ModalProductAddition/ModalProductAddit
 import ModalLoginAccount from './components/ModalLoginAccount/ModalLoginAccount';
 import NewOrderPage from './pages/NewOrderPage/NewOrderPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import QrCod from './pages/QrCod/QrCod';
 import React, { useEffect } from 'react';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import RestorePasswordPage from './pages/RestorePasswordPage/RestorePasswordPage';
@@ -72,6 +73,7 @@ export const App = (props: AppProps) => {
         <Route path={Path.DeliveryPage} element={<DeliveryPage />} />
         <Route path={Path.WholesalersPage} element={<WholesalersPage />} />
         <Route path={Path.NotFoundPage} element={<NotFoundPage />} />
+        <Route path={Path.QrCod} element={<QrCod />} />
       </Routes>
       <Footer />
     </>
